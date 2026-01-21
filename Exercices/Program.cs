@@ -51,6 +51,11 @@ class Program
         for (int i_ex9 = 0; i_ex9 < tab_ex9.Length; i_ex9++)
         { Console.Write($"{tab_ex9[i_ex9]}  "); }
 
+        Espacer(10);
+        int[] tab_ex10 = Exercice10(15, 18, 30);
+        for (int i_ex10 = 0; i_ex10 < tab_ex10.Length; i_ex10++)
+        { Console.Write($"{tab_ex10[i_ex10]}  "); }
+
 
     }
 
@@ -178,16 +183,36 @@ class Program
     {
         return new int[longueur];
     }
-    #endregion
 
     /// <summary>
     /// Initialise un tableau d'une longueur donnée et le remplie aléatoirement avec un minimum et maximum entier donnée.
     /// </summary>
-    /// <param name="longueur">La longeur du tableau</param>
-    /// <param name="min">L'entier minimum </param>
-    /// <param name="max">L'entier maximum</param>
+    /// <param name="longueur">La longueur du tableau</param>
+    /// <param name="min">L'entier minimum (inclu) </param>
+    /// <param name="max">L'entier maximum (exclu)</param>
     /// <returns>Retourne un tableau remplie de valeur aléatoire</returns>
     public static int[] Exercice9(int longueur, int min, int max)
+    {
+        Random rnd = new Random();
+        int[] tab_rnd = new int[longueur];
+        for (int i = 0; i < tab_rnd.Length; i++)
+        {
+            // Mélanger en ayant lu l'exercice 10 (corriger le +1 pour l'enlever)
+            tab_rnd[i] = rnd.Next(min, max);
+        }
+        return tab_rnd;
+    }
+    #endregion
+
+
+    /// <summary>
+    /// Initialise un tableau d'une longueur donnée et le remplie aléatoirement avec un minimum et maximum entier donnée.
+    /// </summary>
+    /// <param name="longueur">La longueur du tableau</param>
+    /// <param name="min">L'entier minimum (inclu)</param>
+    /// <param name="max">L'entier maximum (inclu)</param>
+    /// <returns>Retourne un tableau remplie de valeur aléatoire</returns>
+    public static int[] Exercice10(int longueur, int min, int max)
     {
         Random rnd = new Random();
         int[] tab_rnd = new int[longueur];
@@ -197,7 +222,6 @@ class Program
         }
         return tab_rnd;
     }
-
 
 
 }
