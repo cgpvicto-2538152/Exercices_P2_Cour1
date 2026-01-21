@@ -40,6 +40,10 @@ class Program
         int nb_ex7 = Exercice7(8,-2);
         Console.WriteLine(nb_ex7);
 
+        Espacer(8);
+        int[] tab_ex8 = Exercice8(6);
+        Console.WriteLine(tab_ex8.Length);
+
     }
 
     /// <summary>
@@ -135,7 +139,6 @@ class Program
         }
         return nb;
     }
-    #endregion
 
     /// <summary>
     /// Effectue la division de deux nombres et le modifie selon des contraintes
@@ -158,5 +161,18 @@ class Program
         }
     }
 
+    #endregion
 
+
+    /// <summary>
+    /// Créer un tableau de la longueur rentrer en paramètre.
+    /// </summary>
+    /// <param name="longueur">La longueur voulu pour le tableau</param>
+    /// <returns>L'instance du nouveau tableau</returns>
+    public static int[] Exercice8(int longueur)
+    {
+        return new int[longueur];
+    }
+
+    
 }
