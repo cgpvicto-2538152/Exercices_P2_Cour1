@@ -1,5 +1,7 @@
 ﻿
 
+using System.Net;
+
 namespace Exercices;
 
 /// <summary>
@@ -95,11 +97,13 @@ class Program
         Espacer(18);
         Exercice18(5);
 
-        #endregion
-
         Espacer(19);
         Exercice19(-6);
 
+        #endregion
+
+        Espacer(20);
+        Exercice20(-1, 7);
 
 
 
@@ -422,10 +426,6 @@ class Program
         }
     }
 
-
-    #endregion
-
-
     /// <summary>
     /// Affiche une forme sur la console avec une largeur donnée
     /// </summary>
@@ -448,6 +448,31 @@ class Program
         }
     }
 
+    #endregion
+
+
+
+    /// <summary>
+    /// Affiche une forme sur la console avec des grandeurs de coté donnée
+    /// </summary>
+    /// <param name="largeur">Largeur de la forme voulu</param>
+    /// <param name="largeur">Hauteur de la forme voulu</param>
+    public static void Exercice20(int largeur, int hauteur)
+    {
+        if (largeur < 1 || hauteur < 0)
+        {
+            Console.WriteLine("Impossible d'afficher parce que dimension trop petite ( < 1 )");
+            return;
+        }
+        for (int i = hauteur; i > 0; i--)
+        {
+            for (int j = largeur; j > 0; j--)
+            {
+                Console.Write("*");
+            }
+            Console.Write("\n");
+        }
+    }
 
 
 
