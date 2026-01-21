@@ -20,6 +20,10 @@ class Program
         Espacer(2);
         Exercice2(5, 98);
 
+        Espacer(3);
+        int nb_ex3 = Exercice3(5, 98);
+        Console.WriteLine(nb_ex3);
+
         
     }
 
@@ -57,5 +61,15 @@ class Program
 
     #endregion
 
+    /// <summary>
+    /// Additione deux nombres entiers ensemble et retourne le résultat.
+    /// </summary>
+    /// <param name="nb1">Premier nombre entier</param>
+    /// <param name="nb2">Deuxième nombre entier</param>
+    /// <returns>Nombre entier résulatant de l'addition des deux nombres.</returns>
+    public static int Exercice3(int nb1, int nb2)
+    {
+        return nb1 + nb2;
+    }
     
 }
