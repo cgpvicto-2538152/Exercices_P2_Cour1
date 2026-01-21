@@ -62,7 +62,7 @@ class Program
         int[] tab_ex11 = Exercice11(6, 7, 2);
         for (int i_ex11 = 0; i_ex11 < tab_ex11.Length; i_ex11++)
         { Console.Write($"{tab_ex11[i_ex11]}  "); }
-        
+
 
         Espacer(12);
         int[] tab_ex12 = Exercice12(-1, -5, 2);
@@ -89,11 +89,14 @@ class Program
         int nb_ex16 = Exercice16(tab_ex16);
         Console.WriteLine(nb_ex16);
 
+        Espacer(17);
+        Exercice17();
+
 
         #endregion
 
-        Espacer(17);
-        Exercice17();
+        Espacer(18);
+        Exercice18(5);
 
 
 
@@ -280,9 +283,9 @@ class Program
             // min = temp;
             // - - - - - - - -
             // Utiliser le tuple pour échanger des valeurs (IDE0180)
-            (max , min) = (min , max);
+            (max, min) = (min, max);
         }
-        
+
         for (int i = 0; i < tab_rnd.Length; i++)
         {
             tab_rnd[i] = rnd.Next(min, max + 1);
@@ -302,9 +305,9 @@ class Program
 
         if (longueur < 0)
         { return []; }
-        
+
         Random rnd = new Random();
-        
+
         int[] tab_rnd = new int[longueur];
 
         if (min > max)
@@ -314,9 +317,9 @@ class Program
             // min = temp;
             // - - - - - - - -
             // Utiliser le tuple pour échanger des valeurs (IDE0180)
-            (max , min) = (min , max);
+            (max, min) = (min, max);
         }
-        
+
         for (int i = 0; i < tab_rnd.Length; i++)
         {
             tab_rnd[i] = rnd.Next(min, max + 1);
@@ -338,7 +341,7 @@ class Program
         }
         return total;
     }
-    
+
     /// <summary>
     /// Fait la somme de tout les nombres d'un tableau de nombres.
     /// </summary>
@@ -366,11 +369,11 @@ class Program
         while (index < tab.Length)
         {
             total += tab[index];
-            index ++;
+            index++;
         }
         return total;
     }
-    
+
     /// <summary>
     /// Fait la somme de tout les nombres d'un tableau de nombres.
     /// </summary>
@@ -391,9 +394,6 @@ class Program
 
         return total;
     }
-    
-    
-    #endregion
 
     /// <summary>
     /// Affiche une forme sur la console
@@ -404,6 +404,20 @@ class Program
     }
 
 
+    #endregion
+
+
+    public static void Exercice18(int largeur)
+    {
+        for (int i = 3; i > 0; i--)
+        {
+            for (int j = 0; j < largeur; j++)
+            {
+                Console.Write("*");
+            }
+            Console.Write("\n");
+        }
+    }
 
 
 
