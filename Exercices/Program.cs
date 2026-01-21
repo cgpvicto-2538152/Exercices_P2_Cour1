@@ -28,6 +28,10 @@ class Program
         double nb_ex4 = Exercice4();
         Console.WriteLine(nb_ex4);
 
+        Espacer(5);
+        int nb_ex5 = Exercice5();
+        Console.WriteLine(nb_ex5);
+
     }
 
     /// <summary>
@@ -73,7 +77,6 @@ class Program
     {
         return nb1 + nb2;
     }
-    #endregion
 
     /// <summary>
     /// Demande un nombre a l'utilisateur et le retourne en double.
@@ -84,6 +87,27 @@ class Program
         Console.Write("Entrer un nombre : ");
         double.TryParse(Console.ReadLine(), out double nb);
         return nb;
+    }
+    #endregion
+
+    /// <summary>
+    /// Demande a l'utilisateur d'entrer un nombre et le valide selon des conditions.
+    /// </summary>
+    /// <returns>
+    ///     -1 si ce n'est pas un nombre, si il est vide, si il est inférieure a 0 <\br>
+    ///     Le nombre si il est valide et supérieure a 0.
+    /// </returns>
+    public static int Exercice5()
+    {
+        Console.Write("Entrer un nombre : ");
+        if (int.TryParse(Console.ReadLine(),out int nb) && nb > 0)
+        {
+            return nb;
+        }
+        else
+        {
+            return -1;
+        }
     }
 
     
