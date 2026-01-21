@@ -92,11 +92,13 @@ class Program
         Espacer(17);
         Exercice17();
 
+        Espacer(18);
+        Exercice18(5);
 
         #endregion
 
-        Espacer(18);
-        Exercice18(5);
+        Espacer(19);
+        Exercice19(-6);
 
 
 
@@ -404,9 +406,10 @@ class Program
     }
 
 
-    #endregion
-
-
+    /// <summary>
+    /// Affiche une forme sur la console avec une largeur donnée
+    /// </summary>
+    /// <param name="largeur">Largeur de la forme voulu</param>
     public static void Exercice18(int largeur)
     {
         for (int i = 3; i > 0; i--)
@@ -414,6 +417,32 @@ class Program
             for (int j = 0; j < largeur; j++)
             {
                 Console.Write("*");
+            }
+            Console.Write("\n");
+        }
+    }
+
+
+    #endregion
+
+
+    /// <summary>
+    /// Affiche une forme sur la console avec une largeur donnée
+    /// </summary>
+    /// <param name="largeur">Largeur de la forme voulu</param>
+    public static void Exercice19(int largeur)
+    {
+        if (largeur < 0)
+        {
+            largeur *= -1;
+        }
+        for (int i = 3; i > 0; i--)
+        {
+            int cpt = 0;
+            while (cpt < largeur)
+            {
+                Console.Write("*");
+                cpt ++;
             }
             Console.Write("\n");
         }
