@@ -74,13 +74,18 @@ class Program
         int nb_ex13 = Exercice13(tab_ex13);
         Console.WriteLine(nb_ex13);
 
-        #endregion
-
-
         Espacer(14);
         int[] tab_ex14 = Exercice9(8, 2, 9);
         int nb_ex14 = Exercice14(tab_ex14);
         Console.WriteLine(nb_ex14);
+
+        #endregion
+
+
+        Espacer(15);
+        int[] tab_ex15 = Exercice9(8, 2, 9);
+        int nb_ex15 = Exercice15(tab_ex15);
+        Console.WriteLine(nb_ex15);
 
 
 
@@ -327,8 +332,6 @@ class Program
         return total;
     }
     
-    #endregion
-
     /// <summary>
     /// Fait la somme de tout les nombres d'un tableau de nombres.
     /// </summary>
@@ -340,6 +343,25 @@ class Program
         foreach (int num in tab)
         {
             total += num;
+        }
+        return total;
+    }
+
+    #endregion
+
+    /// <summary>
+    /// Fait la somme de tout les nombres d'un tableau de nombres.
+    /// </summary>
+    /// <param name="tab">Tableau de nombre entiers</param>
+    /// <returns>Somme des nombres entier</returns>
+    public static int Exercice15(int[] tab)
+    {
+        int total = 0;
+        int index = 0;
+        while (index < tab.Length)
+        {
+            total += tab[index];
+            index ++;
         }
         return total;
     }
