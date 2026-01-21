@@ -11,16 +11,51 @@ class Program
     /// <param name="args"></param>
     public static void Main(string[] args)
     {
-        #region Ex. 1 
-        Exercices1();
-        #endregion
+        // Efface toute la consoe et le buffer (le scroll)
+        Console.WriteLine("\u001b[3J\u001b[H\u001b[2J");
+        
+        Espacer(1);
+        Exercice1();
+
+        Espacer(2);
+        Exercice2(5, 98);
+
+        
     }
+
+    /// <summary>
+    /// Affiche un espacement entre deux exercices et affiche le numero de l'exercices
+    /// </summary>
+    /// <param name="numExe"></param>
+    public static void Espacer(int numExe)
+    {
+        Console.WriteLine("\n- - - - - - - - - - - -");
+        Console.WriteLine($"Exercice {numExe}\n");
+        }
+
+
+    #region Fait
 
     /// <summary>
     /// Affiche un message à la console.
     /// </summary>
-    public static void Exercices1()
+    public static void Exercice1()
     {
         Console.WriteLine("Allô p2");
     }
+
+    /// <summary>
+    /// Affiche deux nombre entier à la console.
+    /// </summary>
+    /// <param name="nb1">Premier nombre entier</param>
+    /// <param name="nb2">Deuxième nombre entier</param>
+    public static void Exercice2(int nb1, int nb2)
+    {
+        Console.WriteLine($"Premier entier : {nb1}");
+        Console.WriteLine($"Deuxième entier : {nb2}");
+    }
+
+    #endregion
+
+    
 }
