@@ -103,11 +103,14 @@ class Program
         Espacer(20);
         Exercice20(-1, 7);
 
+        Espacer(21);
+        Exercice21(4, 4,'S');
+
 
         #endregion
 
-        Espacer(21);
-        Exercice21(4,4,'S');
+        Espacer(22);
+        Exercice22(4,4,4,'4');
 
 
 
@@ -473,8 +476,6 @@ class Program
         }
     }
 
-    #endregion
-
     /// <summary>
     /// Affiche une forme sur la console avec des grandeurs de coté donnée
     /// </summary>
@@ -498,6 +499,40 @@ class Program
         }
     }
 
+
+
+
+    #endregion
+
+
+
+    /// <summary>
+    /// Affiche une forme sur la console avec des grandeurs de coté donnée
+    /// </summary>
+    /// <param name="largeur">Largeur de la forme voulu</param>
+    /// <param name="hauteur">Hauteur de la forme voulu</param>
+    /// <param name="nbs">Nombre de fois que la forme sera afficher</param>
+    /// <param name="charac">Caractère à afficher pour composer la forme</param>
+    public static void Exercice22(int largeur, int hauteur, int nbs, char charac)
+    {
+        if (largeur < 1 || hauteur < 0)
+        {
+            Console.WriteLine("Impossible d'afficher parce que dimension trop petite ( < 1 )");
+            return;
+        }
+        for (int c = 0; c < nbs; c++)
+        {
+            for (int i = hauteur; i > 0; i--)
+            {
+                for (int j = largeur; j > 0; j--)
+                {
+                    Console.Write($"{charac}");
+                }
+                Console.Write("\n");
+            }
+            Console.Write("\n");
+        }
+    }
 
 
 
