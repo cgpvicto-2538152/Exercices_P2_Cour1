@@ -1,4 +1,6 @@
-﻿namespace Exercices;
+﻿
+
+namespace Exercices;
 
 /// <summary>
 /// Classe qui regroupe les méthodes des exercices à faire.
@@ -37,12 +39,18 @@ class Program
         Console.WriteLine(nb_ex6);
 
         Espacer(7);
-        int nb_ex7 = Exercice7(8,-2);
+        int nb_ex7 = Exercice7(8, -2);
         Console.WriteLine(nb_ex7);
 
         Espacer(8);
         int[] tab_ex8 = Exercice8(6);
         Console.WriteLine(tab_ex8.Length);
+
+        Espacer(9);
+        int[] tab_ex9 = Exercice9(8, 2, 9);
+        for (int i_ex9 = 0; i_ex9 < tab_ex9.Length; i_ex9++)
+        { Console.Write($"{tab_ex9[i_ex9]}  "); }
+
 
     }
 
@@ -161,9 +169,6 @@ class Program
         }
     }
 
-    #endregion
-
-
     /// <summary>
     /// Créer un tableau de la longueur rentrer en paramètre.
     /// </summary>
@@ -173,6 +178,26 @@ class Program
     {
         return new int[longueur];
     }
+    #endregion
 
-    
+    /// <summary>
+    /// Initialise un tableau d'une longueur donnée et le remplie aléatoirement avec un minimum et maximum entier donnée.
+    /// </summary>
+    /// <param name="longueur">La longeur du tableau</param>
+    /// <param name="min">L'entier minimum </param>
+    /// <param name="max">L'entier maximum</param>
+    /// <returns>Retourne un tableau remplie de valeur aléatoire</returns>
+    public static int[] Exercice9(int longueur, int min, int max)
+    {
+        Random rnd = new Random();
+        int[] tab_rnd = new int[longueur];
+        for (int i = 0; i < tab_rnd.Length; i++)
+        {
+            tab_rnd[i] = rnd.Next(min, max + 1);
+        }
+        return tab_rnd;
+    }
+
+
+
 }
