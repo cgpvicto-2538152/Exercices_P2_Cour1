@@ -1,5 +1,6 @@
 ﻿
 
+using System.Diagnostics;
 using System.Net;
 
 namespace Exercices;
@@ -106,11 +107,18 @@ class Program
         Espacer(21);
         Exercice21(4, 4,'S');
 
+        Espacer(22);
+        Exercice22(4,4,4,'4');
+
+
+
 
         #endregion
 
-        Espacer(22);
-        Exercice22(4,4,4,'4');
+        Espacer(23);
+        Exercice23(-1);
+
+
 
 
 
@@ -499,13 +507,6 @@ class Program
         }
     }
 
-
-
-
-    #endregion
-
-
-
     /// <summary>
     /// Affiche une forme sur la console avec des grandeurs de coté donnée
     /// </summary>
@@ -515,7 +516,7 @@ class Program
     /// <param name="charac">Caractère à afficher pour composer la forme</param>
     public static void Exercice22(int largeur, int hauteur, int nbs, char charac)
     {
-        if (largeur < 1 || hauteur < 0)
+        if (largeur < 1 || hauteur < 1 || nbs < 1)
         {
             Console.WriteLine("Impossible d'afficher parce que dimension trop petite ( < 1 )");
             return;
@@ -534,6 +535,28 @@ class Program
         }
     }
 
+
+    #endregion
+
+    /// <summary>
+    /// Affiche une forme sur la console
+    /// </summary>
+    /// <param name="longueur">La longueur de la plus longue ligne </param>
+    public static void Exercice23(int longueur)
+    {
+        if(longueur < 0)
+        {
+            Debug.WriteLine("La longueur est inférieure a 0","Exercice 23");
+        }
+        for (int i = longueur; i >= 0; i--)
+        {
+            for (int j = i; j < longueur; j++)
+            {
+                Console.Write("*");
+            }
+            Console.Write("\n");
+        }
+    }
 
 
 
