@@ -63,12 +63,22 @@ class Program
         for (int i_ex11 = 0; i_ex11 < tab_ex11.Length; i_ex11++)
         { Console.Write($"{tab_ex11[i_ex11]}  "); }
         
-        #endregion
 
         Espacer(12);
         int[] tab_ex12 = Exercice12(-1, -5, 2);
         for (int i_ex12 = 0; i_ex12 < tab_ex12.Length; i_ex12++)
         { Console.Write($"{tab_ex12[i_ex12]}  "); }
+
+        #endregion
+
+        Espacer(13);
+        int[] tab_ex13 = Exercice9(8, 2, 9);
+        int nb_ex13 = Exercice13(tab_ex13);
+        Console.WriteLine(nb_ex13);
+
+
+
+
 
     }
 
@@ -103,7 +113,6 @@ class Program
         Console.WriteLine($"Premier entier : {nb1}");
         Console.WriteLine($"Deuxième entier : {nb2}");
     }
-
 
     /// <summary>
     /// Additione deux nombres entiers ensemble et retourne le résultat.
@@ -234,7 +243,6 @@ class Program
         return tab_rnd;
     }
 
-
     /// <summary>
     /// Initialise un tableau d'une longueur donnée et le remplie aléatoirement avec un minimum et maximum entier donnée.
     /// </summary>
@@ -263,8 +271,6 @@ class Program
         }
         return tab_rnd;
     }
-    #endregion
-
 
     /// <summary>
     /// Initialise un tableau d'une longueur donnée et le remplie aléatoirement avec un minimum et maximum entier donnée.
@@ -300,5 +306,21 @@ class Program
         return tab_rnd;
     }
 
+    #endregion
+
+    /// <summary>
+    /// Fait la somme de tout les nombres d'un tableau de nombres.
+    /// </summary>
+    /// <param name="tab">Tableau de nombre entiers</param>
+    /// <returns>Somme des nombres entier</returns>
+    public static int Exercice13(int[] tab)
+    {
+        int total = 0;
+        for (int i = 0; i < tab.Length; i++)
+        {
+            total += tab[i];
+        }
+        return total;
+    }
 
 }
