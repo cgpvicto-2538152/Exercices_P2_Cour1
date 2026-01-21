@@ -13,7 +13,7 @@ class Program
     {
         // Efface toute la consoe et le buffer (le scroll)
         Console.WriteLine("\u001b[3J\u001b[H\u001b[2J");
-        
+
         Espacer(1);
         Exercice1();
 
@@ -24,7 +24,10 @@ class Program
         int nb_ex3 = Exercice3(5, 98);
         Console.WriteLine(nb_ex3);
 
-        
+        Espacer(4);
+        double nb_ex4 = Exercice4();
+        Console.WriteLine(nb_ex4);
+
     }
 
     /// <summary>
@@ -35,7 +38,7 @@ class Program
     {
         Console.WriteLine("\n- - - - - - - - - - - -");
         Console.WriteLine($"Exercice {numExe}\n");
-        }
+    }
 
 
     #region Fait
@@ -59,7 +62,6 @@ class Program
         Console.WriteLine($"Deuxième entier : {nb2}");
     }
 
-    #endregion
 
     /// <summary>
     /// Additione deux nombres entiers ensemble et retourne le résultat.
@@ -71,5 +73,19 @@ class Program
     {
         return nb1 + nb2;
     }
+    #endregion
+
+    /// <summary>
+    /// Demande un nombre a l'utilisateur et le retourne en double.
+    /// </summary>
+    /// <returns>Le nombre rentrer par l'utilisateur</returns>
+    public static double Exercice4()
+    {
+        Console.Write("Entrer un nombre : ");
+        double.TryParse(Console.ReadLine(), out double nb);
+        return nb;
+    }
+
     
+
 }
