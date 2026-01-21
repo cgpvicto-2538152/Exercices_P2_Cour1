@@ -84,15 +84,16 @@ class Program
         int nb_ex15 = Exercice15(tab_ex15);
         Console.WriteLine(nb_ex15);
 
-        #endregion
-
-
-
         Espacer(16);
         int[] tab_ex16 = Exercice9(8, 2, 9);
         int nb_ex16 = Exercice16(tab_ex16);
         Console.WriteLine(nb_ex16);
 
+
+        #endregion
+
+        Espacer(17);
+        Exercice17();
 
 
 
@@ -370,10 +371,6 @@ class Program
         return total;
     }
     
-    #endregion
-
-
-
     /// <summary>
     /// Fait la somme de tout les nombres d'un tableau de nombres.
     /// </summary>
@@ -394,6 +391,18 @@ class Program
 
         return total;
     }
+    
+    
+    #endregion
+
+    /// <summary>
+    /// Affiche une forme sur la console
+    /// </summary>
+    public static void Exercice17()
+    {
+        Console.WriteLine("***\n***\n***");
+    }
+
 
 
 
