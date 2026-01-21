@@ -32,6 +32,10 @@ class Program
         int nb_ex5 = Exercice5();
         Console.WriteLine(nb_ex5);
 
+        Espacer(6);
+        int nb_ex6 = Exercice6();
+        Console.WriteLine(nb_ex6);
+
     }
 
     /// <summary>
@@ -88,7 +92,6 @@ class Program
         double.TryParse(Console.ReadLine(), out double nb);
         return nb;
     }
-    #endregion
 
     /// <summary>
     /// Demande a l'utilisateur d'entrer un nombre et le valide selon des conditions.
@@ -100,7 +103,7 @@ class Program
     public static int Exercice5()
     {
         Console.Write("Entrer un nombre : ");
-        if (int.TryParse(Console.ReadLine(),out int nb) && nb > 0)
+        if (int.TryParse(Console.ReadLine(), out int nb) && nb > 0)
         {
             return nb;
         }
@@ -109,7 +112,26 @@ class Program
             return -1;
         }
     }
+    #endregion
 
-    
+    /// <summary>
+    /// Demande un nombre a l'utilisateur tant qu'il n'est pas suprérieur a 10.
+    /// </summary>
+    /// <returns>Le nombre quand il sera supérieur a 10</returns>
+    public static int Exercice6()
+    {
+        bool valide = false;
+        int nb = -1;
+        while (!valide)
+        {
+            Console.Write("Entrer un nombre supérieur a 10 : ");
+            if (int.TryParse(Console.ReadLine(), out nb) && nb > 10)
+            {
+                valide = true;
+            }
+        }
+        return nb;
+    }
+
 
 }
