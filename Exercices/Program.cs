@@ -36,6 +36,10 @@ class Program
         int nb_ex6 = Exercice6();
         Console.WriteLine(nb_ex6);
 
+        Espacer(7);
+        int nb_ex7 = Exercice7(8,-2);
+        Console.WriteLine(nb_ex7);
+
     }
 
     /// <summary>
@@ -112,7 +116,6 @@ class Program
             return -1;
         }
     }
-    #endregion
 
     /// <summary>
     /// Demande un nombre a l'utilisateur tant qu'il n'est pas suprérieur a 10.
@@ -131,6 +134,28 @@ class Program
             }
         }
         return nb;
+    }
+    #endregion
+
+    /// <summary>
+    /// Effectue la division de deux nombres et le modifie selon des contraintes
+    /// </summary>
+    /// <param name="nb1">Le premier nombre</param>
+    /// <param name="nb2">Le deuxième nombre</param>
+    /// <returns>
+    ///     O si le nb2 est 0 <\br>
+    ///     Le nombre de en sa valeur absolue (positive)
+    /// </returns>
+    public static int Exercice7(int nb1, int nb2)
+    {
+        if (nb2 == 0)
+        {
+            return 0;
+        }
+        else
+        {
+            return nb1 / nb2;
+        }
     }
 
 
