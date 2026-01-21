@@ -100,10 +100,14 @@ class Program
         Espacer(19);
         Exercice19(-6);
 
-        #endregion
-
         Espacer(20);
         Exercice20(-1, 7);
+
+
+        #endregion
+
+        Espacer(21);
+        Exercice21(4,4,'S');
 
 
 
@@ -409,7 +413,6 @@ class Program
         Console.WriteLine("***\n***\n***");
     }
 
-
     /// <summary>
     /// Affiche une forme sur la console avec une largeur donnée
     /// </summary>
@@ -442,21 +445,17 @@ class Program
             while (cpt < largeur)
             {
                 Console.Write("*");
-                cpt ++;
+                cpt++;
             }
             Console.Write("\n");
         }
     }
 
-    #endregion
-
-
-
     /// <summary>
     /// Affiche une forme sur la console avec des grandeurs de coté donnée
     /// </summary>
     /// <param name="largeur">Largeur de la forme voulu</param>
-    /// <param name="largeur">Hauteur de la forme voulu</param>
+    /// <param name="hauteur">Hauteur de la forme voulu</param>
     public static void Exercice20(int largeur, int hauteur)
     {
         if (largeur < 1 || hauteur < 0)
@@ -473,6 +472,33 @@ class Program
             Console.Write("\n");
         }
     }
+
+    #endregion
+
+    /// <summary>
+    /// Affiche une forme sur la console avec des grandeurs de coté donnée
+    /// </summary>
+    /// <param name="largeur">Largeur de la forme voulu</param>
+    /// <param name="hauteur">Hauteur de la forme voulu</param>
+    /// <param name="charac">Caractère à afficher pour composer la forme</param>
+    public static void Exercice21(int largeur, int hauteur, char charac)
+    {
+        if (largeur < 1 || hauteur < 0)
+        {
+            Console.WriteLine("Impossible d'afficher parce que dimension trop petite ( < 1 )");
+            return;
+        }
+        for (int i = hauteur; i > 0; i--)
+        {
+            for (int j = largeur; j > 0; j--)
+            {
+                Console.Write($"{charac}");
+            }
+            Console.Write("\n");
+        }
+    }
+
+
 
 
 
