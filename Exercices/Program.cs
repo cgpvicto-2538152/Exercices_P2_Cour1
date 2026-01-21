@@ -16,6 +16,8 @@ class Program
         // Efface toute la consoe et le buffer (le scroll)
         Console.WriteLine("\u001b[3J\u001b[H\u001b[2J");
 
+        #region Test
+
         Espacer(1);
         Exercice1();
 
@@ -55,6 +57,14 @@ class Program
         int[] tab_ex10 = Exercice10(15, 18, 30);
         for (int i_ex10 = 0; i_ex10 < tab_ex10.Length; i_ex10++)
         { Console.Write($"{tab_ex10[i_ex10]}  "); }
+
+        #endregion
+
+        Espacer(11);
+        int[] tab_ex11 = Exercice11(6, 7, 2);
+        for (int i_ex11 = 0; i_ex11 < tab_ex11.Length; i_ex11++)
+        { Console.Write($"{tab_ex11[i_ex11]}  "); }
+        
 
 
     }
@@ -202,8 +212,6 @@ class Program
         }
         return tab_rnd;
     }
-    #endregion
-
 
     /// <summary>
     /// Initialise un tableau d'une longueur donnée et le remplie aléatoirement avec un minimum et maximum entier donnée.
@@ -222,6 +230,42 @@ class Program
         }
         return tab_rnd;
     }
+    #endregion
+
+
+    /// <summary>
+    /// Initialise un tableau d'une longueur donnée et le remplie aléatoirement avec un minimum et maximum entier donnée.
+    /// </summary>
+    /// <param name="longueur">La longueur du tableau</param>
+    /// <param name="min">L'entier minimum (inclu)</param>
+    /// <param name="max">L'entier maximum (inclu)</param>
+    /// <remarks>
+    /// 
+    /// </remarks>
+    /// <returns>Retourne un tableau remplie de valeur aléatoire</returns>
+    public static int[] Exercice11(int longueur, int min, int max)
+    {
+        Random rnd = new Random();
+        int[] tab_rnd = new int[longueur];
+
+        if (min > max)
+        {
+            // int temp = min;
+            // min = max;
+            // min = temp;
+            // - - - - - - - -
+            // Utiliser le tuple pour échanger des valeurs (IDE0180)
+            (max , min) = (min , max);
+        }
+        
+        for (int i = 0; i < tab_rnd.Length; i++)
+        {
+            tab_rnd[i] = rnd.Next(min, max + 1);
+        }
+        return tab_rnd;
+    }
+
+
 
 
 }
