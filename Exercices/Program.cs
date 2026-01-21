@@ -2,6 +2,7 @@
 
 using System.Diagnostics;
 using System.Net;
+using System.Text.RegularExpressions;
 
 namespace Exercices;
 
@@ -110,14 +111,16 @@ class Program
         Espacer(22);
         Exercice22(4,4,4,'4');
 
+        Espacer(23);
+        Exercice23(-1);
 
 
 
         #endregion
 
-        Espacer(23);
-        Exercice23(-1);
 
+        Espacer(24);
+        Exercice24(4);
 
 
 
@@ -535,9 +538,6 @@ class Program
         }
     }
 
-
-    #endregion
-
     /// <summary>
     /// Affiche une forme sur la console
     /// </summary>
@@ -558,6 +558,31 @@ class Program
         }
     }
 
+    
+    
+    
+    #endregion
+
+
+    /// <summary>
+    /// Affiche une forme sur la console
+    /// </summary>
+    /// <param name="longueur">La longueur de la plus longue ligne </param>
+    public static void Exercice24(int longueur)
+    {
+        int cpt1 =0;
+        while (cpt1 < longueur)
+        {
+            int cpt2 = cpt1;
+            while(cpt2 < longueur)
+            {
+                Console.Write("*");
+                cpt2++;
+            }
+            Console.Write("\n");
+            cpt1++;
+        }
+    }
 
 
 }
