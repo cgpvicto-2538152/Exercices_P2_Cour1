@@ -121,14 +121,16 @@ class Program
         Espacer(26);
         Exercice26(7);
 
-        #endregion
-
         Espacer(27);
         string forme = Exercice27(6);
         Console.WriteLine(forme);
 
+        #endregion
 
-
+        Espacer(28);
+        int[] tab_ex28 = Exercice9(0, 1, 10);
+        double nb_ex28 = Exercice28(tab_ex28);
+        Console.WriteLine(nb_ex28);
 
 
 
@@ -619,10 +621,6 @@ class Program
         Exercice23(longueur);
     }
 
-
-
-    #endregion
-
     /// <summary>
     /// Créer un string qui represente une forme de longueur donnée.
     /// </summary>
@@ -648,6 +646,32 @@ class Program
         }
         return str;
     }
+
+
+
+    #endregion
+
+    /// <summary>
+    /// Calcule la moyenne d'un tableau de nombres.
+    /// </summary>
+    /// <param name="tab">Tableau de nombres à calculer la moyenne</param>
+    /// <returns>La moyenne des nombres du tableau</returns>
+    public static double Exercice28(int[] tab)
+    {
+        if (tab == null || tab.Length == 0)
+        {
+            return 0;
+        }
+        double total = 0;
+        foreach (double num in tab)
+        {
+            total += num;
+        }
+        return total / tab.Length;
+    }
+
+
+
 
 
 
