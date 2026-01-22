@@ -623,7 +623,11 @@ class Program
 
     #endregion
 
-
+    /// <summary>
+    /// Créer un string qui represente une forme de longueur donnée.
+    /// </summary>
+    /// <param name="longueur">La longueur de la plus longue ligne </param>
+    /// <returns>String qui contient la forme.</returns>
     public static string Exercice27(int longueur)
     {
         string str = "";
