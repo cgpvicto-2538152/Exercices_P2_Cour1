@@ -125,12 +125,17 @@ class Program
         string forme = Exercice27(6);
         Console.WriteLine(forme);
 
-        #endregion
-
         Espacer(28);
         int[] tab_ex28 = Exercice9(0, 1, 10);
         double nb_ex28 = Exercice28(tab_ex28);
         Console.WriteLine(nb_ex28);
+
+        #endregion
+
+        Espacer(29);
+        int[] tab_ex29 = Exercice9(7, 1, 10);
+        double nb_ex29 = Exercice29(tab_ex29);
+        Console.WriteLine(nb_ex29);
 
 
 
@@ -647,10 +652,6 @@ class Program
         return str;
     }
 
-
-
-    #endregion
-
     /// <summary>
     /// Calcule la moyenne d'un tableau de nombres.
     /// </summary>
@@ -670,6 +671,30 @@ class Program
         return total / tab.Length;
     }
 
+    #endregion
+
+    /// <summary>
+    /// Calcule la moyenne des écarts de moyenne d'un tablaeau de nombres.
+    /// </summary>
+    /// <param name="tab">Tableau de nombres à calculer la moyenne</param>
+    /// <returns>La moyenne des écarts</returns>
+    public static double Exercice29(int[] tab)
+    {
+        double moyenne = Exercice28(tab);
+        double[] ecarts = new double[tab.Length];
+        double total = 0;
+        
+        for (int i = 0; i < tab.Length; i++)
+        {
+            ecarts[i] = tab[i] - moyenne;
+            if (ecarts[i] < 0)
+            {
+                ecarts[i] *= -1;
+            }
+            total += ecarts[i];
+        }
+        return total/tab.Length;
+    }
 
 
 
