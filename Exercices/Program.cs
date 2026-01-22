@@ -118,10 +118,18 @@ class Program
         Espacer(25);
         Exercice25(7);
 
-        #endregion
-
         Espacer(26);
         Exercice26(7);
+
+        #endregion
+
+        Espacer(27);
+        string forme = Exercice27(6);
+        Console.WriteLine(forme);
+
+
+
+
 
 
     }
@@ -600,8 +608,6 @@ class Program
         } while (cpt1 < longueur);
     }
 
-    #endregion
-
     /// <summary>
     /// Affiche une forme sur la console
     /// </summary>
@@ -612,5 +618,33 @@ class Program
         Console.CursorTop -= 1;
         Exercice23(longueur);
     }
+
+
+
+    #endregion
+
+
+    public static string Exercice27(int longueur)
+    {
+        string str = "";
+        for (int i = longueur; i > 0; i--)
+        {
+            for (int j = i; j < longueur + 1; j++)
+            {
+                str += "*";
+                if (longueur != j)
+                {
+                    str += " ";
+                }
+            }
+            if (i > 1)
+            {
+                str += "\n";
+            }
+        }
+        return str;
+    }
+
+
 
 }
