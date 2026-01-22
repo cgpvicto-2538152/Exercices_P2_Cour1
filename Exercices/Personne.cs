@@ -31,29 +31,22 @@ namespace Exercices
         /// <param name="age"></param>
         public Personne(string nom, string prenom, int age)
         {
-            if (nom != null || nom!.Trim() != "")
-            { Nom = nom; }
-            else
-            { Nom = "John"; }
-
-            if (prenom != null || prenom!.Trim() != "")
-            { Prenom = prenom; }
-            else
-            { Prenom = "Doe"; }
-
-            if (age! < 0)
-            { Age = age; }
-            else
-            { Age = 1; }
-
+            Nom = !string.IsNullOrWhiteSpace(nom) ? nom : "John";
+            Prenom = !string.IsNullOrWhiteSpace(prenom) ? prenom : "Doe";
+            Age = age >= 0 ? age : 1;
         }
-        
+
         /// <summary>
         /// Permet de faire Vieillir la personne de un an.
         /// </summary>
         public void Vieillir()
         {
             Age += 1;
+        }
+
+        public override string ToString()
+        {
+            return $"{Prenom} {Nom} , {Age}";
         }
 
     }
