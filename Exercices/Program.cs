@@ -1,8 +1,6 @@
 ﻿
 
 using System.Diagnostics;
-using System.Net;
-using System.Text.RegularExpressions;
 
 namespace Exercices;
 
@@ -106,21 +104,23 @@ class Program
         Exercice20(-1, 7);
 
         Espacer(21);
-        Exercice21(4, 4,'S');
+        Exercice21(4, 4, 'S');
 
         Espacer(22);
-        Exercice22(4,4,4,'4');
+        Exercice22(4, 4, 4, '4');
 
         Espacer(23);
         Exercice23(-1);
 
+        Espacer(24);
+        Exercice24(4);
 
 
         #endregion
 
+        Espacer(25);
+        Exercice25(7);
 
-        Espacer(24);
-        Exercice24(4);
 
 
 
@@ -544,9 +544,9 @@ class Program
     /// <param name="longueur">La longueur de la plus longue ligne </param>
     public static void Exercice23(int longueur)
     {
-        if(longueur < 0)
+        if (longueur < 0)
         {
-            Debug.WriteLine("La longueur est inférieure a 0","Exercice 23");
+            Debug.WriteLine("La longueur est inférieure a 0", "Exercice 23");
         }
         for (int i = longueur; i >= 0; i--)
         {
@@ -558,23 +558,17 @@ class Program
         }
     }
 
-    
-    
-    
-    #endregion
-
-
     /// <summary>
     /// Affiche une forme sur la console
     /// </summary>
     /// <param name="longueur">La longueur de la plus longue ligne </param>
     public static void Exercice24(int longueur)
     {
-        int cpt1 =0;
+        int cpt1 = 0;
         while (cpt1 < longueur)
         {
             int cpt2 = cpt1;
-            while(cpt2 < longueur)
+            while (cpt2 < longueur)
             {
                 Console.Write("*");
                 cpt2++;
@@ -583,6 +577,31 @@ class Program
             cpt1++;
         }
     }
+
+    #endregion
+
+
+    /// <summary>
+    /// Affiche une forme sur la console
+    /// </summary>
+    /// <param name="longueur">La longueur de la plus longue ligne </param>
+    public static void Exercice25(int longueur)
+    {
+        int cpt1 = 0;
+        do
+        {
+            int cpt2 = cpt1;
+            do
+            {
+                Console.Write("*");
+                cpt2++;
+            } while (cpt2 < longueur);
+            Console.Write("\n");
+            cpt1++;
+        } while (cpt1 < longueur);
+    }
+
+
 
 
 }
