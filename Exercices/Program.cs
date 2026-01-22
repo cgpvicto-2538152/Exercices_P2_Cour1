@@ -115,14 +115,13 @@ class Program
         Espacer(24);
         Exercice24(4);
 
-
-        #endregion
-
         Espacer(25);
         Exercice25(7);
 
+        #endregion
 
-
+        Espacer(26);
+        Exercice26(7);
 
 
     }
@@ -573,13 +572,13 @@ class Program
                 Console.Write("*");
                 cpt2++;
             }
-            Console.Write("\n");
+            if (cpt1 <= longueur - 2)
+            {
+                Console.Write("\n");
+            }
             cpt1++;
         }
     }
-
-    #endregion
-
 
     /// <summary>
     /// Affiche une forme sur la console
@@ -601,7 +600,17 @@ class Program
         } while (cpt1 < longueur);
     }
 
+    #endregion
 
-
+    /// <summary>
+    /// Affiche une forme sur la console
+    /// </summary>
+    /// <param name="longueur">La longueur de la plus longue ligne </param>
+    public static void Exercice26(int longueur)
+    {
+        Exercice24(longueur);
+        Console.CursorTop -= 1;
+        Exercice23(longueur);
+    }
 
 }
