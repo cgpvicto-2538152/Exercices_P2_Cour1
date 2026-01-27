@@ -212,16 +212,17 @@ namespace Exercices
             foreach (Personne personne in pers_ex31)
             { Console.WriteLine(personne.ToString()); }
 
+            Espacer(32);
+            Personne[] tabPersEx32 = Exercice31(10, 1, 25, lstPrenom, lstNom);
+            double nbEx32 = Exercice32(tabPersEx32);
+            Console.WriteLine(nbEx32);
 
             #endregion
 
-
-            Espacer(32);
-            Personne[] persEx32 = Exercice31(10, 1, 25, lstPrenom, lstNom);
-            double nbEx32 = Exercice32(persEx32);
-            Console.WriteLine(nbEx32);
-
-
+            Espacer(33);
+            Personne[] tabPersEx33 = Exercice31(10, 1, 56, lstPrenom, lstNom);
+            Personne persEx33 = Exercice33(tabPersEx33);
+            Console.WriteLine(persEx33);
 
 
         }
@@ -806,8 +807,6 @@ namespace Exercices
             return lstPers;
         }
 
-        #endregion
-
         /// <summary>
         /// Calcule la moyenne d'age d'un tableau de personnes.
         /// </summary>
@@ -829,6 +828,28 @@ namespace Exercices
 
             return Exercice28(tabIntPersonnes);
         }
+
+        #endregion
+
+        /// <summary>
+        /// Trouve la première personne ayant l'age le plus haut.
+        /// </summary>
+        /// <param name="tab">Tableau de personne</param>
+        /// <returns>L'instance de la personne</returns>
+        public static Personne Exercice33(Personne[] tab)
+        {
+            int plusHaut = 0;
+            for (int i = 0; i < tab.Length; i++)
+            {
+                if (tab[plusHaut].Age < tab[i].Age)
+                {
+                    plusHaut = i;
+                }
+            }
+            return tab[plusHaut];
+        }
+
+
 
 
 
