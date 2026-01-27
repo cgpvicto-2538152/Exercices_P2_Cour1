@@ -21,7 +21,7 @@ namespace Exercices
 
             #region Liste
             // Liste de prenom generer par IA
-            string[] list_prenom = new string[]
+            string[] lstPrenom =
             {
                 "Alice",
                 "Bob",
@@ -51,7 +51,7 @@ namespace Exercices
                 "Zachary"
             };
             // Liste de nom generer par IA
-            string[] list_nom = new string[]
+            string[] lstNom =
             {
                 "Anderson",
                 "Brown",
@@ -84,149 +84,148 @@ namespace Exercices
             #endregion
 
 
+            #region Test
+
+            Espacer(1);
+            Exercice1();
+
+            Espacer(2);
+            Exercice2(5, 98);
+
+            Espacer(3);
+            int nb_ex3 = Exercice3(5, 98);
+            Console.WriteLine(nb_ex3);
+
+            Espacer(4);
+            double nb_ex4 = Exercice4();
+            Console.WriteLine(nb_ex4);
+
+            Espacer(5);
+            int nb_ex5 = Exercice5();
+            Console.WriteLine(nb_ex5);
+
+            Espacer(6);
+            int nb_ex6 = Exercice6();
+            Console.WriteLine(nb_ex6);
+
+            Espacer(7);
+            int nb_ex7 = Exercice7(8, -2);
+            Console.WriteLine(nb_ex7);
+
+            Espacer(8);
+            int[] tab_ex8 = Exercice8(6);
+            Console.WriteLine(tab_ex8.Length);
+
+            Espacer(9);
+            int[] tab_ex9 = Exercice9(8, 2, 9);
+            for (int i_ex9 = 0; i_ex9 < tab_ex9.Length; i_ex9++)
+            { Console.Write($"{tab_ex9[i_ex9]}  "); }
+
+            Espacer(10);
+            int[] tab_ex10 = Exercice10(15, 18, 30);
+            for (int i_ex10 = 0; i_ex10 < tab_ex10.Length; i_ex10++)
+            { Console.Write($"{tab_ex10[i_ex10]}  "); }
+
+            Espacer(11);
+            int[] tab_ex11 = Exercice11(6, 7, 2);
+            for (int i_ex11 = 0; i_ex11 < tab_ex11.Length; i_ex11++)
+            { Console.Write($"{tab_ex11[i_ex11]}  "); }
 
 
-            // #region Test
+            Espacer(12);
+            int[] tab_ex12 = Exercice12(-1, -5, 2);
+            for (int i_ex12 = 0; i_ex12 < tab_ex12.Length; i_ex12++)
+            { Console.Write($"{tab_ex12[i_ex12]}  "); }
 
-            // Espacer(1);
-            // Exercice1();
+            Espacer(13);
+            int[] tab_ex13 = Exercice9(8, 2, 9);
+            int nb_ex13 = Exercice13(tab_ex13);
+            Console.WriteLine(nb_ex13);
 
-            // Espacer(2);
-            // Exercice2(5, 98);
+            Espacer(14);
+            int[] tab_ex14 = Exercice9(8, 2, 9);
+            int nb_ex14 = Exercice14(tab_ex14);
+            Console.WriteLine(nb_ex14);
 
-            // Espacer(3);
-            // int nb_ex3 = Exercice3(5, 98);
-            // Console.WriteLine(nb_ex3);
+            Espacer(15);
+            int[] tab_ex15 = Exercice9(8, 2, 9);
+            int nb_ex15 = Exercice15(tab_ex15);
+            Console.WriteLine(nb_ex15);
 
-            // Espacer(4);
-            // double nb_ex4 = Exercice4();
-            // Console.WriteLine(nb_ex4);
+            Espacer(16);
+            int[] tab_ex16 = Exercice9(8, 2, 9);
+            int nb_ex16 = Exercice16(tab_ex16);
+            Console.WriteLine(nb_ex16);
 
-            // Espacer(5);
-            // int nb_ex5 = Exercice5();
-            // Console.WriteLine(nb_ex5);
+            Espacer(17);
+            Exercice17();
 
-            // Espacer(6);
-            // int nb_ex6 = Exercice6();
-            // Console.WriteLine(nb_ex6);
+            Espacer(18);
+            Exercice18(5);
 
-            // Espacer(7);
-            // int nb_ex7 = Exercice7(8, -2);
-            // Console.WriteLine(nb_ex7);
+            Espacer(19);
+            Exercice19(-6);
 
-            // Espacer(8);
-            // int[] tab_ex8 = Exercice8(6);
-            // Console.WriteLine(tab_ex8.Length);
+            Espacer(20);
+            Exercice20(-1, 7);
 
-            // Espacer(9);
-            // int[] tab_ex9 = Exercice9(8, 2, 9);
-            // for (int i_ex9 = 0; i_ex9 < tab_ex9.Length; i_ex9++)
-            // { Console.Write($"{tab_ex9[i_ex9]}  "); }
+            Espacer(21);
+            Exercice21(4, 4, 'S');
 
-            // Espacer(10);
-            // int[] tab_ex10 = Exercice10(15, 18, 30);
-            // for (int i_ex10 = 0; i_ex10 < tab_ex10.Length; i_ex10++)
-            // { Console.Write($"{tab_ex10[i_ex10]}  "); }
+            Espacer(22);
+            Exercice22(4, 4, 4, '4');
 
-            // Espacer(11);
-            // int[] tab_ex11 = Exercice11(6, 7, 2);
-            // for (int i_ex11 = 0; i_ex11 < tab_ex11.Length; i_ex11++)
-            // { Console.Write($"{tab_ex11[i_ex11]}  "); }
+            Espacer(23);
+            Exercice23(-1);
 
+            Espacer(24);
+            Exercice24(4);
 
-            // Espacer(12);
-            // int[] tab_ex12 = Exercice12(-1, -5, 2);
-            // for (int i_ex12 = 0; i_ex12 < tab_ex12.Length; i_ex12++)
-            // { Console.Write($"{tab_ex12[i_ex12]}  "); }
+            Espacer(25);
+            Exercice25(7);
 
-            // Espacer(13);
-            // int[] tab_ex13 = Exercice9(8, 2, 9);
-            // int nb_ex13 = Exercice13(tab_ex13);
-            // Console.WriteLine(nb_ex13);
+            Espacer(26);
+            Exercice26(7);
 
-            // Espacer(14);
-            // int[] tab_ex14 = Exercice9(8, 2, 9);
-            // int nb_ex14 = Exercice14(tab_ex14);
-            // Console.WriteLine(nb_ex14);
+            Espacer(27);
+            string forme = Exercice27(6);
+            Console.WriteLine(forme);
 
-            // Espacer(15);
-            // int[] tab_ex15 = Exercice9(8, 2, 9);
-            // int nb_ex15 = Exercice15(tab_ex15);
-            // Console.WriteLine(nb_ex15);
+            Espacer(28);
+            int[] tab_ex28 = Exercice9(0, 1, 10);
+            double nb_ex28 = Exercice28(tab_ex28);
+            Console.WriteLine(nb_ex28);
 
-            // Espacer(16);
-            // int[] tab_ex16 = Exercice9(8, 2, 9);
-            // int nb_ex16 = Exercice16(tab_ex16);
-            // Console.WriteLine(nb_ex16);
+            Espacer(29);
+            int[] tab_ex29 = Exercice9(7, 1, 10);
+            double nb_ex29 = Exercice29(tab_ex29);
+            Console.WriteLine(nb_ex29);
 
-            // Espacer(17);
-            // Exercice17();
-
-            // Espacer(18);
-            // Exercice18(5);
-
-            // Espacer(19);
-            // Exercice19(-6);
-
-            // Espacer(20);
-            // Exercice20(-1, 7);
-
-            // Espacer(21);
-            // Exercice21(4, 4, 'S');
-
-            // Espacer(22);
-            // Exercice22(4, 4, 4, '4');
-
-            // Espacer(23);
-            // Exercice23(-1);
-
-            // Espacer(24);
-            // Exercice24(4);
-
-            // Espacer(25);
-            // Exercice25(7);
-
-            // Espacer(26);
-            // Exercice26(7);
-
-            // Espacer(27);
-            // string forme = Exercice27(6);
-            // Console.WriteLine(forme);
-
-            // Espacer(28);
-            // int[] tab_ex28 = Exercice9(0, 1, 10);
-            // double nb_ex28 = Exercice28(tab_ex28);
-            // Console.WriteLine(nb_ex28);
-
-            // Espacer(29);
-            // int[] tab_ex29 = Exercice9(7, 1, 10);
-            // double nb_ex29 = Exercice29(tab_ex29);
-            // Console.WriteLine(nb_ex29);
-
-            // Espacer(30);
-            // Personne pers_ex30 = new("Alexis", "Bergeois", 19);
-            // Console.WriteLine($"{pers_ex30.Nom} {pers_ex30.Prenom} a {pers_ex30.Age} ans");
-            // pers_ex30.Vieillir();
-            // Console.WriteLine($"{pers_ex30.Nom} {pers_ex30.Prenom} a {pers_ex30.Age} ans");
-
-
-
-
-
-            // #endregion
-
+            Espacer(30);
+            Personne pers_ex30 = new("Alexis", "Bergeois", 19);
+            Console.WriteLine($"{pers_ex30.Nom} {pers_ex30.Prenom} a {pers_ex30.Age} ans");
+            pers_ex30.Vieillir();
+            Console.WriteLine($"{pers_ex30.Nom} {pers_ex30.Prenom} a {pers_ex30.Age} ans");
 
             Espacer(31);
-            Personne[] personnes = Exercice31(10, 10, 100, list_prenom, list_nom);
-            foreach (Personne personne in personnes)
-            { Console.WriteLine(personne.ToString());}
+            Personne[] pers_ex31 = Exercice31(10, 10, 100, lstPrenom, lstNom);
+            foreach (Personne personne in pers_ex31)
+            { Console.WriteLine(personne.ToString()); }
 
 
+            #endregion
+
+
+            Espacer(32);
+            Personne[] persEx32 = Exercice31(10, 1, 25, lstPrenom, lstNom);
+            double nbEx32 = Exercice32(persEx32);
+            Console.WriteLine(nbEx32);
 
 
 
 
         }
+
 
         /// <summary>
         /// Affiche un espacement entre deux exercices et affiche le numero de l'exercices
@@ -362,13 +361,13 @@ namespace Exercices
         public static int[] Exercice9(int longueur, int min, int max)
         {
             Random rnd = new Random();
-            int[] tab_rnd = new int[longueur];
-            for (int i = 0; i < tab_rnd.Length; i++)
+            int[] tabRnd = new int[longueur];
+            for (int i = 0; i < tabRnd.Length; i++)
             {
                 // Mélanger en ayant lu l'exercice 10 (corriger le +1 pour l'enlever)
-                tab_rnd[i] = rnd.Next(min, max);
+                tabRnd[i] = rnd.Next(min, max);
             }
-            return tab_rnd;
+            return tabRnd;
         }
 
         /// <summary>
@@ -381,12 +380,12 @@ namespace Exercices
         public static int[] Exercice10(int longueur, int min, int max)
         {
             Random rnd = new Random();
-            int[] tab_rnd = new int[longueur];
-            for (int i = 0; i < tab_rnd.Length; i++)
+            int[] tabRnd = new int[longueur];
+            for (int i = 0; i < tabRnd.Length; i++)
             {
-                tab_rnd[i] = rnd.Next(min, max + 1);
+                tabRnd[i] = rnd.Next(min, max + 1);
             }
-            return tab_rnd;
+            return tabRnd;
         }
 
         /// <summary>
@@ -399,7 +398,7 @@ namespace Exercices
         public static int[] Exercice11(int longueur, int min, int max)
         {
             Random rnd = new Random();
-            int[] tab_rnd = new int[longueur];
+            int[] tabRnd = new int[longueur];
 
             if (min > max)
             {
@@ -411,11 +410,11 @@ namespace Exercices
                 (max, min) = (min, max);
             }
 
-            for (int i = 0; i < tab_rnd.Length; i++)
+            for (int i = 0; i < tabRnd.Length; i++)
             {
-                tab_rnd[i] = rnd.Next(min, max + 1);
+                tabRnd[i] = rnd.Next(min, max + 1);
             }
-            return tab_rnd;
+            return tabRnd;
         }
 
         /// <summary>
@@ -433,7 +432,7 @@ namespace Exercices
 
             Random rnd = new Random();
 
-            int[] tab_rnd = new int[longueur];
+            int[] tabRnd = new int[longueur];
 
             if (min > max)
             {
@@ -445,11 +444,11 @@ namespace Exercices
                 (max, min) = (min, max);
             }
 
-            for (int i = 0; i < tab_rnd.Length; i++)
+            for (int i = 0; i < tabRnd.Length; i++)
             {
-                tab_rnd[i] = rnd.Next(min, max + 1);
+                tabRnd[i] = rnd.Next(min, max + 1);
             }
-            return tab_rnd;
+            return tabRnd;
         }
 
         /// <summary>
@@ -781,25 +780,56 @@ namespace Exercices
             return total / tab.Length;
         }
 
-        #endregion
-
-
-        public static Personne[] Exercice31(int nbs_pers, int age_min, int age_max, string[] prenom, string[] nom)
+        /// <summary>
+        /// Crée un tableau de personnes aléatoires.
+        /// </summary>
+        /// <param name="nbsPers">Nombre de personnes à créer.</param>
+        /// <param name="ageMin">Âge minimum possible.</param>
+        /// <param name="ageMax">Âge maximum possible.</param>
+        /// <param name="prenom">Liste des prénoms possibles.</param>
+        /// <param name="nom">Liste des noms possibles.</param>
+        /// <returns>Tableau de personnes générées aléatoirement.</returns>
+        public static Personne[] Exercice31(int nbsPers, int ageMin, int ageMax, string[] prenom, string[] nom)
         {
-            Personne[] lst_personnes = new Personne[nbs_pers];
+            Personne[] lstPers = new Personne[nbsPers];
             Random rng = new Random();
 
-            for (int i = 0; i < nbs_pers; i++)
+            for (int i = 0; i < nbsPers; i++)
             {
-                lst_personnes[i] = new Personne(
+                lstPers[i] = new Personne(
                     prenom[rng.Next(prenom.Length)],
                     nom[rng.Next(nom.Length)],
-                    rng.Next(age_min, age_max + 1)
+                    rng.Next(ageMin, ageMax + 1)
                 );
             }
 
-            return lst_personnes;
+            return lstPers;
         }
+
+        #endregion
+
+        /// <summary>
+        /// Calcule la moyenne d'age d'un tableau de personnes.
+        /// </summary>
+        /// <param name="tab">Tableau de personnes à calculer la moyenne des ages</param>
+        /// <returns>La moyenne des ages</returns>
+        public static double Exercice32(Personne[] tab)
+        {
+            if (tab == null || tab.Length == 0)
+            {
+                return 0;
+            }
+
+            int[] tabIntPersonnes = new int[tab.Length];
+
+            for (int i = 0; i < tab.Length; i++)
+            {
+                tabIntPersonnes[i] = tab[i].Age;
+            }
+
+            return Exercice28(tabIntPersonnes);
+        }
+
 
 
     }
