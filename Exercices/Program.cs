@@ -217,13 +217,21 @@ namespace Exercices
             double nbEx32 = Exercice32(tabPersEx32);
             Console.WriteLine(nbEx32);
 
-            #endregion
-
             Espacer(33);
             Personne[] tabPersEx33 = Exercice31(10, 1, 56, lstPrenom, lstNom);
             Personne persEx33 = Exercice33(tabPersEx33);
             Console.WriteLine(persEx33);
 
+            #endregion
+
+            Espacer(34);
+            int[] tab_ex34 = Exercice9(7, 1, 9);
+            foreach (int nb in tab_ex34)
+            { Console.Write($"{nb}  "); }
+            Exercice34(tab_ex34, 0, 1);
+            Console.WriteLine("\n0--1--2--3--4--5--6");
+            foreach (int nb in tab_ex34)
+            { Console.Write($"{nb}  "); }
 
         }
 
@@ -278,8 +286,11 @@ namespace Exercices
         public static double Exercice4()
         {
             Console.Write("Entrer un nombre : ");
-            double.TryParse(Console.ReadLine(), out double nb);
-            return nb;
+            if (double.TryParse(Console.ReadLine(), out double nb))
+            {
+                return nb;
+            }
+            throw new Exception("Ce n'est pas un nombre");
         }
 
         /// <summary>
@@ -298,6 +309,7 @@ namespace Exercices
             }
             else
             {
+                Debug.WriteLine("Ce n'est pas un nombre", "Exercice 5");
                 return -1;
             }
         }
@@ -317,6 +329,10 @@ namespace Exercices
                 {
                     valide = true;
                 }
+                else
+                {
+                    Debug.WriteLine("Ce n'est pas un nombre ou inférieure a 10", "Exercice 6");
+                }
             }
             return nb;
         }
@@ -334,11 +350,13 @@ namespace Exercices
         {
             if (nb2 == 0)
             {
+                Debug.WriteLine("Division par 0", "Exercice 7");
                 return 0;
             }
             else
             {
-                return nb1 / nb2;
+                int res = nb1 / nb2;
+                return Math.Abs(res);
             }
         }
 
@@ -349,6 +367,10 @@ namespace Exercices
         /// <returns>L'instance du nouveau tableau</returns>
         public static int[] Exercice8(int longueur)
         {
+            if (longueur < 0)
+            {
+                throw new ArgumentException("La longueur doit etre positive");
+            }
             return new int[longueur];
         }
 
@@ -361,11 +383,14 @@ namespace Exercices
         /// <returns>Retourne un tableau remplie de valeur aléatoire</returns>
         public static int[] Exercice9(int longueur, int min, int max)
         {
+            if (longueur < 0)
+            {
+                throw new ArgumentException("La longueur doit etre positive");
+            }
             Random rnd = new Random();
             int[] tabRnd = new int[longueur];
             for (int i = 0; i < tabRnd.Length; i++)
             {
-                // Mélanger en ayant lu l'exercice 10 (corriger le +1 pour l'enlever)
                 tabRnd[i] = rnd.Next(min, max);
             }
             return tabRnd;
@@ -380,6 +405,10 @@ namespace Exercices
         /// <returns>Retourne un tableau remplie de valeur aléatoire</returns>
         public static int[] Exercice10(int longueur, int min, int max)
         {
+            if (longueur < 0)
+            {
+                throw new ArgumentException("La longueur doit etre positive");
+            }
             Random rnd = new Random();
             int[] tabRnd = new int[longueur];
             for (int i = 0; i < tabRnd.Length; i++)
@@ -398,6 +427,11 @@ namespace Exercices
         /// <returns>Retourne un tableau remplie de valeur aléatoire</returns>
         public static int[] Exercice11(int longueur, int min, int max)
         {
+            if (longueur < 0)
+            {
+                throw new ArgumentException("La longueur doit etre positive");
+            }
+
             Random rnd = new Random();
             int[] tabRnd = new int[longueur];
 
@@ -429,7 +463,10 @@ namespace Exercices
         {
 
             if (longueur < 0)
-            { return []; }
+            {
+                Debug.WriteLine("La longueur doit etre positive", "Exercice 12");
+                return [];
+            }
 
             Random rnd = new Random();
 
@@ -506,11 +543,13 @@ namespace Exercices
         /// <returns>Somme des nombres entier</returns>
         public static int Exercice16(int[] tab)
         {
+            if (tab == null || tab.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide");
+            }
             int total = 0;
             int index = 0;
-            // non proteger contre les arrays null, en raison que la 
-            // do-while s'execute minimalement une fois avant de 
-            // rencontrer une condition qui peut l'arreter
+
             do
             {
                 total += tab[index];
@@ -534,6 +573,10 @@ namespace Exercices
         /// <param name="largeur">Largeur de la forme voulu</param>
         public static void Exercice18(int largeur)
         {
+            if (largeur < 0)
+            {
+                throw new ArgumentException("La largeur doit etre positive");
+            }
             for (int i = 3; i > 0; i--)
             {
                 for (int j = 0; j < largeur; j++)
@@ -552,7 +595,7 @@ namespace Exercices
         {
             if (largeur < 0)
             {
-                largeur *= -1;
+                largeur = Math.Abs(largeur);
             }
             for (int i = 3; i > 0; i--)
             {
@@ -573,9 +616,9 @@ namespace Exercices
         /// <param name="hauteur">Hauteur de la forme voulu</param>
         public static void Exercice20(int largeur, int hauteur)
         {
-            if (largeur < 1 || hauteur < 0)
+            if (largeur < 1 || hauteur < 1)
             {
-                Console.WriteLine("Impossible d'afficher parce que dimension trop petite ( < 1 )");
+                Debug.WriteLine("Impossible d'afficher parce que dimension trop petite ( < 1 )", "Exercice 20");
                 return;
             }
             for (int i = hauteur; i > 0; i--)
@@ -598,7 +641,7 @@ namespace Exercices
         {
             if (largeur < 1 || hauteur < 0)
             {
-                Console.WriteLine("Impossible d'afficher parce que dimension trop petite ( < 1 )");
+                Debug.WriteLine("Impossible d'afficher parce que dimension trop petite ( < 1 )", "Exercice 21");
                 return;
             }
             for (int i = hauteur; i > 0; i--)
@@ -622,7 +665,7 @@ namespace Exercices
         {
             if (largeur < 1 || hauteur < 1 || nbs < 1)
             {
-                Console.WriteLine("Impossible d'afficher parce que dimension trop petite ( < 1 )");
+                Debug.WriteLine("Impossible d'afficher parce que dimension trop petite ( < 1 )", "Exercice 22");
                 return;
             }
             for (int c = 0; c < nbs; c++)
@@ -665,6 +708,10 @@ namespace Exercices
         /// <param name="longueur">La longueur de la plus longue ligne </param>
         public static void Exercice24(int longueur)
         {
+            if (longueur < 0)
+            {
+                Debug.WriteLine("La longueur est inférieure a 0", "Exercice 24");
+            }
             int cpt1 = 0;
             while (cpt1 < longueur)
             {
@@ -688,6 +735,10 @@ namespace Exercices
         /// <param name="longueur">La longueur de la plus longue ligne </param>
         public static void Exercice25(int longueur)
         {
+            if (longueur < 0)
+            {
+                Debug.WriteLine("La longueur est inférieure a 0", "Exercice 25");
+            }
             int cpt1 = 0;
             do
             {
@@ -708,6 +759,10 @@ namespace Exercices
         /// <param name="longueur">La longueur de la plus longue ligne </param>
         public static void Exercice26(int longueur)
         {
+            if (longueur < 0)
+            {
+                Debug.WriteLine("La longueur est inférieure a 0", "Exercice 26");
+            }
             Exercice24(longueur);
             Console.CursorTop -= 1;
             Exercice23(longueur);
@@ -720,6 +775,10 @@ namespace Exercices
         /// <returns>String qui contient la forme.</returns>
         public static string Exercice27(int longueur)
         {
+            if (longueur < 0)
+            {
+                Debug.WriteLine("La longueur est inférieure a 0", "Exercice 27");
+            }
             string str = "";
             for (int i = longueur; i > 0; i--)
             {
@@ -748,7 +807,7 @@ namespace Exercices
         {
             if (tab == null || tab.Length == 0)
             {
-                return 0;
+                throw new ArgumentException("Le tableau ne peut pas etre vide");
             }
             double total = 0;
             foreach (double num in tab)
@@ -765,6 +824,10 @@ namespace Exercices
         /// <returns>La moyenne des écarts</returns>
         public static double Exercice29(int[] tab)
         {
+            if (tab == null || tab.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide");
+            }
             double moyenne = Exercice28(tab);
             double[] ecarts = new double[tab.Length];
             double total = 0;
@@ -792,14 +855,38 @@ namespace Exercices
         /// <returns>Tableau de personnes générées aléatoirement.</returns>
         public static Personne[] Exercice31(int nbsPers, int ageMin, int ageMax, string[] prenom, string[] nom)
         {
+            if (nbsPers < 0)
+            {
+                throw new ArgumentException("Le nombre de personnes doit etre positive");
+            }
+            if (ageMin < 0)
+            {
+                throw new ArgumentException("L'âge minimum doit etre positive");
+            }
+            if (ageMax < 0)
+            {
+                throw new ArgumentException("L'âge maximum doit etre positive");
+            }
+            if (ageMin > ageMax)
+            {
+                throw new ArgumentException("L'âge minimum doit etre inferieur ou egale au maximum");
+            }
+            if (prenom == null || prenom.Length == 0)
+            {
+                throw new ArgumentException("Le tableau de prénoms ne peut pas etre vide");
+            }
+            if (nom == null || nom.Length == 0)
+            {
+                throw new ArgumentException("Le tableau de noms ne peut pas etre vide");
+            }
             Personne[] lstPers = new Personne[nbsPers];
-            Random rng = new Random();
+            Random rng = new();
 
             for (int i = 0; i < nbsPers; i++)
             {
                 lstPers[i] = new Personne(
-                    prenom[rng.Next(prenom.Length)],
-                    nom[rng.Next(nom.Length)],
+                    prenom![rng.Next(prenom.Length)],
+                    nom![rng.Next(nom.Length)],
                     rng.Next(ageMin, ageMax + 1)
                 );
             }
@@ -829,8 +916,6 @@ namespace Exercices
             return Exercice28(tabIntPersonnes);
         }
 
-        #endregion
-
         /// <summary>
         /// Trouve la première personne ayant l'age le plus haut.
         /// </summary>
@@ -849,6 +934,40 @@ namespace Exercices
             return tab[plusHaut];
         }
 
+        #endregion
+
+        /// <summary>
+        /// Echange la position de deux nombres dans un tableau
+        /// </summary>
+        /// <param name="tabInt">Tableau de nombres</param>
+        /// <param name="pos1">Position 1</param>
+        /// <param name="pos2">Position 2</param>
+        public static void Exercice34(int[] tabInt, int pos1, int pos2)
+        {
+            if (pos1 < 0)
+            {
+                throw new ArgumentException($"Position 1 est inferieur a 0 ( pos : {pos1})");
+            }
+            if (pos2 < 0)
+            {
+                throw new ArgumentException($"Position 2 est inferieur a 0 ( pos : {pos2})");
+            }
+            if (pos1 > tabInt.Length)
+            {
+                throw new ArgumentException($"Position 1 est superieur a la longueur du tableau ( pos : {pos1})");
+            }
+            if (pos2 > tabInt.Length)
+            {
+                throw new ArgumentException($"Position 2 est superieur a la longueur du tableau ( pos : {pos2})");
+            }
+
+            // Utilisation du tuple (IDE0180)
+            // int temp = tabInt[pos1];
+            // tabInt[pos1] = tabInt[pos2];
+            // tabInt[pos2] = temp;
+            (tabInt[pos1], tabInt[pos2]) = (tabInt[pos2], tabInt[pos1]);
+
+        }
 
 
 
