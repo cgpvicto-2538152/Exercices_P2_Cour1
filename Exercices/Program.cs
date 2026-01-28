@@ -222,8 +222,6 @@ namespace Exercices
             Personne persEx33 = Exercice33(tabPersEx33);
             Console.WriteLine(persEx33);
 
-            #endregion
-
             Espacer(34);
             int[] tab_ex34 = Exercice9(7, 1, 9);
             foreach (int nb in tab_ex34)
@@ -232,6 +230,24 @@ namespace Exercices
             Console.WriteLine("\n0--1--2--3--4--5--6");
             foreach (int nb in tab_ex34)
             { Console.Write($"{nb}  "); }
+
+
+
+
+            #endregion
+
+            Espacer(35);
+            int[] tab_ex35 = [1, 2, 3, 4, 5, 6, 7];
+            foreach (int nb in tab_ex35)
+            { Console.Write($"{nb}  "); }
+            Exercice35(tab_ex35);
+            Console.WriteLine("\n0--1--2--3--4--5--6");
+            foreach (int nb in tab_ex35)
+            { Console.Write($"{nb}  "); }
+
+
+
+
 
         }
 
@@ -934,8 +950,6 @@ namespace Exercices
             return tab[plusHaut];
         }
 
-        #endregion
-
         /// <summary>
         /// Echange la position de deux nombres dans un tableau
         /// </summary>
@@ -968,6 +982,31 @@ namespace Exercices
             (tabInt[pos1], tabInt[pos2]) = (tabInt[pos2], tabInt[pos1]);
 
         }
+
+        #endregion
+
+        /// <summary>
+        /// Inverse l'ordre des valeurs d'un tableau
+        /// </summary>
+        /// <param name="tabInt">Tableau de nombres</param>
+        public static void Exercice35(int[] tabInt)
+        {
+            int length = tabInt.Length;
+            int[] tempTab = new int[length];
+
+            for (int i = 0; i < length; i++)
+            {
+                tempTab[i] = tabInt[i];
+            }
+
+            for (int i = 0; i < length; i++)
+            {
+                tabInt[length - 1 - i] = tempTab[i];
+            }
+        }
+
+
+
 
 
 
