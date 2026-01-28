@@ -286,8 +286,6 @@ namespace Exercices
             foreach (int nb in tabEx40c)
             { Console.Write($"{nb}  "); }
 
-            #endregion
-
             Espacer(40);
             int[] tabEx40 = Exercice12(10, 1, 10);
             foreach (int nb in tabEx40)
@@ -297,7 +295,12 @@ namespace Exercices
             foreach (int nb in tabEx40resultat)
             { Console.Write($"{nb}  "); }
 
+            #endregion
 
+            Espacer(42);
+            int[] tabEx42 = Exercice42(11);
+            foreach (int nb in tabEx42)
+            { Console.Write($"{nb}  "); }
 
 
 
@@ -1180,8 +1183,6 @@ namespace Exercices
             return tabFusion;
         }
 
-        #endregion
-
         /// <summary>
         /// Calcule la somme des nombres pair et impairs
         /// </summary>
@@ -1204,6 +1205,35 @@ namespace Exercices
             return tabResultat;
         }
 
+        #endregion
+
+        /// <summary>
+        /// Creer un tableau de palindrome numérique
+        /// </summary>
+        /// <param name="longueur">Longueur du tableau</param>
+        /// <returns>Tableau de palindrome numérique</returns>
+        public static int[] Exercice42(int longueur)
+        {
+            if (longueur < 0)
+            {
+                throw new ArgumentException("La longueur doit etre positive");
+            }
+            int[] tabPal = new int[longueur];
+            int gauche = 0;
+            int droite = longueur - 1;
+            int valeur = 0;
+
+            while (gauche <= droite)
+            {
+                tabPal[gauche] = valeur;
+                tabPal[droite] = valeur;
+                gauche++;
+                droite--;
+                valeur++;
+            }
+
+            return tabPal;
+        }
 
 
 
