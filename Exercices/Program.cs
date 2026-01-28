@@ -255,8 +255,6 @@ namespace Exercices
             int nb_ex37 = Exercice37(chars, 'o');
             Console.WriteLine(nb_ex37);
 
-            #endregion
-
             Espacer(38);
             int[] tabEx38 = [1, 2, 3, 4, 5, 4, 7];
             foreach (int nb in tabEx38)
@@ -265,8 +263,16 @@ namespace Exercices
             Console.WriteLine("\n0--1--2--3--4--5--6");
             Console.WriteLine(nbEx38);
 
+            #endregion
 
-
+            Espacer(39);
+            int[] tabEx39a = [1, 3, 3, 4, 5, 4, 7];
+            foreach (int nb in tabEx39a)
+            { Console.Write($"{nb}  "); }
+            int[] tabEx39b = Exercice39(tabEx39a);
+            Console.WriteLine("\n0--1--2--3--4--5--6");
+            foreach (int nb in tabEx39b)
+            { Console.Write($"{nb}  "); }
 
 
         }
@@ -1075,9 +1081,6 @@ namespace Exercices
             return -1;
         }
 
-
-        #endregion
-
         /// <summary>
         /// Retourne l'index de la premiere occurence d'un nombre dans un tableau
         /// </summary>
@@ -1097,6 +1100,40 @@ namespace Exercices
             }
             return -1;
         }
+
+
+        #endregion
+
+        /// <summary>
+        /// Trouve tous les index de tous les doublons et les met dans un tableau
+        /// </summary>
+        /// <param name="tabInt">Tableau d'entier</param>
+        /// <returns>Tableau contenant les premiers index de tous les doublons</returns>
+        public static int[] Exercice39(int[] tabInt)
+        {
+            List<int> dejaVue = new List<int>();
+            List<int> tabIndexDoublons = new List<int>();
+
+            for (int i = 0; i < tabInt.Length; i++)
+            {
+                if (!dejaVue.Contains(tabInt[i]))
+                {
+                    dejaVue.Add(tabInt[i]);
+
+                    // Vérifie s'il y a au moins un doublon
+                    for (int j = i + 1; j < tabInt.Length; j++)
+                    {
+                        if (tabInt[i] == tabInt[j])
+                        {
+                            tabIndexDoublons.Add(i); 
+                            continue;
+                        }
+                    }
+                }
+            }
+            return tabIndexDoublons.ToArray();
+        }
+
 
 
     }
