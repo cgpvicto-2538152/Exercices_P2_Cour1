@@ -241,11 +241,6 @@ namespace Exercices
             foreach (int nb in tab_ex35)
             { Console.Write($"{nb}  "); }
 
-
-
-            #endregion
-
-
             Espacer(36);
             int[] tab_ex36 = [1, 2, 3, 4, 5, 6, 7];
             foreach (int nb in tab_ex36)
@@ -255,7 +250,15 @@ namespace Exercices
             foreach (int nb in tab_ex36)
             { Console.Write($"{nb}  "); }
 
+            #endregion
 
+
+            Espacer(37);
+            char[] chars = { 'S', 'i', 'm', 'o', 'n' };
+            int nb_ex37 = Exercice37(chars, 'o');
+            Console.WriteLine(nb_ex37);
+            
+            
 
 
 
@@ -832,10 +835,6 @@ namespace Exercices
         /// <returns>La moyenne des nombres du tableau</returns>
         public static double Exercice28(int[] tab)
         {
-            if (tab == null || tab.Length == 0)
-            {
-                throw new ArgumentException("Le tableau ne peut pas etre vide");
-            }
             double total = 0;
             foreach (double num in tab)
             {
@@ -1013,8 +1012,6 @@ namespace Exercices
             }
         }
 
-        #endregion
-
         /// <summary>
         /// Inverse les deux moitiés d'un tableau, en gardant le milieu en place si la longueur est impaire
         /// </summary>
@@ -1052,6 +1049,26 @@ namespace Exercices
             {
                 tabInt[milieu + milieuImpair + i] = premParti[i];
             }
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Retourne l'index de la premiere occurence d'un caractere dans un tableau de caractere
+        /// </summary>
+        /// <param name="tabC">Tableau de caractere</param>
+        /// <param name="c">Caractere a trouver</param>
+        /// <returns>Index de la premiere occurence</returns>
+        public static int Exercice37(char[] tabC, char c)
+        {
+            for (int i = 0; i < tabC.Length; i++)
+            {
+                if (tabC[i] == c)
+                {
+                    return i;
+                }
+            }
+            return -1;
         }
 
 
