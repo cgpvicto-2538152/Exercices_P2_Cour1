@@ -250,15 +250,21 @@ namespace Exercices
             foreach (int nb in tab_ex36)
             { Console.Write($"{nb}  "); }
 
-            #endregion
-
-
             Espacer(37);
             char[] chars = { 'S', 'i', 'm', 'o', 'n' };
             int nb_ex37 = Exercice37(chars, 'o');
             Console.WriteLine(nb_ex37);
-            
-            
+
+            #endregion
+
+            Espacer(38);
+            int[] tabEx38 = [1, 2, 3, 4, 5, 4, 7];
+            foreach (int nb in tabEx38)
+            { Console.Write($"{nb}  "); }
+            int nbEx38 = Exercice38(tabEx38);
+            Console.WriteLine("\n0--1--2--3--4--5--6");
+            Console.WriteLine(nbEx38);
+
 
 
 
@@ -1051,8 +1057,6 @@ namespace Exercices
             }
         }
 
-        #endregion
-
         /// <summary>
         /// Retourne l'index de la premiere occurence d'un caractere dans un tableau de caractere
         /// </summary>
@@ -1071,6 +1075,28 @@ namespace Exercices
             return -1;
         }
 
+
+        #endregion
+
+        /// <summary>
+        /// Retourne l'index de la premiere occurence d'un nombre dans un tableau
+        /// </summary>
+        /// <param name="tabInt">Tableau d'entier</param>
+        /// <returns>L'index de la premiere occurence</returns>
+        public static int Exercice38(int[] tabInt)
+        {
+            for (int i = 0; i < tabInt.Length; i++)
+            {
+                for (int j = i + 1; j < tabInt.Length; j++)
+                {
+                    if (tabInt[i] == tabInt[j])
+                    {
+                        return i;
+                    }
+                }
+            }
+            return -1;
+        }
 
 
     }
