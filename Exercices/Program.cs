@@ -1,6 +1,7 @@
 ﻿
 
 using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Exercices
 {
@@ -231,11 +232,6 @@ namespace Exercices
             foreach (int nb in tab_ex34)
             { Console.Write($"{nb}  "); }
 
-
-
-
-            #endregion
-
             Espacer(35);
             int[] tab_ex35 = [1, 2, 3, 4, 5, 6, 7];
             foreach (int nb in tab_ex35)
@@ -244,6 +240,21 @@ namespace Exercices
             Console.WriteLine("\n0--1--2--3--4--5--6");
             foreach (int nb in tab_ex35)
             { Console.Write($"{nb}  "); }
+
+
+
+            #endregion
+
+
+            Espacer(36);
+            int[] tab_ex36 = [1, 2, 3, 4, 5, 6, 7];
+            foreach (int nb in tab_ex36)
+            { Console.Write($"{nb}  "); }
+            Exercice36(tab_ex36);
+            Console.WriteLine("\n0--1--2--3--4--5--6");
+            foreach (int nb in tab_ex36)
+            { Console.Write($"{nb}  "); }
+
 
 
 
@@ -983,31 +994,65 @@ namespace Exercices
 
         }
 
-        #endregion
-
         /// <summary>
         /// Inverse l'ordre des valeurs d'un tableau
         /// </summary>
         /// <param name="tabInt">Tableau de nombres</param>
         public static void Exercice35(int[] tabInt)
         {
-            int length = tabInt.Length;
-            int[] tempTab = new int[length];
+            int[] tempTab = new int[tabInt.Length];
 
-            for (int i = 0; i < length; i++)
+            for (int i = 0; i < tabInt.Length; i++)
             {
                 tempTab[i] = tabInt[i];
             }
 
-            for (int i = 0; i < length; i++)
+            for (int i = 0; i < tabInt.Length; i++)
             {
-                tabInt[length - 1 - i] = tempTab[i];
+                tabInt[tabInt.Length - 1 - i] = tempTab[i];
             }
         }
 
+        #endregion
 
+        /// <summary>
+        /// Inverse les deux moitiés d'un tableau, en gardant le milieu en place si la longueur est impaire
+        /// </summary>
+        /// <param name="tabInt">Tableau d'entiers</param>
+        public static void Exercice36(int[] tabInt)
+        {
+            int longueur = tabInt.Length;
+            int milieu = longueur / 2;
+            int milieuImpair = longueur % 2;
 
+            int[] premParti = new int[milieu];
+            int[] deuxParti = new int[milieu];
 
+            for (int i = 0; i < milieu; i++)
+            {
+                premParti[i] = tabInt[i];
+            }
+
+            for (int i = 0; i < milieu; i++)
+            {
+                deuxParti[i] = tabInt[milieu + milieuImpair + i];
+            }
+
+            for (int i = 0; i < milieu; i++)
+            {
+                tabInt[i] = deuxParti[i];
+            }
+
+            if (milieuImpair == 1)
+            {
+                tabInt[milieu] = tabInt[milieu];
+            }
+
+            for (int i = 0; i < milieu; i++)
+            {
+                tabInt[milieu + milieuImpair + i] = premParti[i];
+            }
+        }
 
 
 
