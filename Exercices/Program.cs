@@ -263,8 +263,6 @@ namespace Exercices
             Console.WriteLine("\n0--1--2--3--4--5--6");
             Console.WriteLine(nbEx38);
 
-            #endregion
-
             Espacer(39);
             int[] tabEx39a = [1, 3, 3, 4, 5, 4, 7];
             foreach (int nb in tabEx39a)
@@ -273,6 +271,26 @@ namespace Exercices
             Console.WriteLine("\n0--1--2--3--4--5--6");
             foreach (int nb in tabEx39b)
             { Console.Write($"{nb}  "); }
+
+            #endregion
+
+            Espacer(40);
+            int[] tabEx40a = [1, 2, 3];
+            int[] tabEx40b = [4, 5, 6];
+            int[] tabEx40c = Exercice40(tabEx40a, tabEx40b);
+            Console.Write($"Tab 1 : ");
+            foreach (int nb in tabEx40a)
+            { Console.Write($"{nb}  "); }
+            Console.Write("\nTab 2 : ");
+            foreach (int nb in tabEx40b)
+            { Console.Write($"{nb}  "); }
+            Console.WriteLine("\nTab fusionner : ");
+            foreach (int nb in tabEx40c)
+            { Console.Write($"{nb}  "); }
+
+
+
+
 
 
         }
@@ -1101,9 +1119,6 @@ namespace Exercices
             return -1;
         }
 
-
-        #endregion
-
         /// <summary>
         /// Trouve tous les index de tous les doublons et les met dans un tableau
         /// </summary>
@@ -1125,13 +1140,38 @@ namespace Exercices
                     {
                         if (tabInt[i] == tabInt[j])
                         {
-                            tabIndexDoublons.Add(i); 
+                            tabIndexDoublons.Add(i);
                             continue;
                         }
                     }
                 }
             }
             return tabIndexDoublons.ToArray();
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Retourne un tableau contenant la fusion des deux tableaux
+        /// </summary>
+        /// <param name="tabInt1">Tableau d'entier 1</param>
+        /// <param name="tabInt2">Tableau d'entier 2</param>
+        /// <returns>Tableau contenant la fusion des deux tableaux</returns>
+        public static int[] Exercice40(int[] tabInt1, int[] tabInt2)
+        {
+            int[] tabFusion = new int[tabInt1.Length + tabInt2.Length];
+            int i = 0;
+            for (int j = 0; j < tabInt1.Length; j++)
+            {
+                tabFusion[i] = tabInt1[j];
+                i++;
+            }
+            for (int j = 0; j < tabInt2.Length; j++)
+            {
+                tabFusion[i] = tabInt2[j];
+                i++;
+            }
+            return tabFusion;
         }
 
 
