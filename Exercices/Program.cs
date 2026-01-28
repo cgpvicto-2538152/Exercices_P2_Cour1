@@ -272,8 +272,6 @@ namespace Exercices
             foreach (int nb in tabEx39b)
             { Console.Write($"{nb}  "); }
 
-            #endregion
-
             Espacer(40);
             int[] tabEx40a = [1, 2, 3];
             int[] tabEx40b = [4, 5, 6];
@@ -288,6 +286,16 @@ namespace Exercices
             foreach (int nb in tabEx40c)
             { Console.Write($"{nb}  "); }
 
+            #endregion
+
+            Espacer(40);
+            int[] tabEx40 = Exercice12(10, 1, 10);
+            foreach (int nb in tabEx40)
+            { Console.Write($"{nb}  "); }
+            int[] tabEx40resultat = Exercice41(tabEx40);
+            Console.WriteLine();
+            foreach (int nb in tabEx40resultat)
+            { Console.Write($"{nb}  "); }
 
 
 
@@ -1149,8 +1157,6 @@ namespace Exercices
             return tabIndexDoublons.ToArray();
         }
 
-        #endregion
-
         /// <summary>
         /// Retourne un tableau contenant la fusion des deux tableaux
         /// </summary>
@@ -1173,6 +1179,33 @@ namespace Exercices
             }
             return tabFusion;
         }
+
+        #endregion
+
+        /// <summary>
+        /// Calcule la somme des nombres pair et impairs
+        /// </summary>
+        /// <param name="tabInt">Tableau d'entier</param>
+        /// <returns>Tableau contenant la somme des nombres pair et impairs</returns>
+        public static int[] Exercice41(int[] tabInt)
+        {
+            int[] tabResultat = new int[2];
+            for (int i = 0; i < tabInt.Length; i++)
+            {
+                if (tabInt[i] % 2 == 0)
+                {
+                    tabResultat[0] += tabInt[i];
+                }
+                else
+                {
+                    tabResultat[1] += tabInt[i];
+                }
+            }
+            return tabResultat;
+        }
+
+
+
 
 
 
