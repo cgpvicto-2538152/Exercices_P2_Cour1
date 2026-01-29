@@ -300,16 +300,25 @@ namespace Exercices
             foreach (int nb in tabEx42)
             { Console.Write($"{nb}  "); }
 
-            #endregion
-
             Espacer(43);
             int[] tabEx43a = [1, 2, 3, 4, 5, 6, 7];
             foreach (int nbEx43 in tabEx43a)
             { Console.Write($"{nbEx43} "); }
-            int[] tabEx43b = Exercice43(tabEx43a, 10);
+            Exercice43(tabEx43a, 10);
             Console.WriteLine();
-            foreach (int nbEx43 in tabEx43b)
+            foreach (int nbEx43 in tabEx43a)
             { Console.Write($"{nbEx43} "); }
+
+            #endregion
+
+            Espacer(44);
+            int[] tabEx44a = [1, 2, 3, 4, 5, 6, 7];
+            foreach (int nbEx44 in tabEx44a)
+            { Console.Write($"{nbEx44} "); }
+            int[] tabEx44b = Exercice44(tabEx44a, 3);
+            Console.WriteLine();
+            foreach (int nbEx44 in tabEx44b)
+            { Console.Write($"{nbEx44} "); }
 
 
 
@@ -1242,14 +1251,12 @@ namespace Exercices
             return tabPal;
         }
 
-        #endregion
-
         /// <summary>
         /// Fait le decalage des elements vers la droite en remplissant de 0
         /// </summary>
         /// <param name="tabInt">Tableau d'entier</param>
         /// <param name="decalage">Nombre d'espace a decaler</param>
-        public static int[] Exercice43(int[] tabInt, int decalage)
+        public static void Exercice43(int[] tabInt, int decalage)
         {
             if (decalage < 0)
             {
@@ -1264,9 +1271,37 @@ namespace Exercices
                     tempTab[i + decalage] = tabInt[i];
                 }
             }
-            return tempTab;
+            tabInt = tempTab;
         }
 
+        #endregion
+
+        /// <summary>
+        /// Retourne un tableau contenant les valeurs du tableau d'entier ayant les valeurs sortie du tableau
+        /// </summary>
+        /// <param name="tabInt">Tableau d'entier</param>
+        /// <param name="decalage">Nombre d'espace a decaler</param>
+        /// <returns>Tableau contenant les valeurs du tableau d'entier ayant les valeurs sortie du tableau</returns>
+        public static int[] Exercice44(int[] tabInt, int decalage)
+        {
+            if (decalage < 0)
+            {
+                throw new ArgumentException("Décalage inférieur à 0");
+            }
+            if (decalage > tabInt.Length)
+            {
+                throw new ArgumentException("Décalage superieur à la longueur du tableau");
+            }
+            int[] tabSortie = new int[decalage];
+            int index = 0;
+            for (int i = tabInt.Length - decalage; i < tabInt.Length; i++)
+            {
+                tabSortie[index] = tabInt[i];
+                index++;
+            }
+            return tabSortie;
+        }
+        
 
 
     }
