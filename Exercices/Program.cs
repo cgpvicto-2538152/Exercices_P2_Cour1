@@ -295,12 +295,21 @@ namespace Exercices
             foreach (int nb in tabEx40resultat)
             { Console.Write($"{nb}  "); }
 
-            #endregion
-
             Espacer(42);
             int[] tabEx42 = Exercice42(11);
             foreach (int nb in tabEx42)
             { Console.Write($"{nb}  "); }
+
+            #endregion
+
+            Espacer(43);
+            int[] tabEx43a = [1, 2, 3, 4, 5, 6, 7];
+            foreach (int nbEx43 in tabEx43a)
+            { Console.Write($"{nbEx43} "); }
+            int[] tabEx43b = Exercice43(tabEx43a, 10);
+            Console.WriteLine();
+            foreach (int nbEx43 in tabEx43b)
+            { Console.Write($"{nbEx43} "); }
 
 
 
@@ -781,7 +790,7 @@ namespace Exercices
         {
             if (longueur < 0)
             {
-                Debug.WriteLine("La longueur est inférieure a 0", "Exercice 24");
+                throw new ArgumentException("La longueur est inférieure a 0");
             }
             int cpt1 = 0;
             while (cpt1 < longueur)
@@ -806,7 +815,7 @@ namespace Exercices
         /// <param name="longueur">La longueur de la plus longue ligne </param>
         public static void Exercice25(int longueur)
         {
-            if (longueur < 0)
+            if (longueur <= 0)
             {
                 Debug.WriteLine("La longueur est inférieure a 0", "Exercice 25");
             }
@@ -1205,8 +1214,6 @@ namespace Exercices
             return tabResultat;
         }
 
-        #endregion
-
         /// <summary>
         /// Creer un tableau de palindrome numérique
         /// </summary>
@@ -1235,7 +1242,30 @@ namespace Exercices
             return tabPal;
         }
 
+        #endregion
 
+        /// <summary>
+        /// Fait le decalage des elements vers la droite en remplissant de 0
+        /// </summary>
+        /// <param name="tabInt">Tableau d'entier</param>
+        /// <param name="decalage">Nombre d'espace a decaler</param>
+        public static int[] Exercice43(int[] tabInt, int decalage)
+        {
+            if (decalage < 0)
+            {
+                throw new ArgumentException("Décalage inférieur à 0");
+            }
+            int[] tempTab = new int[tabInt.Length];
+
+            for (int i = 0; i < tabInt.Length; i++)
+            {
+                if (i + decalage < tabInt.Length)
+                {
+                    tempTab[i + decalage] = tabInt[i];
+                }
+            }
+            return tempTab;
+        }
 
 
 
