@@ -304,12 +304,10 @@ namespace Exercices
             int[] tabEx43a = [1, 2, 3, 4, 5, 6, 7];
             foreach (int nbEx43 in tabEx43a)
             { Console.Write($"{nbEx43} "); }
-            Exercice43(tabEx43a, 10);
+            int[] tabEx43b = Exercice43(tabEx43a, 10);
             Console.WriteLine();
-            foreach (int nbEx43 in tabEx43a)
+            foreach (int nbEx43 in tabEx43b)
             { Console.Write($"{nbEx43} "); }
-
-            #endregion
 
             Espacer(44);
             int[] tabEx44a = [1, 2, 3, 4, 5, 6, 7];
@@ -320,7 +318,16 @@ namespace Exercices
             foreach (int nbEx44 in tabEx44b)
             { Console.Write($"{nbEx44} "); }
 
+            #endregion
 
+            Espacer(45);
+            int[] tabEx45a = { 1, 2, 3, 4, 5, 6, 7 };
+            foreach (int nbEx45 in tabEx45a)
+            { Console.Write($"{nbEx45} "); }
+            Exercice45(tabEx45a, 11);
+            Console.WriteLine();
+            foreach (int nbEx45 in tabEx45a)
+            { Console.Write($"{nbEx45} "); }
 
         }
 
@@ -1256,7 +1263,7 @@ namespace Exercices
         /// </summary>
         /// <param name="tabInt">Tableau d'entier</param>
         /// <param name="decalage">Nombre d'espace a decaler</param>
-        public static void Exercice43(int[] tabInt, int decalage)
+        public static int[] Exercice43(int[] tabInt, int decalage)
         {
             if (decalage < 0)
             {
@@ -1271,10 +1278,8 @@ namespace Exercices
                     tempTab[i + decalage] = tabInt[i];
                 }
             }
-            tabInt = tempTab;
+            return tempTab;
         }
-
-        #endregion
 
         /// <summary>
         /// Retourne un tableau contenant les valeurs du tableau d'entier ayant les valeurs sortie du tableau
@@ -1301,7 +1306,43 @@ namespace Exercices
             }
             return tabSortie;
         }
-        
+
+        #endregion
+
+        /// <summary>
+        /// Fait la rotation des nombres dans un tableau pour une longueur donner.
+        /// </summary>
+        /// <param name="tabInt">Tableau d'entier</param>
+        /// <param name="decalage">Decalage voulu</param>
+        public static void Exercice45(int[] tabInt, int decalage)
+        {
+            if (decalage < 0)
+            {
+                throw new ArgumentException("Décalage inférieur à 0");
+            }
+            int longueur = tabInt.Length;
+            if (longueur == 0)
+            {
+                Debug.WriteLine("Longueur nulle, donc le tableau ne peut etre modifier");
+                return;
+            }
+            decalage %= longueur;
+
+            int[] debutTab = Exercice44(tabInt, decalage);
+            int[] finTab = Exercice43(tabInt, decalage);
+
+            int index = 0;
+
+            for (int i = 0; i < debutTab.Length; i++)
+            {
+                tabInt[index++] = debutTab[i];
+            }
+            for (int i = decalage; i < finTab.Length; i++)
+            {
+                tabInt[index++] = finTab[i];
+            }
+        }
+
 
 
     }
