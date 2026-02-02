@@ -318,8 +318,6 @@ namespace Exercices
             foreach (int nbEx44 in tabEx44b)
             { Console.Write($"{nbEx44} "); }
 
-            #endregion
-
             Espacer(45);
             int[] tabEx45a = { 1, 2, 3, 4, 5, 6, 7 };
             foreach (int nbEx45 in tabEx45a)
@@ -328,6 +326,18 @@ namespace Exercices
             Console.WriteLine();
             foreach (int nbEx45 in tabEx45a)
             { Console.Write($"{nbEx45} "); }
+
+            #endregion
+
+            Espacer(46);
+            int[] tabEx46a = { 0, 1, 2, 1, 2, 2, 3, 4, 5 };
+            int[] tabEx46b = Exercice46(tabEx46a);
+            Console.WriteLine("\n0--1--2--3--4--5--6--7");
+            foreach (int nbEx46 in tabEx46b)
+            { Console.Write($"{nbEx46}  "); }
+
+
+
 
         }
 
@@ -1307,8 +1317,6 @@ namespace Exercices
             return tabSortie;
         }
 
-        #endregion
-
         /// <summary>
         /// Fait la rotation des nombres dans un tableau pour une longueur donner.
         /// </summary>
@@ -1342,6 +1350,45 @@ namespace Exercices
                 tabInt[index++] = finTab[i];
             }
         }
+
+        #endregion
+
+        /// <summary>
+        /// Creer un tableau contenant le nombre d'occurence de chaque valeur
+        /// </summary>
+        /// <param name="tabInt"> Tableau d'entier</param>
+        /// <returns> Tableau contenant le nombre d'occurence de chaque valeur</returns>
+        public static int[] Exercice46(int[] tabInt)
+        {
+            if (tabInt.Length == 0)
+            {
+                Debug.WriteLine("Longueur tableau nulle", "Exercice 46");
+                return new int[0];
+            }
+
+            foreach (int i in tabInt)
+            {
+                if (i < 0)
+                {
+                    throw new ArgumentException("Valeur negative");
+                }
+            }
+
+            if (tabInt.Length > 200)
+            {
+                throw new ArgumentException("Longueur du tableau superieur à 200");
+            }
+            int longueur = tabInt.Max() + 1;
+            int[] retour = new int[longueur];
+
+            for (int i = 0; i < tabInt.Length; i++)
+            {
+                retour[tabInt[i]]++;
+            }
+
+            return retour;
+        }
+
 
 
 
