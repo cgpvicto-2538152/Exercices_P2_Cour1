@@ -327,8 +327,6 @@ namespace Exercices
             foreach (int nbEx45 in tabEx45a)
             { Console.Write($"{nbEx45} "); }
 
-            #endregion
-
             Espacer(46);
             int[] tabEx46a = { 0, 1, 2, 1, 2, 2, 3, 4, 5 };
             int[] tabEx46b = Exercice46(tabEx46a);
@@ -336,8 +334,13 @@ namespace Exercices
             foreach (int nbEx46 in tabEx46b)
             { Console.Write($"{nbEx46}  "); }
 
+            #endregion
 
-
+            Espacer(47);
+            int[] tabEx47a = {1, 2, 1, 2, 2, 3, 4, 5, 4 };
+            int tabEx47b = Exercice47(tabEx47a);
+            Console.WriteLine("\n0--1--2--3--4--5--6--7");
+            Console.WriteLine($"{tabEx47b}");
 
         }
 
@@ -1351,8 +1354,6 @@ namespace Exercices
             }
         }
 
-        #endregion
-
         /// <summary>
         /// Creer un tableau contenant le nombre d'occurence de chaque valeur
         /// </summary>
@@ -1379,15 +1380,41 @@ namespace Exercices
                 throw new ArgumentException("Longueur du tableau superieur à 200");
             }
             int longueur = tabInt.Max() + 1;
-            int[] retour = new int[longueur];
+            int[] tabCompte = new int[longueur];
 
             for (int i = 0; i < tabInt.Length; i++)
             {
-                retour[tabInt[i]]++;
+                tabCompte[tabInt[i]]++;
             }
 
-            return retour;
+            return tabCompte;
         }
+
+        #endregion
+
+        /// <summary>
+        /// Retourne l'index de l'index du premier élement unique dans un tableau.
+        /// </summary>
+        /// <param name="tabInt">Tableau d'entier</param>
+        /// <returns>
+        ///     L'index de l'index du premier élement unique <br />
+        ///     -1 si aucun index n'est unique
+        /// </returns>
+        public static int Exercice47(int[] tabInt)
+        {
+            int[] tabCompte = Exercice46(tabInt);
+            for (int i = 0; i < tabInt.Length; i++)
+            {
+                if (tabCompte[tabInt[i]] == 1)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+
+
 
 
 
