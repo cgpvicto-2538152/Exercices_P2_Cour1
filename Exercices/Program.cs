@@ -358,15 +358,15 @@ namespace Exercices
             foreach (int nbEx50 in tabEx50)
             { Console.Write($"{nbEx50}  "); }
 
-            #endregion
-
             Espacer(51);
             int[] tabEx51 = Exercice12(12, 1, 13);
             Exercice51(tabEx51);
             foreach (int nbEx51 in tabEx51)
             { Console.Write($"{nbEx51}  "); }
 
+            #endregion
 
+            
 
 
         }
@@ -1523,11 +1523,6 @@ namespace Exercices
             }
         }
 
-
-
-        #endregion
-
-
         /// <summary>
         /// Tri par selection d'un tableau d'entier
         /// </summary>
@@ -1538,7 +1533,7 @@ namespace Exercices
             {
                 throw new ArgumentException("Tableau vide");
             }
-            
+
             for (int i = 0; i < tab.Length - 1; i++)
             {
                 int minIndex = i;
@@ -1558,6 +1553,10 @@ namespace Exercices
                 (tab[i], tab[minIndex]) = (tab[minIndex], tab[i]);
             }
         }
+
+        #endregion
+
+        
 
 
 
