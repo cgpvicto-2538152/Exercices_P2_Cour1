@@ -335,17 +335,26 @@ namespace Exercices
             { Console.Write($"{nbEx46}  "); }
 
             Espacer(47);
-            int[] tabEx47a = {1, 2, 1, 2, 2, 3, 4, 5, 4 };
+            int[] tabEx47a = { 1, 2, 1, 2, 2, 3, 4, 5, 4 };
             int tabEx47b = Exercice47(tabEx47a);
             Console.WriteLine("\n0--1--2--3--4--5--6--7");
             Console.WriteLine($"{tabEx47b}");
-
-            #endregion
 
             Espacer(48);
             int[] tabEx48 = Exercice48(10);
             foreach (int nbEx48 in tabEx48)
             { Console.Write($"{nbEx48}  "); }
+
+            #endregion
+
+            Espacer(49);
+            int[] tab1 = { 1, 3, 5 };
+            int[] tab2 = { 2, 4, 6 };
+            int[] sortie = Exercice49(tab1, tab2);
+            foreach (int num in sortie)
+            { Console.Write($"{num}  "); }
+
+
 
         }
 
@@ -1416,10 +1425,6 @@ namespace Exercices
             return -1;
         }
 
-
-
-        #endregion
-
         /// <summary>
         /// Fait une suite de fibonacci d'une longueur donner
         /// </summary>
@@ -1427,6 +1432,10 @@ namespace Exercices
         /// <returns>Tableau contenant la suite</returns>
         public static int[] Exercice48(int longueur)
         {
+            if (longueur < 0)
+            {
+                throw new ArgumentException("Longueur trop petite");
+            }
             int[] suite = new int[longueur];
             suite[0] = 0;
             suite[1] = 1;
@@ -1438,6 +1447,43 @@ namespace Exercices
 
             return suite;
         }
+
+
+        #endregion
+
+        /// <summary>
+        /// Fusionne deux tableaux en les triant (doint etre separement trier avant)
+        /// </summary>
+        /// <param name="tab1">Tableau 1</param>
+        /// <param name="tab2">Tableau 2</param>
+        /// <returns>Tableau contenant la fusion</returns>
+        public static int[] Exercice49(int[] tab1, int[] tab2)
+        {
+            int[] tabSortie = new int[tab1.Length + tab2.Length];
+
+            int cpt1 = 0;
+            int cpt2 = 0;
+
+            for (int i = 0; i < tabSortie.Length; i++)
+            {
+                if (cpt1 < tab1.Length && (cpt2 >= tab2.Length || tab1[cpt1] < tab2[cpt2]))
+                {
+                    tabSortie[i] = tab1[cpt1];
+                    cpt1++;
+                    Debug.WriteLine($"cpt1 = {cpt1}", "Exercice 49");
+                }
+                else
+                {
+                    tabSortie[i] = tab2[cpt2];
+                    cpt2++;
+                    Debug.WriteLine($"cpt2 = {cpt2}", "Exercice 49");
+                }
+                Debug.WriteLine($"i = {i}", "Exercice 49");
+            }
+
+            return tabSortie;
+        }
+
 
 
 
