@@ -364,14 +364,20 @@ namespace Exercices
             foreach (int nbEx51 in tabEx51)
             { Console.Write($"{nbEx51}  "); }
 
-            #endregion
-
             Espacer(52);
             int[] tabEx52 = Exercice12(12, 1, 13);
             Exercice52(tabEx52);
             foreach (int nbEx52 in tabEx52)
             { Console.Write($"{nbEx52}  "); }
 
+            #endregion
+
+            Espacer(53);
+            Personne[] personnes = Exercice31(13,1,14, lstPrenom, lstNom);
+            Exercice53(personnes);
+            foreach (Personne personne in personnes)
+            { Console.WriteLine(personne); }
+            
 
         }
 
@@ -1558,9 +1564,6 @@ namespace Exercices
             }
         }
 
-        #endregion
-
-
         /// <summary>
         /// Tri par insertion d'un tableau d'entier
         /// </summary>
@@ -1586,6 +1589,42 @@ namespace Exercices
                 tab[j + 1] = valeurAPlacer;
             }
         }
+
+
+        #endregion
+
+        /// <summary>
+        /// Tri par selection d'un tableau de personnes selone l'âge
+        /// </summary>
+        /// <param name="tabPersonnes">Tableau de personnes</param>
+        public static void Exercice53(Personne[] tabPersonnes)
+        {
+            if (tabPersonnes == null || tabPersonnes.Length == 0)
+            {
+                throw new ArgumentException("Tableau vide");
+            }
+
+            for (int i = 0; i < tabPersonnes.Length - 1; i++)
+            {
+                int minIndex = i;
+
+                for (int j = i + 1; j < tabPersonnes.Length; j++)
+                {
+                    if (tabPersonnes[j].Age < tabPersonnes[minIndex].Age)
+                    {
+                        minIndex = j;
+                    }
+                }
+
+                // int temp = tab[i];
+                // tab[i] = tab[minIndex];
+                // tab[minIndex] = temp;
+                // Utiliser le tuple pour échanger des valeurs (IDE0180)
+                (tabPersonnes[i], tabPersonnes[minIndex]) = (tabPersonnes[minIndex], tabPersonnes[i]);
+            }
+
+        }
+
 
 
     }
