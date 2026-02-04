@@ -366,7 +366,11 @@ namespace Exercices
 
             #endregion
 
-            
+            Espacer(52);
+            int[] tabEx52 = Exercice12(12, 1, 13);
+            Exercice52(tabEx52);
+            foreach (int nbEx52 in tabEx52)
+            { Console.Write($"{nbEx52}  "); }
 
 
         }
@@ -1556,9 +1560,32 @@ namespace Exercices
 
         #endregion
 
-        
 
+        /// <summary>
+        /// Tri par insertion d'un tableau d'entier
+        /// </summary>
+        /// <param name="tab">Tableau d'entier</param>
+        public static void Exercice52(int[] tab)
+        {
+            if (tab == null || tab.Length == 0)
+            {
+                throw new ArgumentException("Tableau vide");
+            }
 
+            for (int i = 1; i < tab.Length; i++)
+            {
+                int valeurAPlacer = tab[i];
+                int j = i - 1;
+
+                while (j >= 0 && tab[j] > valeurAPlacer)
+                {
+                    tab[j + 1] = tab[j];
+                    j--;
+                }
+
+                tab[j + 1] = valeurAPlacer;
+            }
+        }
 
 
     }
