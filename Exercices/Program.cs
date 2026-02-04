@@ -345,8 +345,6 @@ namespace Exercices
             foreach (int nbEx48 in tabEx48)
             { Console.Write($"{nbEx48}  "); }
 
-            #endregion
-
             Espacer(49);
             int[] tab1 = { 1, 3, 5 };
             int[] tab2 = { 2, 4, 6 };
@@ -354,7 +352,13 @@ namespace Exercices
             foreach (int num in sortie)
             { Console.Write($"{num}  "); }
 
+            #endregion
 
+            Espacer(50);
+            int[] ints = Exercice12(12, 1, 13);
+            Exercice50(ints);
+            foreach (int num in ints)
+            { Console.Write($"{num}  "); }
 
         }
 
@@ -1448,9 +1452,6 @@ namespace Exercices
             return suite;
         }
 
-
-        #endregion
-
         /// <summary>
         /// Fusionne deux tableaux en les triant (doint etre separement trier avant)
         /// </summary>
@@ -1484,7 +1485,37 @@ namespace Exercices
             return tabSortie;
         }
 
+        #endregion
 
+
+        /// <summary>
+        /// Tir à bulles d'un tableau d'entier
+        /// </summary>
+        /// <param name="tab">Tableau d'entier</param>
+        public static void Exercice50(int[] tab)
+        {
+            if (tab == null || tab.Length == 0)
+            {
+                throw new ArgumentException("Tableau vide");
+            }
+
+            int n = tab.Length;
+
+            for (int i = 0; i < n - 1; i++)
+            {
+                for (int j = 0; j < n - 1 - i; j++)
+                {
+                    if (tab[j] > tab[j + 1])
+                    {
+                        // int temp = tab[j];
+                        // tab[j] = tab[j + 1];
+                        // tab[j + 1] = temp;
+                        // Utiliser le tuple pour échanger des valeurs (IDE0180)
+                        (tab[j], tab[j + 1]) = (tab[j + 1], tab[j]);
+                    }
+                }
+            }
+        }
 
 
 
