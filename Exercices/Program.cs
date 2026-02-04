@@ -334,13 +334,18 @@ namespace Exercices
             foreach (int nbEx46 in tabEx46b)
             { Console.Write($"{nbEx46}  "); }
 
-            #endregion
-
             Espacer(47);
             int[] tabEx47a = {1, 2, 1, 2, 2, 3, 4, 5, 4 };
             int tabEx47b = Exercice47(tabEx47a);
             Console.WriteLine("\n0--1--2--3--4--5--6--7");
             Console.WriteLine($"{tabEx47b}");
+
+            #endregion
+
+            Espacer(48);
+            int[] tabEx48 = Exercice48(10);
+            foreach (int nbEx48 in tabEx48)
+            { Console.Write($"{nbEx48}  "); }
 
         }
 
@@ -1390,8 +1395,6 @@ namespace Exercices
             return tabCompte;
         }
 
-        #endregion
-
         /// <summary>
         /// Retourne l'index de l'index du premier élement unique dans un tableau.
         /// </summary>
@@ -1414,6 +1417,27 @@ namespace Exercices
         }
 
 
+
+        #endregion
+
+        /// <summary>
+        /// Fait une suite de fibonacci d'une longueur donner
+        /// </summary>
+        /// <param name="longueur">Longueur de la suite</param>
+        /// <returns>Tableau contenant la suite</returns>
+        public static int[] Exercice48(int longueur)
+        {
+            int[] suite = new int[longueur];
+            suite[0] = 0;
+            suite[1] = 1;
+
+            for (int i = 2; i < longueur; i++)
+            {
+                suite[i] = suite[i - 2] + suite[i - 1];
+            }
+
+            return suite;
+        }
 
 
 
