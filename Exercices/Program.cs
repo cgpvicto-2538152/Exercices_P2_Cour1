@@ -346,19 +346,28 @@ namespace Exercices
             { Console.Write($"{nbEx48}  "); }
 
             Espacer(49);
-            int[] tab1 = { 1, 3, 5 };
-            int[] tab2 = { 2, 4, 6 };
-            int[] sortie = Exercice49(tab1, tab2);
-            foreach (int num in sortie)
-            { Console.Write($"{num}  "); }
+            int[] tabEx49a = { 1, 3, 5 };
+            int[] tabEx49b = { 2, 4, 6 };
+            int[] tabEx49c = Exercice49(tabEx49a, tabEx49b);
+            foreach (int nbEx49 in tabEx49c)
+            { Console.Write($"{nbEx49}  "); }
+
+            Espacer(50);
+            int[] tabEx50 = Exercice12(12, 1, 13);
+            Exercice50(tabEx50);
+            foreach (int nbEx50 in tabEx50)
+            { Console.Write($"{nbEx50}  "); }
 
             #endregion
 
-            Espacer(50);
-            int[] ints = Exercice12(12, 1, 13);
-            Exercice50(ints);
-            foreach (int num in ints)
-            { Console.Write($"{num}  "); }
+            Espacer(51);
+            int[] tabEx51 = Exercice12(12, 1, 13);
+            Exercice51(tabEx51);
+            foreach (int nbEx51 in tabEx51)
+            { Console.Write($"{nbEx51}  "); }
+
+
+
 
         }
 
@@ -1485,11 +1494,8 @@ namespace Exercices
             return tabSortie;
         }
 
-        #endregion
-
-
         /// <summary>
-        /// Tir à bulles d'un tableau d'entier
+        /// Tri à bulles d'un tableau d'entier
         /// </summary>
         /// <param name="tab">Tableau d'entier</param>
         public static void Exercice50(int[] tab)
@@ -1514,6 +1520,42 @@ namespace Exercices
                         (tab[j], tab[j + 1]) = (tab[j + 1], tab[j]);
                     }
                 }
+            }
+        }
+
+
+
+        #endregion
+
+
+        /// <summary>
+        /// Tri par selection d'un tableau d'entier
+        /// </summary>
+        /// <param name="tab">Tableau d'entier</param>
+        public static void Exercice51(int[] tab)
+        {
+            if (tab == null || tab.Length == 0)
+            {
+                throw new ArgumentException("Tableau vide");
+            }
+            
+            for (int i = 0; i < tab.Length - 1; i++)
+            {
+                int minIndex = i;
+
+                for (int j = i + 1; j < tab.Length; j++)
+                {
+                    if (tab[j] < tab[minIndex])
+                    {
+                        minIndex = j;
+                    }
+                }
+
+                // int temp = tab[i];
+                // tab[i] = tab[minIndex];
+                // tab[minIndex] = temp;
+                // Utiliser le tuple pour échanger des valeurs (IDE0180)
+                (tab[i], tab[minIndex]) = (tab[minIndex], tab[i]);
             }
         }
 
