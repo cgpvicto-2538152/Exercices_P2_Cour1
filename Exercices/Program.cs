@@ -370,14 +370,20 @@ namespace Exercices
             foreach (int nbEx52 in tabEx52)
             { Console.Write($"{nbEx52}  "); }
 
-            #endregion
-
             Espacer(53);
             Personne[] personnes = Exercice31(13,1,14, lstPrenom, lstNom);
             Exercice53(personnes);
             foreach (Personne personne in personnes)
             { Console.WriteLine(personne); }
-            
+
+            #endregion
+
+            Espacer(54);
+            Personne persEx54a = Exercice31(13, 1, 14, lstPrenom, lstNom)[1]; // pour du random
+            Personne persEx54b = Exercice31(13, 1, 14, lstPrenom, lstNom)[5]; // pour du random
+            int resEx54 = Exercice54(persEx54a, persEx54b);
+            Console.WriteLine($"{persEx54a}\n{persEx54b}");
+            Console.WriteLine(resEx54);
 
         }
 
@@ -1590,9 +1596,6 @@ namespace Exercices
             }
         }
 
-
-        #endregion
-
         /// <summary>
         /// Tri par selection d'un tableau de personnes selone l'âge
         /// </summary>
@@ -1623,6 +1626,34 @@ namespace Exercices
                 (tabPersonnes[i], tabPersonnes[minIndex]) = (tabPersonnes[minIndex], tabPersonnes[i]);
             }
 
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Comparaison de deux personnes selon leur age
+        /// </summary>
+        /// <param name="pers1">Personne 1</param>
+        /// <param name="pers2">Personne 2</param>
+        /// <returns>
+        /// -1 si l'age de la première personne est inférieure à celui de la deuxième personne. <br/>
+        /// 0 si l'age de la première personne est égale à celui de la deuxième personne. <br/>
+        /// 1 si l'age de la première personne est supérieure à celui de la deuxième personne.
+        /// </returns>
+        public static int Exercice54(Personne pers1, Personne pers2)
+        {
+            if (pers1.Age == pers2.Age)
+            {
+                return 0;
+            }
+            else if (pers1.Age > pers2.Age)
+            {
+                return 1;
+            }
+            else
+            {
+                return -1;
+            }
         }
 
 
