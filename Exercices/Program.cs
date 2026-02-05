@@ -132,7 +132,6 @@ namespace Exercices
             for (int i_ex11 = 0; i_ex11 < tab_ex11.Length; i_ex11++)
             { Console.Write($"{tab_ex11[i_ex11]}  "); }
 
-
             Espacer(12);
             int[] tab_ex12 = Exercice12(-1, -5, 2);
             for (int i_ex12 = 0; i_ex12 < tab_ex12.Length; i_ex12++)
@@ -371,12 +370,10 @@ namespace Exercices
             { Console.Write($"{nbEx52}  "); }
 
             Espacer(53);
-            Personne[] personnes = Exercice31(13,1,14, lstPrenom, lstNom);
+            Personne[] personnes = Exercice31(13, 1, 14, lstPrenom, lstNom);
             Exercice53(personnes);
             foreach (Personne personne in personnes)
             { Console.WriteLine(personne); }
-
-            #endregion
 
             Espacer(54);
             Personne persEx54a = Exercice31(13, 1, 14, lstPrenom, lstNom)[1]; // pour du random
@@ -384,6 +381,8 @@ namespace Exercices
             int resEx54 = Exercice54(persEx54a, persEx54b);
             Console.WriteLine($"{persEx54a}\n{persEx54b}");
             Console.WriteLine(resEx54);
+
+            #endregion
 
         }
 
@@ -442,15 +441,18 @@ namespace Exercices
             {
                 return nb;
             }
-            throw new Exception("Ce n'est pas un nombre");
+            else
+            {
+                throw new Exception("Ce n'est pas un nombre");
+            }
         }
 
         /// <summary>
         /// Demande a l'utilisateur d'entrer un nombre et le valide selon des conditions.
         /// </summary>
         /// <returns>
-        ///     -1 si ce n'est pas un nombre, si il est vide, si il est inférieure a 0 <br/>
-        ///     Le nombre si il est valide et supérieure a 0.
+        /// -1 si ce n'est pas un nombre, si il est vide, si il est inférieure a 0 <br/>
+        /// Le nombre si il est valide et supérieure a 0.
         /// </returns>
         public static int Exercice5()
         {
@@ -461,7 +463,7 @@ namespace Exercices
             }
             else
             {
-                Debug.WriteLine("Ce n'est pas un nombre", "Exercice 5");
+                Debug.WriteLine("Ce n'est pas un nombre, vide ou inférieure a 0", "Exercice 5");
                 return -1;
             }
         }
@@ -495,8 +497,8 @@ namespace Exercices
         /// <param name="nb1">Le premier nombre</param>
         /// <param name="nb2">Le deuxième nombre</param>
         /// <returns>
-        ///     O si le nb2 est 0 <br/>
-        ///     Le nombre de en sa valeur absolue (positive)
+        /// O si le nb2 est 0 <br/>
+        /// Le nombre en sa valeur absolue (positive)
         /// </returns>
         public static int Exercice7(int nb1, int nb2)
         {
@@ -648,6 +650,11 @@ namespace Exercices
         /// <returns>Somme des nombres entier</returns>
         public static int Exercice13(int[] tab)
         {
+            if (tab == null || tab.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide");
+            }
+
             int total = 0;
             for (int i = 0; i < tab.Length; i++)
             {
@@ -663,6 +670,10 @@ namespace Exercices
         /// <returns>Somme des nombres entier</returns>
         public static int Exercice14(int[] tab)
         {
+            if (tab == null || tab.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide");
+            }
             int total = 0;
             foreach (int num in tab)
             {
@@ -678,6 +689,10 @@ namespace Exercices
         /// <returns>Somme des nombres entier</returns>
         public static int Exercice15(int[] tab)
         {
+            if (tab == null || tab.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide");
+            }
             int total = 0;
             int index = 0;
             while (index < tab.Length)
@@ -699,6 +714,7 @@ namespace Exercices
             {
                 throw new ArgumentException("Le tableau ne peut pas etre vide");
             }
+
             int total = 0;
             int index = 0;
 
@@ -770,7 +786,7 @@ namespace Exercices
         {
             if (largeur < 1 || hauteur < 1)
             {
-                Debug.WriteLine("Impossible d'afficher parce que dimension trop petite ( < 1 )", "Exercice 20");
+                Debug.WriteLine("Impossible d'afficher parce que largeur ou hauteur trop petite ( < 1 )", "Exercice 20");
                 return;
             }
             for (int i = hauteur; i > 0; i--)
@@ -793,7 +809,7 @@ namespace Exercices
         {
             if (largeur < 1 || hauteur < 0)
             {
-                Debug.WriteLine("Impossible d'afficher parce que dimension trop petite ( < 1 )", "Exercice 21");
+                Debug.WriteLine("Impossible d'afficher parce que largeur ou hauteur trop petite ( < 1 )", "Exercice 21");
                 return;
             }
             for (int i = hauteur; i > 0; i--)
@@ -811,16 +827,16 @@ namespace Exercices
         /// </summary>
         /// <param name="largeur">Largeur de la forme voulu</param>
         /// <param name="hauteur">Hauteur de la forme voulu</param>
-        /// <param name="nbs">Nombre de fois que la forme sera afficher</param>
+        /// <param name="nbsFois">Nombre de fois que la forme sera afficher</param>
         /// <param name="charac">Caractère à afficher pour composer la forme</param>
-        public static void Exercice22(int largeur, int hauteur, int nbs, char charac)
+        public static void Exercice22(int largeur, int hauteur, int nbsFois, char charac)
         {
-            if (largeur < 1 || hauteur < 1 || nbs < 1)
+            if (largeur < 1 || hauteur < 1 || nbsFois < 1)
             {
-                Debug.WriteLine("Impossible d'afficher parce que dimension trop petite ( < 1 )", "Exercice 22");
+                Debug.WriteLine("Impossible d'afficher parce que largeur, hauteur ou nbsFois trop petite ( < 1 )", "Exercice 22");
                 return;
             }
-            for (int c = 0; c < nbs; c++)
+            for (int c = 0; c < nbsFois; c++)
             {
                 for (int i = hauteur; i > 0; i--)
                 {
@@ -842,7 +858,7 @@ namespace Exercices
         {
             if (longueur < 0)
             {
-                Debug.WriteLine("La longueur est inférieure a 0", "Exercice 23");
+                throw new ArgumentException("La longueur est inférieure a 0");
             }
             for (int i = longueur; i >= 0; i--)
             {
@@ -889,7 +905,7 @@ namespace Exercices
         {
             if (longueur <= 0)
             {
-                Debug.WriteLine("La longueur est inférieure a 0", "Exercice 25");
+                throw new ArgumentException("La longueur est inférieure ou égale à 0");
             }
             int cpt1 = 0;
             do
@@ -913,7 +929,7 @@ namespace Exercices
         {
             if (longueur < 0)
             {
-                Debug.WriteLine("La longueur est inférieure a 0", "Exercice 26");
+                throw new ArgumentException("La longueur est inférieure a 0");
             }
             Exercice24(longueur);
             Console.CursorTop -= 1;
@@ -929,7 +945,7 @@ namespace Exercices
         {
             if (longueur < 0)
             {
-                Debug.WriteLine("La longueur est inférieure a 0", "Exercice 27");
+                throw new ArgumentException("La longueur est inférieure a 0");
             }
             string str = "";
             for (int i = longueur; i > 0; i--)
@@ -957,8 +973,12 @@ namespace Exercices
         /// <returns>La moyenne des nombres du tableau</returns>
         public static double Exercice28(int[] tab)
         {
+            if (tab == null || tab.Length == 0)
+            {
+                Debug.WriteLine("Le tableau est vide", "Exercice 28");
+            }
             double total = 0;
-            foreach (double num in tab)
+            foreach (double num in tab!)
             {
                 total += num;
             }
@@ -1051,7 +1071,7 @@ namespace Exercices
         {
             if (tab == null || tab.Length == 0)
             {
-                return 0;
+                throw new ArgumentException("Le tableau ne peut pas etre vide");
             }
 
             int[] tabIntPersonnes = new int[tab.Length];
@@ -1071,6 +1091,10 @@ namespace Exercices
         /// <returns>L'instance de la personne</returns>
         public static Personne Exercice33(Personne[] tab)
         {
+            if (tab == null || tab.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide");
+            }
             int plusHaut = 0;
             for (int i = 0; i < tab.Length; i++)
             {
@@ -1121,6 +1145,10 @@ namespace Exercices
         /// <param name="tabInt">Tableau de nombres</param>
         public static void Exercice35(int[] tabInt)
         {
+            if (tabInt == null || tabInt.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide");
+            }
             int[] tempTab = new int[tabInt.Length];
 
             for (int i = 0; i < tabInt.Length; i++)
@@ -1140,6 +1168,10 @@ namespace Exercices
         /// <param name="tabInt">Tableau d'entiers</param>
         public static void Exercice36(int[] tabInt)
         {
+            if (tabInt == null || tabInt.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide");
+            }
             int longueur = tabInt.Length;
             int milieu = longueur / 2;
             int milieuImpair = longueur % 2;
@@ -1181,6 +1213,14 @@ namespace Exercices
         /// <returns>Index de la premiere occurence</returns>
         public static int Exercice37(char[] tabC, char c)
         {
+            if (tabC == null || tabC.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide");
+            }
+            if (c == '\0')
+            {
+                throw new ArgumentException("Le caractere ne peut pas etre vide");
+            }
             for (int i = 0; i < tabC.Length; i++)
             {
                 if (tabC[i] == c)
@@ -1198,6 +1238,10 @@ namespace Exercices
         /// <returns>L'index de la premiere occurence</returns>
         public static int Exercice38(int[] tabInt)
         {
+            if (tabInt == null || tabInt.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide");
+            }
             for (int i = 0; i < tabInt.Length; i++)
             {
                 for (int j = i + 1; j < tabInt.Length; j++)
@@ -1218,6 +1262,10 @@ namespace Exercices
         /// <returns>Tableau contenant les premiers index de tous les doublons</returns>
         public static int[] Exercice39(int[] tabInt)
         {
+            if (tabInt == null || tabInt.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide");
+            }
             List<int> dejaVue = new List<int>();
             List<int> tabIndexDoublons = new List<int>();
 
@@ -1249,6 +1297,14 @@ namespace Exercices
         /// <returns>Tableau contenant la fusion des deux tableaux</returns>
         public static int[] Exercice40(int[] tabInt1, int[] tabInt2)
         {
+            if (tabInt1 == null || tabInt1.Length == 0)
+            {
+                throw new ArgumentException("Le tableau 1 ne peut pas etre vide");
+            }
+            if (tabInt2 == null || tabInt2.Length == 0)
+            {
+                throw new ArgumentException("Le tableau 2 ne peut pas etre vide");
+            }
             int[] tabFusion = new int[tabInt1.Length + tabInt2.Length];
             int i = 0;
             for (int j = 0; j < tabInt1.Length; j++)
@@ -1271,6 +1327,10 @@ namespace Exercices
         /// <returns>Tableau contenant la somme des nombres pair et impairs</returns>
         public static int[] Exercice41(int[] tabInt)
         {
+            if (tabInt == null || tabInt.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide");
+            }
             int[] tabResultat = new int[2];
             for (int i = 0; i < tabInt.Length; i++)
             {
@@ -1380,7 +1440,7 @@ namespace Exercices
                 Debug.WriteLine("Longueur nulle, donc le tableau ne peut etre modifier");
                 return;
             }
-            decalage %= longueur;
+            decalage %= Math.Abs(longueur);
 
             int[] debutTab = Exercice44(tabInt, decalage);
             int[] finTab = Exercice43(tabInt, decalage);
@@ -1410,18 +1470,19 @@ namespace Exercices
                 return new int[0];
             }
 
-            foreach (int i in tabInt)
+            if (tabInt.Length > 200)
             {
-                if (i < 0)
+                throw new ArgumentException("Longueur du tableau superieur à 200");
+            }
+
+            foreach (int num in tabInt)
+            {
+                if (num < 0)
                 {
                     throw new ArgumentException("Valeur negative");
                 }
             }
 
-            if (tabInt.Length > 200)
-            {
-                throw new ArgumentException("Longueur du tableau superieur à 200");
-            }
             int longueur = tabInt.Max() + 1;
             int[] tabCompte = new int[longueur];
 
@@ -1443,6 +1504,11 @@ namespace Exercices
         /// </returns>
         public static int Exercice47(int[] tabInt)
         {
+            if (tabInt.Length == 0)
+            {
+                Debug.WriteLine("Longueur tableau nulle", "Exercice 47");
+                return -1;
+            }
             int[] tabCompte = Exercice46(tabInt);
             for (int i = 0; i < tabInt.Length; i++)
             {
@@ -1485,6 +1551,14 @@ namespace Exercices
         /// <returns>Tableau contenant la fusion</returns>
         public static int[] Exercice49(int[] tab1, int[] tab2)
         {
+            if (tab1 == null || tab1.Length == 0)
+            {
+                throw new ArgumentException("Le tableau 1 ne peut pas etre vide");
+            }
+            if (tab2 == null || tab2.Length == 0)
+            {
+                throw new ArgumentException("Le tableau 2 ne peut pas etre vide");
+            }
             int[] tabSortie = new int[tab1.Length + tab2.Length];
 
             int cpt1 = 0;
