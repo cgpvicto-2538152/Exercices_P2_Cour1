@@ -1,31 +1,13 @@
-
-using System.Security.Cryptography.X509Certificates;
-
 namespace Exercices
 {
-    /// <summary>
-    /// Classe qui définie l'instance d'une personne
-    /// </summary>
+    /// <include file='../Doc.xml' path='Doc/Personne.cs/Class/Personne'/>
     public class Personne
     {
-        /// <summary>
-        /// Nome de la personne
-        /// </summary>
         private string nom = "";
-
-        /// <summary>
-        /// Prénom de la personne
-        /// </summary>
         private string prenom = "";
-
-        /// <summary>
-        /// Age de la personne
-        /// </summary>
         private int age;
 
-        /// <summary>
-        /// Nom de la personne
-        /// </summary>
+        /// <include file='../Doc.xml' path='Doc/Personne.cs/Methodes/Nom'/>
         public string Nom
         {
             get
@@ -36,19 +18,17 @@ namespace Exercices
             {
                 if (value is null)
                 {
-                    throw new ArgumentException("Le nom est null");
+                    throw new ArgumentNullException(nameof(Nom), "Le nom est null");
                 }
                 if (value == "")
                 {
-                    throw new ArgumentException("Le nom est vide");
+                    throw new ArgumentException("Le nom est vide", nameof(Nom));
                 }
                 nom = value;
             }
         }
 
-        /// <summary>
-        /// Prenom de la personne
-        /// </summary>
+        /// <include file='../Doc.xml' path='Doc/Personne.cs/Methodes/Prenom'/>
         public string Prenom
         {
             get
@@ -59,19 +39,17 @@ namespace Exercices
             {
                 if (value is null)
                 {
-                    throw new ArgumentException("Le prenom est null");
+                    throw new ArgumentNullException(nameof(Prenom), "Le prenom est null");
                 }
                 if (value == "")
                 {
-                    throw new ArgumentException("Le prenom est vide");
+                    throw new ArgumentException("Le prenom est vide", nameof(Prenom));
                 }
                 prenom = value;
             }
         }
 
-        /// <summary>
-        /// Age de la personne
-        /// </summary>
+        /// <include file='../Doc.xml' path='Doc/Personne.cs/Methodes/Age'/>
         public int Age
         {
             get
@@ -82,19 +60,14 @@ namespace Exercices
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException("Age inférieure a 0");
+                    throw new ArgumentOutOfRangeException(nameof(Age), "L'age ne peut pas etre inferieur a 0");
                 }
                 age = value;
             }
         }
 
 
-        /// <summary>
-        /// Constructeur de la classe personne
-        /// </summary>
-        /// <param name="nom">Nom de la personne</param>
-        /// <param name="prenom">Prenom de la personne</param>
-        /// <param name="age">Age de la personne</param>
+        /// <include file='../Doc.xml' path='Doc/Personne.cs/Methodes/Constructeur'/>
         public Personne(string nom, string prenom, int age)
         {
             Nom = nom;
@@ -102,19 +75,13 @@ namespace Exercices
             Age = age;
         }
 
-        /// <summary>
-        /// Permet de faire Vieillir la personne de un an.
-        /// </summary>
+        /// <include file='../Doc.xml' path='Doc/Personne.cs/Methodes/Vieillir'/>
         public void Vieillir()
         {
             Age += 1;
         }
 
-        /// <summary>
-        /// Retourne une représentation textuelle de la personne, <br/>
-        /// comprenant le prénom, le nom et l'âge.
-        /// </summary>
-        /// <returns>Une chaîne contenant le prénom, le nom et l'âge de la personne.</returns>
+        /// <include file='../Doc.xml' path='Doc/Personne.cs/Methodes/ToString'/>
         public override string ToString()
         {
             return $"{Prenom} {Nom}, {Age} ans";

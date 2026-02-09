@@ -1,20 +1,11 @@
-﻿
-
-using System.Diagnostics;
-using System.Security.Cryptography.X509Certificates;
+﻿using System.Diagnostics;
 
 namespace Exercices
 {
-
-    /// <summary>
-    /// Classe qui regroupe les méthodes des exercices à faire.
-    /// </summary>
+    /// <include file='../Doc.xml' path='Doc/Exercice.cs/Class/Program'/>
     class Program
     {
-        /// <summary>
-        /// Programme de démarage
-        /// </summary>
-        /// <param name="args">Argument de démarage</param>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Main'/>
         public static void Main(string[] args)
         {
             // Efface toute la consoe et le buffer (le scroll)
@@ -167,7 +158,7 @@ namespace Exercices
             Exercice19(-6);
 
             Espacer(20);
-            Exercice20(-1, 7);
+            Exercice20(3, 7);
 
             Espacer(21);
             Exercice21(4, 4, 'S');
@@ -176,7 +167,7 @@ namespace Exercices
             Exercice22(4, 4, 4, '4');
 
             Espacer(23);
-            Exercice23(-1);
+            Exercice23(3);
 
             Espacer(24);
             Exercice24(4);
@@ -386,11 +377,7 @@ namespace Exercices
 
         }
 
-
-        /// <summary>
-        /// Affiche un espacement entre deux exercices et affiche le numero de l'exercices
-        /// </summary>
-        /// <param name="numExe"></param>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Espacer'/>
         public static void Espacer(int numExe)
         {
             Console.WriteLine("\n- - - - - - - - - - - -");
@@ -400,40 +387,26 @@ namespace Exercices
 
         #region Fait
 
-        /// <summary>
-        /// Affiche un message à la console.
-        /// </summary>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice1'/>]
         public static void Exercice1()
         {
             Console.WriteLine("Allô p2");
         }
 
-        /// <summary>
-        /// Affiche deux nombre entier à la console.
-        /// </summary>
-        /// <param name="nb1">Premier nombre entier</param>
-        /// <param name="nb2">Deuxième nombre entier</param>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice2'/>
         public static void Exercice2(int nb1, int nb2)
         {
             Console.WriteLine($"Premier entier : {nb1}");
             Console.WriteLine($"Deuxième entier : {nb2}");
         }
 
-        /// <summary>
-        /// Additione deux nombres entiers ensemble et retourne le résultat.
-        /// </summary>
-        /// <param name="nb1">Premier nombre entier</param>
-        /// <param name="nb2">Deuxième nombre entier</param>
-        /// <returns>Nombre entier résulatant de l'addition des deux nombres.</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice3'/>
         public static int Exercice3(int nb1, int nb2)
         {
             return nb1 + nb2;
         }
 
-        /// <summary>
-        /// Demande un nombre a l'utilisateur et le retourne en double.
-        /// </summary>
-        /// <returns>Le nombre rentrer par l'utilisateur</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice4'/>
         public static double Exercice4()
         {
             Console.Write("Entrer un nombre : ");
@@ -443,63 +416,65 @@ namespace Exercices
             }
             else
             {
-                throw new Exception("Ce n'est pas un nombre");
+                throw new FormatException("Ce n'est pas un nombre");
             }
         }
 
-        /// <summary>
-        /// Demande a l'utilisateur d'entrer un nombre et le valide selon des conditions.
-        /// </summary>
-        /// <returns>
-        /// -1 si ce n'est pas un nombre, si il est vide, si il est inférieure a 0 <br/>
-        /// Le nombre si il est valide et supérieure a 0.
-        /// </returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice5'/>
         public static int Exercice5()
         {
             Console.Write("Entrer un nombre : ");
-            if (int.TryParse(Console.ReadLine(), out int nb) && nb > 0)
+            string entrer = Console.ReadLine()!;
+            if (entrer == null)
             {
-                return nb;
+                Debug.WriteLine("Entrée vide", "Exercice 5");
+                return -1;
+            }
+            if (int.TryParse(entrer, out int nb))
+            {
+                if (nb <= 0)
+                {
+                    Debug.WriteLine("Nombre inférieure a 0", "Exercice 5");
+                    return -1;
+                }
+                else
+                { return nb; }
             }
             else
             {
-                Debug.WriteLine("Ce n'est pas un nombre, vide ou inférieure a 0", "Exercice 5");
+                Debug.WriteLine("L'entrée n'est pas un nombre", "Exercice 5");
                 return -1;
             }
         }
 
-        /// <summary>
-        /// Demande un nombre a l'utilisateur tant qu'il n'est pas suprérieur a 10.
-        /// </summary>
-        /// <returns>Le nombre quand il sera supérieur a 10</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice6'/>
         public static int Exercice6()
         {
             bool valide = false;
-            int nb = -1;
+            int nb = 0;
             while (!valide)
             {
                 Console.Write("Entrer un nombre supérieur a 10 : ");
-                if (int.TryParse(Console.ReadLine(), out nb) && nb > 10)
+                if (int.TryParse(Console.ReadLine(), out nb))
                 {
-                    valide = true;
+                    if (nb > 10)
+                    {
+                        valide = true;
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Nombre inférieure a 10", "Exercice 6");
+                    }
                 }
                 else
                 {
-                    Debug.WriteLine("Ce n'est pas un nombre ou inférieure a 10", "Exercice 6");
+                    Debug.WriteLine("L'entrée n'est pas un nombre", "Exercice 6");
                 }
             }
             return nb;
         }
 
-        /// <summary>
-        /// Effectue la division de deux nombres et le modifie selon des contraintes
-        /// </summary>
-        /// <param name="nb1">Le premier nombre</param>
-        /// <param name="nb2">Le deuxième nombre</param>
-        /// <returns>
-        /// O si le nb2 est 0 <br/>
-        /// Le nombre en sa valeur absolue (positive)
-        /// </returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice7'/>
         public static int Exercice7(int nb1, int nb2)
         {
             if (nb2 == 0)
@@ -509,37 +484,22 @@ namespace Exercices
             }
             else
             {
-                int res = nb1 / nb2;
-                return Math.Abs(res);
+                return nb1 / nb2;
             }
         }
 
-        /// <summary>
-        /// Créer un tableau de la longueur rentrer en paramètre.
-        /// </summary>
-        /// <param name="longueur">La longueur voulu pour le tableau</param>
-        /// <returns>L'instance du nouveau tableau</returns>
-        public static int[] Exercice8(int longueur)
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice8'/>
+        public static int[] Exercice8(uint longueur)
         {
-            if (longueur < 0)
-            {
-                throw new ArgumentException("La longueur doit etre positive");
-            }
             return new int[longueur];
         }
 
-        /// <summary>
-        /// Initialise un tableau d'une longueur donnée et le remplie aléatoirement avec un minimum et maximum entier donnée.
-        /// </summary>
-        /// <param name="longueur">La longueur du tableau</param>
-        /// <param name="min">L'entier minimum (inclu) </param>
-        /// <param name="max">L'entier maximum (exclu)</param>
-        /// <returns>Retourne un tableau remplie de valeur aléatoire</returns>
-        public static int[] Exercice9(int longueur, int min, int max)
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice9'/>
+        public static int[] Exercice9(uint longueur, int min, int max)
         {
-            if (longueur < 0)
+            if (min > max)
             {
-                throw new ArgumentException("La longueur doit etre positive");
+                throw new ArgumentOutOfRangeException(nameof(min), $"Le minimum {min} doit etre inferieur au maximum {max}");
             }
             Random rnd = new Random();
             int[] tabRnd = new int[longueur];
@@ -550,18 +510,12 @@ namespace Exercices
             return tabRnd;
         }
 
-        /// <summary>
-        /// Initialise un tableau d'une longueur donnée et le remplie aléatoirement avec un minimum et maximum entier donnée.
-        /// </summary>
-        /// <param name="longueur">La longueur du tableau</param>
-        /// <param name="min">L'entier minimum (inclu)</param>
-        /// <param name="max">L'entier maximum (inclu)</param>
-        /// <returns>Retourne un tableau remplie de valeur aléatoire</returns>
-        public static int[] Exercice10(int longueur, int min, int max)
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice10'/>
+        public static int[] Exercice10(uint longueur, int min, int max)
         {
-            if (longueur < 0)
+            if (min > max)
             {
-                throw new ArgumentException("La longueur doit etre positive");
+                throw new ArgumentOutOfRangeException(nameof(min), $"Le minimum {min} doit etre inferieur au maximum {max}");
             }
             Random rnd = new Random();
             int[] tabRnd = new int[longueur];
@@ -572,18 +526,12 @@ namespace Exercices
             return tabRnd;
         }
 
-        /// <summary>
-        /// Initialise un tableau d'une longueur donnée et le remplie aléatoirement avec un minimum et maximum entier donnée.
-        /// </summary>
-        /// <param name="longueur">La longueur du tableau</param>
-        /// <param name="min">L'entier minimum (inclu)</param>
-        /// <param name="max">L'entier maximum (inclu)</param>
-        /// <returns>Retourne un tableau remplie de valeur aléatoire</returns>
-        public static int[] Exercice11(int longueur, int min, int max)
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice11'/>
+        public static int[] Exercice11(uint longueur, int min, int max)
         {
-            if (longueur < 0)
+            if (min > max)
             {
-                throw new ArgumentException("La longueur doit etre positive");
+                Debug.WriteLine($"Le minimum {min} doit etre inferieur au maximum {max}, inversion des valeurs", "Exercice 11");
             }
 
             Random rnd = new Random();
@@ -591,10 +539,6 @@ namespace Exercices
 
             if (min > max)
             {
-                // int temp = min;
-                // min = max;
-                // min = temp;
-                // - - - - - - - -
                 // Utiliser le tuple pour échanger des valeurs (IDE0180)
                 (max, min) = (min, max);
             }
@@ -606,20 +550,19 @@ namespace Exercices
             return tabRnd;
         }
 
-        /// <summary>
-        /// Initialise un tableau d'une longueur donnée et le remplie aléatoirement avec un minimum et maximum entier donnée.
-        /// </summary>
-        /// <param name="longueur">La longueur du tableau</param>
-        /// <param name="min">L'entier minimum (inclu)</param>
-        /// <param name="max">L'entier maximum (inclu)</param>
-        /// <returns>Retourne un tableau remplie de valeur aléatoire</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice12'/>
         public static int[] Exercice12(int longueur, int min, int max)
         {
 
             if (longueur < 0)
             {
-                Debug.WriteLine("La longueur doit etre positive", "Exercice 12");
+                Debug.WriteLine($"La longueur doit etre positive", "Exercice 12");
                 return [];
+            }
+
+            if (min > max)
+            {
+                Debug.WriteLine($"Le minimum {min} doit etre inferieur au maximum {max}, inversion des valeurs", "Exercice 12");
             }
 
             Random rnd = new Random();
@@ -628,10 +571,6 @@ namespace Exercices
 
             if (min > max)
             {
-                // int temp = min;
-                // min = max;
-                // min = temp;
-                // - - - - - - - -
                 // Utiliser le tuple pour échanger des valeurs (IDE0180)
                 (max, min) = (min, max);
             }
@@ -643,16 +582,17 @@ namespace Exercices
             return tabRnd;
         }
 
-        /// <summary>
-        /// Fait la somme de tout les nombres d'un tableau de nombres.
-        /// </summary>
-        /// <param name="tab">Tableau de nombre entiers</param>
-        /// <returns>Somme des nombres entier</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice13'/>
         public static int Exercice13(int[] tab)
         {
-            if (tab == null || tab.Length == 0)
+            if (tab is null)
             {
-                throw new ArgumentException("Le tableau ne peut pas etre vide");
+                throw new ArgumentNullException(nameof(tab), "Le tableau ne peut pas etre null");
+            }
+
+            if (tab.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tab));
             }
 
             int total = 0;
@@ -663,16 +603,16 @@ namespace Exercices
             return total;
         }
 
-        /// <summary>
-        /// Fait la somme de tout les nombres d'un tableau de nombres.
-        /// </summary>
-        /// <param name="tab">Tableau de nombre entiers</param>
-        /// <returns>Somme des nombres entier</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice14'/>
         public static int Exercice14(int[] tab)
         {
-            if (tab == null || tab.Length == 0)
+            if (tab is null)
             {
-                throw new ArgumentException("Le tableau ne peut pas etre vide");
+                throw new ArgumentNullException(nameof(tab), "Le tableau ne peut pas etre null");
+            }
+            if (tab.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tab));
             }
             int total = 0;
             foreach (int num in tab)
@@ -682,16 +622,16 @@ namespace Exercices
             return total;
         }
 
-        /// <summary>
-        /// Fait la somme de tout les nombres d'un tableau de nombres.
-        /// </summary>
-        /// <param name="tab">Tableau de nombre entiers</param>
-        /// <returns>Somme des nombres entier</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice15'/>
         public static int Exercice15(int[] tab)
         {
-            if (tab == null || tab.Length == 0)
+            if (tab is null)
             {
-                throw new ArgumentException("Le tableau ne peut pas etre vide");
+                throw new ArgumentNullException(nameof(tab), "Le tableau ne peut pas etre null");
+            }
+            if (tab.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tab));
             }
             int total = 0;
             int index = 0;
@@ -703,16 +643,16 @@ namespace Exercices
             return total;
         }
 
-        /// <summary>
-        /// Fait la somme de tout les nombres d'un tableau de nombres.
-        /// </summary>
-        /// <param name="tab">Tableau de nombre entiers</param>
-        /// <returns>Somme des nombres entier</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice16'/>
         public static int Exercice16(int[] tab)
         {
-            if (tab == null || tab.Length == 0)
+            if (tab is null)
             {
-                throw new ArgumentException("Le tableau ne peut pas etre vide");
+                throw new ArgumentNullException(nameof(tab), "Le tableau ne peut pas etre null");
+            }
+            if (tab.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tab));
             }
 
             int total = 0;
@@ -727,24 +667,15 @@ namespace Exercices
             return total;
         }
 
-        /// <summary>
-        /// Affiche une forme sur la console
-        /// </summary>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice17'/>
         public static void Exercice17()
         {
             Console.WriteLine("***\n***\n***");
         }
 
-        /// <summary>
-        /// Affiche une forme sur la console avec une largeur donnée
-        /// </summary>
-        /// <param name="largeur">Largeur de la forme voulu</param>
-        public static void Exercice18(int largeur)
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice18'/>
+        public static void Exercice18(uint largeur)
         {
-            if (largeur < 0)
-            {
-                throw new ArgumentException("La largeur doit etre positive");
-            }
             for (int i = 3; i > 0; i--)
             {
                 for (int j = 0; j < largeur; j++)
@@ -755,14 +686,12 @@ namespace Exercices
             }
         }
 
-        /// <summary>
-        /// Affiche une forme sur la console avec une largeur donnée
-        /// </summary>
-        /// <param name="largeur">Largeur de la forme voulu</param>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice19'/>
         public static void Exercice19(int largeur)
         {
             if (largeur < 0)
             {
+                Debug.WriteLine($"La largeur doit etre positive {largeur} , conversion en valeur absolue", "Exercice 19");
                 largeur = Math.Abs(largeur);
             }
             for (int i = 3; i > 0; i--)
@@ -777,17 +706,16 @@ namespace Exercices
             }
         }
 
-        /// <summary>
-        /// Affiche une forme sur la console avec des grandeurs de coté donnée
-        /// </summary>
-        /// <param name="largeur">Largeur de la forme voulu</param>
-        /// <param name="hauteur">Hauteur de la forme voulu</param>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice20'/>
         public static void Exercice20(int largeur, int hauteur)
         {
-            if (largeur < 1 || hauteur < 1)
+            if (largeur < 1)
             {
-                Debug.WriteLine("Impossible d'afficher parce que largeur ou hauteur trop petite ( < 1 )", "Exercice 20");
-                return;
+                throw new ArgumentOutOfRangeException(nameof(largeur), "Impossible d'afficher parce que la largeur trop petite ( < 1 )");
+            }
+            if (hauteur < 1)
+            {
+                throw new ArgumentOutOfRangeException(nameof(hauteur), "Impossible d'afficher parce que la hauteur trop petite ( < 1 )");
             }
             for (int i = hauteur; i > 0; i--)
             {
@@ -799,18 +727,16 @@ namespace Exercices
             }
         }
 
-        /// <summary>
-        /// Affiche une forme sur la console avec des grandeurs de coté donnée
-        /// </summary>
-        /// <param name="largeur">Largeur de la forme voulu</param>
-        /// <param name="hauteur">Hauteur de la forme voulu</param>
-        /// <param name="charac">Caractère à afficher pour composer la forme</param>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice21'/>
         public static void Exercice21(int largeur, int hauteur, char charac)
         {
-            if (largeur < 1 || hauteur < 0)
+            if (largeur < 1)
             {
-                Debug.WriteLine("Impossible d'afficher parce que largeur ou hauteur trop petite ( < 1 )", "Exercice 21");
-                return;
+                throw new ArgumentOutOfRangeException(nameof(largeur), "Impossible d'afficher parce que la largeur trop petite ( < 1 )");
+            }
+            if (hauteur < 1)
+            {
+                throw new ArgumentOutOfRangeException(nameof(hauteur), "Impossible d'afficher parce que la hauteur trop petite ( < 1 )");
             }
             for (int i = hauteur; i > 0; i--)
             {
@@ -822,19 +748,16 @@ namespace Exercices
             }
         }
 
-        /// <summary>
-        /// Affiche une forme sur la console avec des grandeurs de coté donnée
-        /// </summary>
-        /// <param name="largeur">Largeur de la forme voulu</param>
-        /// <param name="hauteur">Hauteur de la forme voulu</param>
-        /// <param name="nbsFois">Nombre de fois que la forme sera afficher</param>
-        /// <param name="charac">Caractère à afficher pour composer la forme</param>
-        public static void Exercice22(int largeur, int hauteur, int nbsFois, char charac)
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice22'/>
+        public static void Exercice22(int largeur, int hauteur, uint nbsFois, char charac)
         {
-            if (largeur < 1 || hauteur < 1 || nbsFois < 1)
+            if (largeur < 1)
             {
-                Debug.WriteLine("Impossible d'afficher parce que largeur, hauteur ou nbsFois trop petite ( < 1 )", "Exercice 22");
-                return;
+                throw new ArgumentOutOfRangeException(nameof(largeur), "Impossible d'afficher parce que la largeur trop petite ( < 1 )");
+            }
+            if (hauteur < 1)
+            {
+                throw new ArgumentOutOfRangeException(nameof(hauteur), "Impossible d'afficher parce que la hauteur trop petite ( < 1 )");
             }
             for (int c = 0; c < nbsFois; c++)
             {
@@ -850,15 +773,12 @@ namespace Exercices
             }
         }
 
-        /// <summary>
-        /// Affiche une forme sur la console
-        /// </summary>
-        /// <param name="longueur">La longueur de la plus longue ligne </param>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice23'/>
         public static void Exercice23(int longueur)
         {
             if (longueur < 0)
             {
-                throw new ArgumentException("La longueur est inférieure a 0");
+                throw new ArgumentOutOfRangeException(nameof(longueur), "Impossible d'afficher parce que la longueur trop petite ( < 0 )");
             }
             for (int i = longueur; i >= 0; i--)
             {
@@ -870,15 +790,12 @@ namespace Exercices
             }
         }
 
-        /// <summary>
-        /// Affiche une forme sur la console
-        /// </summary>
-        /// <param name="longueur">La longueur de la plus longue ligne </param>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice24'/>
         public static void Exercice24(int longueur)
         {
             if (longueur < 0)
             {
-                throw new ArgumentException("La longueur est inférieure a 0");
+                throw new ArgumentOutOfRangeException(nameof(longueur), "Impossible d'afficher parce que la longueur trop petite ( < 0 )");
             }
             int cpt1 = 0;
             while (cpt1 < longueur)
@@ -897,15 +814,12 @@ namespace Exercices
             }
         }
 
-        /// <summary>
-        /// Affiche une forme sur la console
-        /// </summary>
-        /// <param name="longueur">La longueur de la plus longue ligne </param>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice25'/>
         public static void Exercice25(int longueur)
         {
             if (longueur <= 0)
             {
-                throw new ArgumentException("La longueur est inférieure ou égale à 0");
+                throw new ArgumentOutOfRangeException(nameof(longueur), "Impossible d'afficher parce que la longueur trop petite ( <= 0 )");
             }
             int cpt1 = 0;
             do
@@ -921,31 +835,24 @@ namespace Exercices
             } while (cpt1 < longueur);
         }
 
-        /// <summary>
-        /// Affiche une forme sur la console
-        /// </summary>
-        /// <param name="longueur">La longueur de la plus longue ligne </param>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice26'/>
         public static void Exercice26(int longueur)
         {
             if (longueur < 0)
             {
-                throw new ArgumentException("La longueur est inférieure a 0");
+                throw new ArgumentOutOfRangeException(nameof(longueur), "Impossible d'afficher parce que la longueur trop petite ( < 0 )");
             }
             Exercice24(longueur);
             Console.CursorTop -= 1;
             Exercice23(longueur);
         }
 
-        /// <summary>
-        /// Créer un string qui represente une forme de longueur donnée.
-        /// </summary>
-        /// <param name="longueur">La longueur de la plus longue ligne </param>
-        /// <returns>String qui contient la forme.</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice27'/>
         public static string Exercice27(int longueur)
         {
             if (longueur < 0)
             {
-                throw new ArgumentException("La longueur est inférieure a 0");
+                throw new ArgumentOutOfRangeException(nameof(longueur), "Impossible d'afficher parce que la longueur trop petite ( < 0 )");
             }
             string str = "";
             for (int i = longueur; i > 0; i--)
@@ -966,16 +873,18 @@ namespace Exercices
             return str;
         }
 
-        /// <summary>
-        /// Calcule la moyenne d'un tableau de nombres.
-        /// </summary>
-        /// <param name="tab">Tableau de nombres à calculer la moyenne</param>
-        /// <returns>La moyenne des nombres du tableau</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice28'/>
         public static double Exercice28(int[] tab)
         {
-            if (tab == null || tab.Length == 0)
+            if (tab is null)
+            {
+                Debug.WriteLine("Le tableau est null", "Exercice 28");
+                return 0;
+            }
+            if (tab!.Length == 0)
             {
                 Debug.WriteLine("Le tableau est vide", "Exercice 28");
+                return 0;
             }
             double total = 0;
             foreach (double num in tab!)
@@ -985,16 +894,16 @@ namespace Exercices
             return total / tab.Length;
         }
 
-        /// <summary>
-        /// Calcule la moyenne des écarts de moyenne d'un tablaeau de nombres.
-        /// </summary>
-        /// <param name="tab">Tableau de nombres à calculer la moyenne</param>
-        /// <returns>La moyenne des écarts</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice29'/>
         public static double Exercice29(int[] tab)
         {
-            if (tab == null || tab.Length == 0)
+            if (tab is null)
             {
-                throw new ArgumentException("Le tableau ne peut pas etre vide");
+                throw new ArgumentNullException(nameof(tab), "Le tableau ne peut pas etre null");
+            }
+            if (tab!.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tab));
             }
             double moyenne = Exercice28(tab);
             double[] ecarts = new double[tab.Length];
@@ -1012,40 +921,40 @@ namespace Exercices
             return total / tab.Length;
         }
 
-        /// <summary>
-        /// Crée un tableau de personnes aléatoires.
-        /// </summary>
-        /// <param name="nbsPers">Nombre de personnes à créer.</param>
-        /// <param name="ageMin">Âge minimum possible.</param>
-        /// <param name="ageMax">Âge maximum possible.</param>
-        /// <param name="prenom">Liste des prénoms possibles.</param>
-        /// <param name="nom">Liste des noms possibles.</param>
-        /// <returns>Tableau de personnes générées aléatoirement.</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice31'/>
         public static Personne[] Exercice31(int nbsPers, int ageMin, int ageMax, string[] prenom, string[] nom)
         {
             if (nbsPers < 0)
             {
-                throw new ArgumentException("Le nombre de personnes doit etre positive");
+                throw new ArgumentOutOfRangeException(nameof(nbsPers), "Le nombre de personnes doit être positif");
             }
             if (ageMin < 0)
             {
-                throw new ArgumentException("L'âge minimum doit etre positive");
+                throw new ArgumentOutOfRangeException(nameof(ageMin), "L'âge minimum doit être positif");
             }
             if (ageMax < 0)
             {
-                throw new ArgumentException("L'âge maximum doit etre positive");
+                throw new ArgumentOutOfRangeException(nameof(ageMax), "L'âge maximum doit être positif");
             }
             if (ageMin > ageMax)
             {
-                throw new ArgumentException("L'âge minimum doit etre inferieur ou egale au maximum");
+                throw new ArgumentException("L'âge minimum doit être inférieur ou égal au maximum", "ageMin/ageMax");
             }
-            if (prenom == null || prenom.Length == 0)
+            if (prenom == null)
             {
-                throw new ArgumentException("Le tableau de prénoms ne peut pas etre vide");
+                throw new ArgumentNullException(nameof(prenom), "Le tableau de prénoms ne peut pas être null");
             }
-            if (nom == null || nom.Length == 0)
+            if (prenom.Length == 0)
             {
-                throw new ArgumentException("Le tableau de noms ne peut pas etre vide");
+                throw new ArgumentException("Le tableau de prénoms ne peut pas être vide", nameof(prenom));
+            }
+            if (nom == null)
+            {
+                throw new ArgumentNullException(nameof(nom), "Le tableau de noms ne peut pas être null");
+            }
+            if (nom.Length == 0)
+            {
+                throw new ArgumentException("Le tableau de noms ne peut pas être vide", nameof(nom));
             }
             Personne[] lstPers = new Personne[nbsPers];
             Random rng = new();
@@ -1062,16 +971,16 @@ namespace Exercices
             return lstPers;
         }
 
-        /// <summary>
-        /// Calcule la moyenne d'age d'un tableau de personnes.
-        /// </summary>
-        /// <param name="tab">Tableau de personnes à calculer la moyenne des ages</param>
-        /// <returns>La moyenne des ages</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice32'/>
         public static double Exercice32(Personne[] tab)
         {
-            if (tab == null || tab.Length == 0)
+            if (tab is null)
             {
-                throw new ArgumentException("Le tableau ne peut pas etre vide");
+                throw new ArgumentNullException(nameof(tab), "Le tableau ne peut pas etre null");
+            }
+            if (tab!.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tab));
             }
 
             int[] tabIntPersonnes = new int[tab.Length];
@@ -1084,16 +993,16 @@ namespace Exercices
             return Exercice28(tabIntPersonnes);
         }
 
-        /// <summary>
-        /// Trouve la première personne ayant l'age le plus haut.
-        /// </summary>
-        /// <param name="tab">Tableau de personne</param>
-        /// <returns>L'instance de la personne</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice33'/>
         public static Personne Exercice33(Personne[] tab)
         {
-            if (tab == null || tab.Length == 0)
+            if (tab is null)
             {
-                throw new ArgumentException("Le tableau ne peut pas etre vide");
+                throw new ArgumentNullException(nameof(tab), "Le tableau ne peut pas etre null");
+            }
+            if (tab!.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tab));
             }
             int plusHaut = 0;
             for (int i = 0; i < tab.Length; i++)
@@ -1106,48 +1015,48 @@ namespace Exercices
             return tab[plusHaut];
         }
 
-        /// <summary>
-        /// Echange la position de deux nombres dans un tableau
-        /// </summary>
-        /// <param name="tabInt">Tableau de nombres</param>
-        /// <param name="pos1">Position 1</param>
-        /// <param name="pos2">Position 2</param>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice34'/>
         public static void Exercice34(int[] tabInt, int pos1, int pos2)
         {
+            if (tabInt is null)
+            {
+                throw new ArgumentNullException(nameof(tabInt), "Le tableau ne peut pas etre null");
+            }
+            if (tabInt.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tabInt));
+            }
             if (pos1 < 0)
             {
-                throw new ArgumentException($"Position 1 est inferieur a 0 ( pos : {pos1})");
+                throw new ArgumentOutOfRangeException(nameof(pos1), $"Position 1 est inferieur a 0 ( pos : {pos1})");
             }
             if (pos2 < 0)
             {
-                throw new ArgumentException($"Position 2 est inferieur a 0 ( pos : {pos2})");
+                throw new ArgumentOutOfRangeException(nameof(pos2), $"Position 2 est inferieur a 0 ( pos : {pos2})");
             }
             if (pos1 > tabInt.Length)
             {
-                throw new ArgumentException($"Position 1 est superieur a la longueur du tableau ( pos : {pos1})");
+                throw new ArgumentOutOfRangeException(nameof(pos1), $"Position 1 est superieur a la longueur du tableau ( pos : {pos1})");
             }
             if (pos2 > tabInt.Length)
             {
-                throw new ArgumentException($"Position 2 est superieur a la longueur du tableau ( pos : {pos2})");
+                throw new ArgumentOutOfRangeException(nameof(pos2), $"Position 2 est superieur a la longueur du tableau ( pos : {pos2})");
             }
 
             // Utilisation du tuple (IDE0180)
-            // int temp = tabInt[pos1];
-            // tabInt[pos1] = tabInt[pos2];
-            // tabInt[pos2] = temp;
             (tabInt[pos1], tabInt[pos2]) = (tabInt[pos2], tabInt[pos1]);
-
         }
 
-        /// <summary>
-        /// Inverse l'ordre des valeurs d'un tableau
-        /// </summary>
-        /// <param name="tabInt">Tableau de nombres</param>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice35'/>
         public static void Exercice35(int[] tabInt)
         {
-            if (tabInt == null || tabInt.Length == 0)
+            if (tabInt is null)
             {
-                throw new ArgumentException("Le tableau ne peut pas etre vide");
+                throw new ArgumentNullException(nameof(tabInt), "Le tableau ne peut pas etre null");
+            }
+            if (tabInt.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tabInt));
             }
             int[] tempTab = new int[tabInt.Length];
 
@@ -1162,15 +1071,16 @@ namespace Exercices
             }
         }
 
-        /// <summary>
-        /// Inverse les deux moitiés d'un tableau, en gardant le milieu en place si la longueur est impaire
-        /// </summary>
-        /// <param name="tabInt">Tableau d'entiers</param>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice36'/>
         public static void Exercice36(int[] tabInt)
         {
-            if (tabInt == null || tabInt.Length == 0)
+            if (tabInt is null)
             {
-                throw new ArgumentException("Le tableau ne peut pas etre vide");
+                throw new ArgumentNullException(nameof(tabInt), "Le tableau ne peut pas etre null");
+            }
+            if (tabInt.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tabInt));
             }
             int longueur = tabInt.Length;
             int milieu = longueur / 2;
@@ -1205,21 +1115,20 @@ namespace Exercices
             }
         }
 
-        /// <summary>
-        /// Retourne l'index de la premiere occurence d'un caractere dans un tableau de caractere
-        /// </summary>
-        /// <param name="tabC">Tableau de caractere</param>
-        /// <param name="c">Caractere a trouver</param>
-        /// <returns>Index de la premiere occurence</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice37'/>
         public static int Exercice37(char[] tabC, char c)
         {
-            if (tabC == null || tabC.Length == 0)
+            if (tabC is null)
             {
-                throw new ArgumentException("Le tableau ne peut pas etre vide");
+                throw new ArgumentNullException(nameof(tabC), "Le tableau ne peut pas etre null");
+            }
+            if (tabC.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tabC));
             }
             if (c == '\0')
             {
-                throw new ArgumentException("Le caractere ne peut pas etre vide");
+                throw new ArgumentException("Le caractere ne peut pas etre vide", nameof(c));
             }
             for (int i = 0; i < tabC.Length; i++)
             {
@@ -1231,16 +1140,16 @@ namespace Exercices
             return -1;
         }
 
-        /// <summary>
-        /// Retourne l'index de la premiere occurence d'un nombre dans un tableau
-        /// </summary>
-        /// <param name="tabInt">Tableau d'entier</param>
-        /// <returns>L'index de la premiere occurence</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice38'/>
         public static int Exercice38(int[] tabInt)
         {
-            if (tabInt == null || tabInt.Length == 0)
+            if (tabInt is null)
             {
-                throw new ArgumentException("Le tableau ne peut pas etre vide");
+                throw new ArgumentNullException(nameof(tabInt), "Le tableau ne peut pas etre null");
+            }
+            if (tabInt.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tabInt));
             }
             for (int i = 0; i < tabInt.Length; i++)
             {
@@ -1255,16 +1164,16 @@ namespace Exercices
             return -1;
         }
 
-        /// <summary>
-        /// Trouve tous les index de tous les doublons et les met dans un tableau
-        /// </summary>
-        /// <param name="tabInt">Tableau d'entier</param>
-        /// <returns>Tableau contenant les premiers index de tous les doublons</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice39'/>
         public static int[] Exercice39(int[] tabInt)
         {
-            if (tabInt == null || tabInt.Length == 0)
+            if (tabInt is null)
             {
-                throw new ArgumentException("Le tableau ne peut pas etre vide");
+                throw new ArgumentNullException(nameof(tabInt), "Le tableau ne peut pas etre null");
+            }
+            if (tabInt.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tabInt));
             }
             List<int> dejaVue = new List<int>();
             List<int> tabIndexDoublons = new List<int>();
@@ -1289,21 +1198,24 @@ namespace Exercices
             return tabIndexDoublons.ToArray();
         }
 
-        /// <summary>
-        /// Retourne un tableau contenant la fusion des deux tableaux
-        /// </summary>
-        /// <param name="tabInt1">Tableau d'entier 1</param>
-        /// <param name="tabInt2">Tableau d'entier 2</param>
-        /// <returns>Tableau contenant la fusion des deux tableaux</returns>
+        // / <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice40'/>
         public static int[] Exercice40(int[] tabInt1, int[] tabInt2)
         {
-            if (tabInt1 == null || tabInt1.Length == 0)
+            if (tabInt1 is null)
             {
-                throw new ArgumentException("Le tableau 1 ne peut pas etre vide");
+                throw new ArgumentNullException(nameof(tabInt1), "Le tableau ne peut pas etre null");
             }
-            if (tabInt2 == null || tabInt2.Length == 0)
+            if (tabInt1.Length == 0)
             {
-                throw new ArgumentException("Le tableau 2 ne peut pas etre vide");
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tabInt1));
+            }
+            if (tabInt2 is null)
+            {
+                throw new ArgumentNullException(nameof(tabInt2), "Le tableau ne peut pas etre null");
+            }
+            if (tabInt2.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tabInt2));
             }
             int[] tabFusion = new int[tabInt1.Length + tabInt2.Length];
             int i = 0;
@@ -1320,16 +1232,16 @@ namespace Exercices
             return tabFusion;
         }
 
-        /// <summary>
-        /// Calcule la somme des nombres pair et impairs
-        /// </summary>
-        /// <param name="tabInt">Tableau d'entier</param>
-        /// <returns>Tableau contenant la somme des nombres pair et impairs</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice41'/>
         public static int[] Exercice41(int[] tabInt)
         {
-            if (tabInt == null || tabInt.Length == 0)
+            if (tabInt is null)
             {
-                throw new ArgumentException("Le tableau ne peut pas etre vide");
+                throw new ArgumentNullException(nameof(tabInt), "Le tableau ne peut pas etre null");
+            }
+            if (tabInt.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tabInt));
             }
             int[] tabResultat = new int[2];
             for (int i = 0; i < tabInt.Length; i++)
@@ -1346,16 +1258,12 @@ namespace Exercices
             return tabResultat;
         }
 
-        /// <summary>
-        /// Creer un tableau de palindrome numérique
-        /// </summary>
-        /// <param name="longueur">Longueur du tableau</param>
-        /// <returns>Tableau de palindrome numérique</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice42'/>
         public static int[] Exercice42(int longueur)
         {
             if (longueur < 0)
             {
-                throw new ArgumentException("La longueur doit etre positive");
+                throw new ArgumentOutOfRangeException(nameof(longueur), "Longueur inferieur a 0");
             }
             int[] tabPal = new int[longueur];
             int gauche = 0;
@@ -1374,16 +1282,20 @@ namespace Exercices
             return tabPal;
         }
 
-        /// <summary>
-        /// Fait le decalage des elements vers la droite en remplissant de 0
-        /// </summary>
-        /// <param name="tabInt">Tableau d'entier</param>
-        /// <param name="decalage">Nombre d'espace a decaler</param>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice43'/>
         public static int[] Exercice43(int[] tabInt, int decalage)
         {
+            if (tabInt is null)
+            {
+                throw new ArgumentNullException(nameof(tabInt), "Le tableau ne peut pas etre null");
+            }
+            if (tabInt.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tabInt));
+            }
             if (decalage < 0)
             {
-                throw new ArgumentException("Décalage inférieur à 0");
+                throw new ArgumentOutOfRangeException(nameof(decalage), "Decalage inferieur a 0");
             }
             int[] tempTab = new int[tabInt.Length];
 
@@ -1397,21 +1309,20 @@ namespace Exercices
             return tempTab;
         }
 
-        /// <summary>
-        /// Retourne un tableau contenant les valeurs du tableau d'entier ayant les valeurs sortie du tableau
-        /// </summary>
-        /// <param name="tabInt">Tableau d'entier</param>
-        /// <param name="decalage">Nombre d'espace a decaler</param>
-        /// <returns>Tableau contenant les valeurs du tableau d'entier ayant les valeurs sortie du tableau</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice44'/>
         public static int[] Exercice44(int[] tabInt, int decalage)
         {
+            if (tabInt is null)
+            {
+                throw new ArgumentNullException(nameof(tabInt), "Le tableau ne peut pas etre null");
+            }
+            if (tabInt.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tabInt));
+            }
             if (decalage < 0)
             {
-                throw new ArgumentException("Décalage inférieur à 0");
-            }
-            if (decalage > tabInt.Length)
-            {
-                throw new ArgumentException("Décalage superieur à la longueur du tableau");
+                throw new ArgumentOutOfRangeException(nameof(decalage), "Decalage inferieur a 0");
             }
             int[] tabSortie = new int[decalage];
             int index = 0;
@@ -1423,23 +1334,22 @@ namespace Exercices
             return tabSortie;
         }
 
-        /// <summary>
-        /// Fait la rotation des nombres dans un tableau pour une longueur donner.
-        /// </summary>
-        /// <param name="tabInt">Tableau d'entier</param>
-        /// <param name="decalage">Decalage voulu</param>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice45'/>
         public static void Exercice45(int[] tabInt, int decalage)
         {
+            if (tabInt is null)
+            {
+                throw new ArgumentNullException(nameof(tabInt), "Le tableau ne peut pas etre null");
+            }
+            if (tabInt.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tabInt));
+            }
             if (decalage < 0)
             {
-                throw new ArgumentException("Décalage inférieur à 0");
+                throw new ArgumentOutOfRangeException(nameof(decalage), "Decalage inferieur a 0");
             }
             int longueur = tabInt.Length;
-            if (longueur == 0)
-            {
-                Debug.WriteLine("Longueur nulle, donc le tableau ne peut etre modifier");
-                return;
-            }
             decalage %= Math.Abs(longueur);
 
             int[] debutTab = Exercice44(tabInt, decalage);
@@ -1457,32 +1367,24 @@ namespace Exercices
             }
         }
 
-        /// <summary>
-        /// Creer un tableau contenant le nombre d'occurence de chaque valeur
-        /// </summary>
-        /// <param name="tabInt"> Tableau d'entier</param>
-        /// <returns> Tableau contenant le nombre d'occurence de chaque valeur</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice46'/>
         public static int[] Exercice46(int[] tabInt)
         {
+            if (tabInt is null)
+            {
+                throw new ArgumentNullException(nameof(tabInt), "Le tableau ne peut pas etre nul");
+            }
             if (tabInt.Length == 0)
             {
-                Debug.WriteLine("Longueur tableau nulle", "Exercice 46");
-                return new int[0];
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tabInt));
             }
-
-            if (tabInt.Length > 200)
-            {
-                throw new ArgumentException("Longueur du tableau superieur à 200");
-            }
-
             foreach (int num in tabInt)
             {
                 if (num < 0)
                 {
-                    throw new ArgumentException("Valeur negative");
+                    throw new ArgumentOutOfRangeException(nameof(tabInt), "Un des elements du tableau est inferieur a 0");
                 }
             }
-
             int longueur = tabInt.Max() + 1;
             int[] tabCompte = new int[longueur];
 
@@ -1494,16 +1396,14 @@ namespace Exercices
             return tabCompte;
         }
 
-        /// <summary>
-        /// Retourne l'index de l'index du premier élement unique dans un tableau.
-        /// </summary>
-        /// <param name="tabInt">Tableau d'entier</param>
-        /// <returns>
-        ///     L'index de l'index du premier élement unique <br />
-        ///     -1 si aucun index n'est unique
-        /// </returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice47'/>
         public static int Exercice47(int[] tabInt)
         {
+            if (tabInt is null)
+            {
+                Debug.WriteLine("Tableau null", "Exercice 47");
+                return -1;
+            }
             if (tabInt.Length == 0)
             {
                 Debug.WriteLine("Longueur tableau nulle", "Exercice 47");
@@ -1520,16 +1420,12 @@ namespace Exercices
             return -1;
         }
 
-        /// <summary>
-        /// Fait une suite de fibonacci d'une longueur donner
-        /// </summary>
-        /// <param name="longueur">Longueur de la suite</param>
-        /// <returns>Tableau contenant la suite</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice48'/>
         public static int[] Exercice48(int longueur)
         {
             if (longueur < 0)
             {
-                throw new ArgumentException("Longueur trop petite");
+                throw new ArgumentOutOfRangeException(nameof(longueur), "Longueur inferieur a 0");
             }
             int[] suite = new int[longueur];
             suite[0] = 0;
@@ -1543,21 +1439,24 @@ namespace Exercices
             return suite;
         }
 
-        /// <summary>
-        /// Fusionne deux tableaux en les triant (doint etre separement trier avant)
-        /// </summary>
-        /// <param name="tab1">Tableau 1</param>
-        /// <param name="tab2">Tableau 2</param>
-        /// <returns>Tableau contenant la fusion</returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice49'/>
         public static int[] Exercice49(int[] tab1, int[] tab2)
         {
-            if (tab1 == null || tab1.Length == 0)
+            if (tab1 is null)
             {
-                throw new ArgumentException("Le tableau 1 ne peut pas etre vide");
+                throw new ArgumentNullException(nameof(tab1), "Le tableau 1 ne peut pas etre null");
             }
-            if (tab2 == null || tab2.Length == 0)
+            if (tab1.Length == 0)
             {
-                throw new ArgumentException("Le tableau 2 ne peut pas etre vide");
+                throw new ArgumentException("Le tableau 1 ne peut pas etre vide", nameof(tab1));
+            }
+            if (tab2 is null)
+            {
+                throw new ArgumentNullException(nameof(tab2), "Le tableau 2 ne peut pas etre null");
+            }
+            if (tab2.Length == 0)
+            {
+                throw new ArgumentException("Le tableau 2 ne peut pas etre vide", nameof(tab2));
             }
             int[] tabSortie = new int[tab1.Length + tab2.Length];
 
@@ -1584,17 +1483,17 @@ namespace Exercices
             return tabSortie;
         }
 
-        /// <summary>
-        /// Tri à bulles d'un tableau d'entier
-        /// </summary>
-        /// <param name="tab">Tableau d'entier</param>
+        ///<include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice50'/>
         public static void Exercice50(int[] tab)
         {
-            if (tab == null || tab.Length == 0)
+            if (tab is null)
             {
-                throw new ArgumentException("Tableau vide");
+                throw new ArgumentNullException(nameof(tab), "Le tableau ne peut pas etre null");
             }
-
+            if (tab.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tab));
+            }
             int n = tab.Length;
 
             for (int i = 0; i < n - 1; i++)
@@ -1603,9 +1502,6 @@ namespace Exercices
                 {
                     if (tab[j] > tab[j + 1])
                     {
-                        // int temp = tab[j];
-                        // tab[j] = tab[j + 1];
-                        // tab[j + 1] = temp;
                         // Utiliser le tuple pour échanger des valeurs (IDE0180)
                         (tab[j], tab[j + 1]) = (tab[j + 1], tab[j]);
                     }
@@ -1613,17 +1509,17 @@ namespace Exercices
             }
         }
 
-        /// <summary>
-        /// Tri par selection d'un tableau d'entier
-        /// </summary>
-        /// <param name="tab">Tableau d'entier</param>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice51'/>
         public static void Exercice51(int[] tab)
         {
-            if (tab == null || tab.Length == 0)
+            if (tab is null)
             {
-                throw new ArgumentException("Tableau vide");
+                throw new ArgumentNullException(nameof(tab), "Le tableau ne peut pas etre null");
             }
-
+            if (tab.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tab));
+            }
             for (int i = 0; i < tab.Length - 1; i++)
             {
                 int minIndex = i;
@@ -1636,25 +1532,22 @@ namespace Exercices
                     }
                 }
 
-                // int temp = tab[i];
-                // tab[i] = tab[minIndex];
-                // tab[minIndex] = temp;
                 // Utiliser le tuple pour échanger des valeurs (IDE0180)
                 (tab[i], tab[minIndex]) = (tab[minIndex], tab[i]);
             }
         }
 
-        /// <summary>
-        /// Tri par insertion d'un tableau d'entier
-        /// </summary>
-        /// <param name="tab">Tableau d'entier</param>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice52'/>
         public static void Exercice52(int[] tab)
         {
-            if (tab == null || tab.Length == 0)
+            if (tab is null)
             {
-                throw new ArgumentException("Tableau vide");
+                throw new ArgumentNullException(nameof(tab), "Le tableau ne peut pas etre null");
             }
-
+            if (tab.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tab));
+            }
             for (int i = 1; i < tab.Length; i++)
             {
                 int valeurAPlacer = tab[i];
@@ -1670,17 +1563,17 @@ namespace Exercices
             }
         }
 
-        /// <summary>
-        /// Tri par selection d'un tableau de personnes selone l'âge
-        /// </summary>
-        /// <param name="tabPersonnes">Tableau de personnes</param>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice53'/>
         public static void Exercice53(Personne[] tabPersonnes)
         {
-            if (tabPersonnes == null || tabPersonnes.Length == 0)
+            if (tabPersonnes is null)
             {
-                throw new ArgumentException("Tableau vide");
+                throw new ArgumentNullException(nameof(tabPersonnes), "Le tableau ne peut pas etre null");
             }
-
+            if (tabPersonnes.Length == 0)
+            {
+                throw new ArgumentException("Le tableau ne peut pas etre vide", nameof(tabPersonnes));
+            }
             for (int i = 0; i < tabPersonnes.Length - 1; i++)
             {
                 int minIndex = i;
@@ -1693,29 +1586,23 @@ namespace Exercices
                     }
                 }
 
-                // int temp = tab[i];
-                // tab[i] = tab[minIndex];
-                // tab[minIndex] = temp;
                 // Utiliser le tuple pour échanger des valeurs (IDE0180)
                 (tabPersonnes[i], tabPersonnes[minIndex]) = (tabPersonnes[minIndex], tabPersonnes[i]);
             }
 
         }
 
-        #endregion
-
-        /// <summary>
-        /// Comparaison de deux personnes selon leur age
-        /// </summary>
-        /// <param name="pers1">Personne 1</param>
-        /// <param name="pers2">Personne 2</param>
-        /// <returns>
-        /// -1 si l'age de la première personne est inférieure à celui de la deuxième personne. <br/>
-        /// 0 si l'age de la première personne est égale à celui de la deuxième personne. <br/>
-        /// 1 si l'age de la première personne est supérieure à celui de la deuxième personne.
-        /// </returns>
+        /// <include file='../Doc.xml' path='Doc/Exercice.cs/Methodes/Exercice54'/>
         public static int Exercice54(Personne pers1, Personne pers2)
         {
+            if (pers1 is null)
+            {
+                throw new ArgumentNullException(nameof(pers1), "La personne 1 ne peut pas etre null");
+            }
+            if (pers2 is null)
+            {
+                throw new ArgumentNullException(nameof(pers2), "La personne 2 ne peut pas etre null");
+            }
             if (pers1.Age == pers2.Age)
             {
                 return 0;
@@ -1730,7 +1617,7 @@ namespace Exercices
             }
         }
 
-
+        #endregion
 
     }
 }

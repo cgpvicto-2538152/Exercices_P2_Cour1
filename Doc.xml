@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Doc>
+    <Exercice.cs>
+        <Class>
+            <Program>
+                <summary>
+                    Classe qui regroupe les méthodes des exercices à faire.
+                </summary>
+            </Program>
+        </Class>
+        <Methodes>
+            <Main>
+                <summary>
+                    Programme de démarrage
+                </summary>
+                <param name="args">Arguments de démarrage</param>
+            </Main>
+            <Espacer>
+                <summary>
+                    Affiche un espacement entre deux exercices et affiche le numéro de l'exercice
+                </summary>
+                <param name="numExe">Le numéro de l'exercice</param>
+            </Espacer>
+            <Exercice1>
+                <summary>
+                    Affiche un message à la console.
+                </summary>
+            </Exercice1>
+            <Exercice2>
+                <summary>
+                    Affiche deux nombres entiers à la console.
+                </summary>
+                <param name="nb1">Premier nombre entier</param>
+                <param name="nb2">Deuxième nombre entier</param>
+            </Exercice2>
+            <Exercice3>
+                <summary>
+                    Additionne deux nombres entiers ensemble et retourne le résultat.
+                </summary>
+                <param name="nb1">Premier nombre entier</param>
+                <param name="nb2">Deuxième nombre entier</param>
+                <returns>Nombre entier résultant de l'addition des deux nombres.</returns>
+            </Exercice3>
+            <Exercice4>
+                <summary>
+                    Demande un nombre à l'utilisateur et le retourne en double.
+                </summary>
+                <returns>Le nombre entré par l'utilisateur</returns>
+                <exception cref="System.FormatException">L'entrée de l'utilisateur n'est pas un
+                    nombre valide.</exception>
+            </Exercice4>
+            <Exercice5>
+                <summary>
+                    Demande à l'utilisateur d'entrer un nombre et le valide selon des conditions.
+                </summary>
+                <returns>Un entier : <br /> -1 si ce n'est pas un nombre, si c'est vide, ou si c'est
+                    inférieur à 0 <br /> Le nombre lui-même si il est valide et supérieur à 0.</returns>
+            </Exercice5>
+            <Exercice6>
+                <summary>
+                    Demande un nombre à l'utilisateur tant qu'il n'est pas supérieur à 10.
+                </summary>
+                <returns>Le nombre quand il sera supérieur à 10</returns>
+            </Exercice6>
+            <Exercice7>
+                <summary>
+                    Effectue la division de deux nombres et retourne le résultat.
+                </summary>
+                <param name="nb1">Le premier nombre</param>
+                <param name="nb2">Le deuxième nombre</param>
+                <returns> Entier : <br /> Le résultat de la division si nb2 est différent de 0 <br />
+                    0 si le nb2 (diviseur) est 0 </returns>
+            </Exercice7>
+            <Exercice8>
+                <summary>
+                    Crée un tableau de la longueur donnée en paramètre.
+                </summary>
+                <param name="longueur">La longueur souhaitée pour le tableau</param>
+                <returns>L'instance du nouveau tableau</returns>
+            </Exercice8>
+            <Exercice9>
+                <summary>
+                    Initialise un tableau d'une longueur donnée et le remplit aléatoirement avec un
+                    minimum et maximum entiers donnés.
+                </summary>
+                <param name="longueur">La longueur du tableau</param>
+                <param name="min">L'entier minimum (inclus)</param>
+                <param name="max">L'entier maximum (exclus)</param>
+                <returns>Retourne un tableau rempli de valeurs aléatoires</returns>
+                <exception cref="System.ArgumentException">Le minimum est supérieur au maximum.</exception>
+            </Exercice9>
+            <Exercice10>
+                <summary>
+                    Initialise un tableau d'une longueur donnée et le remplit aléatoirement avec un
+                    minimum et maximum entiers donnés.
+                </summary>
+                <param name="longueur">La longueur du tableau</param>
+                <param name="min">L'entier minimum (inclus)</param>
+                <param name="max">L'entier maximum (inclus)</param>
+                <returns>Retourne un tableau rempli de valeurs aléatoires</returns>
+                <exception cref="System.ArgumentException">Le minimum est supérieur au maximum.</exception>
+            </Exercice10>
+            <Exercice11>
+                <summary>
+                    Initialise un tableau d'une longueur donnée et le remplit aléatoirement avec un
+                    minimum et maximum entiers donnés.
+                </summary>
+                <param name="longueur">La longueur du tableau</param>
+                <param name="min">L'entier minimum (inclus)</param>
+                <param name="max">L'entier maximum (inclus)</param>
+                <returns>Retourne un tableau rempli de valeurs aléatoires</returns>
+            </Exercice11>
+            <Exercice12>
+                <summary>
+                    Initialise un tableau d'une longueur donnée et le remplit aléatoirement avec un
+                    minimum et maximum entiers donnés.
+                </summary>
+                <param name="longueur">La longueur du tableau</param>
+                <param name="min">L'entier minimum (inclus)</param>
+                <param name="max">L'entier maximum (inclus)</param>
+                <returns>Retourne un tableau rempli de valeurs aléatoires</returns>
+            </Exercice12>
+            <Exercice13>
+                <summary>
+                    Fait la somme de tous les nombres d'un tableau de nombres.
+                </summary>
+                <param name="tab">Tableau de nombres entiers</param>
+                <returns>Somme des nombres entiers</returns>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+            </Exercice13>
+            <Exercice14>
+                <summary>
+                    Fait la somme de tous les nombres d'un tableau de nombres.
+                </summary>
+                <param name="tab">Tableau de nombres entiers</param>
+                <returns>Somme des nombres entiers</returns>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+            </Exercice14>
+            <Exercice15>
+                <summary>
+                    Fait la somme de tous les nombres d'un tableau de nombres.
+                </summary>
+                <param name="tab">Tableau de nombres entiers</param>
+                <returns>Somme des nombres entiers</returns>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+            </Exercice15>
+            <Exercice16>
+                <summary>
+                    Fait la somme de tous les nombres d'un tableau de nombres.
+                </summary>
+                <param name="tab">Tableau de nombres entiers</param>
+                <returns>Somme des nombres entiers</returns>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+            </Exercice16>
+            <Exercice17>
+                <summary>
+                    Affiche une forme sur la console.
+                </summary>
+            </Exercice17>
+            <Exercice18>
+                <summary>
+                    Affiche une forme sur la console avec une largeur donnée.
+                </summary>
+                <param name="largeur">Largeur de la forme souhaitée</param>
+            </Exercice18>
+            <Exercice19>
+                <summary>
+                    Affiche une forme sur la console avec une largeur donnée.
+                </summary>
+                <param name="largeur">Largeur de la forme souhaitée</param>
+            </Exercice19>
+            <Exercice20>
+                <summary>
+                    Affiche une forme sur la console avec des grandeurs de côté données.
+                </summary>
+                <param name="largeur">Largeur de la forme souhaitée</param>
+                <param name="hauteur">Hauteur de la forme souhaitée</param>
+                <exception cref="System.ArgumentOutOfRangeException">La largeur ou la hauteur est
+                    negative.</exception>
+            </Exercice20>
+            <Exercice21>
+                <summary>
+                    Affiche une forme sur la console avec des grandeurs de côté données.
+                </summary>
+                <param name="largeur">Largeur de la forme souhaitée</param>
+                <param name="hauteur">Hauteur de la forme souhaitée</param>
+                <param name="charac">Caractère à afficher pour composer la forme</param>
+                <exception cref="System.ArgumentOutOfRangeException">La largeur ou la hauteur est
+                    negative.</exception>
+            </Exercice21>
+            <Exercice22>
+                <summary>
+                    Affiche une forme sur la console avec des grandeurs de côté données.
+                </summary>
+                <param name="largeur">Largeur de la forme souhaitée</param>
+                <param name="hauteur">Hauteur de la forme souhaitée</param>
+                <param name="nbsFois">Nombre de fois que la forme sera affichée</param>
+                <param name="charac">Caractère à afficher pour composer la forme</param>
+                <exception cref="System.ArgumentOutOfRangeException">La largeur ou la hauteur est
+                    negative.</exception>
+            </Exercice22>
+            <Exercice23>
+                <summary>
+                    Affiche une forme sur la console.
+                </summary>
+                <param name="longueur">La longueur de la plus longue ligne</param>
+                <exception cref="System.ArgumentOutOfRangeException">La longueur est negative.</exception>
+            </Exercice23>
+            <Exercice24>
+                <summary>
+                    Affiche une forme sur la console.
+                </summary>
+                <param name="longueur">La longueur de la plus longue ligne</param>
+                <exception cref="System.ArgumentOutOfRangeException">La longueur est negative.</exception>
+            </Exercice24>
+            <Exercice25>
+                <summary>
+                    Affiche une forme sur la console.
+                </summary>
+                <param name="longueur">La longueur de la plus longue ligne</param>
+                <exception cref="System.ArgumentOutOfRangeException">La longueur est negative ou
+                    égale à 0.</exception>
+            </Exercice25>
+            <Exercice26>
+                <summary>
+                    Affiche une forme sur la console.
+                </summary>
+                <param name="longueur">La longueur de la plus longue ligne</param>
+                <exception cref="System.ArgumentOutOfRangeException">La longueur est negative.</exception>
+            </Exercice26>
+            <Exercice27>
+                <summary>
+                    Crée un string qui représente une forme de longueur donnée.
+                </summary>
+                <param name="longueur">La longueur de la plus longue ligne</param>
+                <returns>String qui contient la forme.</returns>
+                <exception cref="System.ArgumentOutOfRangeException">La longueur est negative.</exception>
+            </Exercice27>
+            <Exercice28>
+                <summary>
+                    Calcule la moyenne d'un tableau de nombres.
+                </summary>
+                <param name="tab">Tableau de nombres à calculer la moyenne</param>
+                <returns>La moyenne des nombres du tableau</returns>
+            </Exercice28>
+            <Exercice29>
+                <summary>
+                    Calcule la moyenne des écarts par rapport à la moyenne d'un tableau de nombres.
+                </summary>
+                <param name="tab">Tableau de nombres à calculer la moyenne</param>
+                <returns>La moyenne des écarts</returns>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+            </Exercice29>
+            <Exercice31>
+                <summary>
+                    Crée un tableau de personnes aléatoires.
+                </summary>
+                <param name="nbsPers">Nombre de personnes à créer</param>
+                <param name="ageMin">Âge minimum possible</param>
+                <param name="ageMax">Âge maximum possible</param>
+                <param name="prenom">Liste des prénoms possibles</param>
+                <param name="nom">Liste des noms possibles</param>
+                <returns>Tableau de personnes générées aléatoirement</returns>
+                <exception cref="ArgumentOutOfRangeException">Si nbsPers, ageMin ou ageMax sont
+                    négatifs.</exception>
+                <exception cref="ArgumentException">Si ageMin est plus grand que ageMax ou si un
+                    tableau est vide.</exception>
+                <exception cref="ArgumentNullException">Si un tableau est null.</exception>
+            </Exercice31>
+            <Exercice32>
+                <summary>
+                    Calcule la moyenne d'âge d'un tableau de personnes.
+                </summary>
+                <param name="tab">Tableau de personnes à calculer la moyenne des âges</param>
+                <returns>La moyenne des âges</returns>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+            </Exercice32>
+            <Exercice33>
+                <summary>
+                    Trouve la première personne ayant l'âge le plus élevé.
+                </summary>
+                <param name="tab">Tableau de personnes</param>
+                <returns>L'instance de la personne</returns>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+            </Exercice33>
+            <Exercice34>
+                <summary>
+                    Échange la position de deux nombres dans un tableau.
+                </summary>
+                <param name="tabInt">Tableau de nombres</param>
+                <param name="pos1">Position 1</param>
+                <param name="pos2">Position 2</param>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+                <exception cref="System.ArgumentOutOfRangeException">Une des positions est négative
+                    ou soppérieue au tableau.</exception>
+            </Exercice34>
+            <Exercice35>
+                <summary>
+                    Inverse l'ordre des valeurs d'un tableau.
+                </summary>
+                <param name="tabInt">Tableau de nombres</param>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+            </Exercice35>
+            <Exercice36>
+                <summary>
+                    Inverse les deux moitiés d'un tableau, en gardant le milieu en place si la
+                    longueur est impaire.
+                </summary>
+                <param name="tabInt">Tableau d'entiers</param>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+            </Exercice36>
+            <Exercice37>
+                <summary>
+                    Retourne l'index de la première occurrence d'un caractère dans un tableau de
+                    caractères.
+                </summary>
+                <param name="tabC">Tableau de caractères</param>
+                <param name="c">Caractère à trouver</param>
+                <returns>Index de la première occurrence</returns>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau ou le caractère est vide.</exception>
+            </Exercice37>
+            <Exercice38>
+                <summary>
+                    Retourne l'index de la première occurrence d'un nombre dans un tableau.
+                </summary>
+                <param name="tabInt">Tableau d'entiers</param>
+                <returns>L'index de la première occurrence</returns>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+            </Exercice38>
+            <Exercice39>
+                <summary>
+                    Trouve tous les index de tous les doublons et les met dans un tableau.
+                </summary>
+                <param name="tabInt">Tableau d'entiers</param>
+                <returns>Tableau contenant les premiers index de tous les doublons</returns>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+            </Exercice39>
+            <Exercice40>
+                <summary>
+                    Retourne un tableau contenant la fusion des deux tableaux.
+                </summary>
+                <param name="tabInt1">Tableau d'entiers 1</param>
+                <param name="tabInt2">Tableau d'entiers 2</param>
+                <returns>Tableau contenant la fusion des deux tableaux</returns>
+                <exception cref="System.ArgumentNullException">Un des tableaux est null.</exception>
+                <exception cref="System.ArgumentException">Un des tableaux est vide.</exception>
+            </Exercice40>
+            <Exercice41>
+                <summary>
+                    Calcule la somme des nombres pairs et impairs.
+                </summary>
+                <param name="tabInt">Tableau d'entiers</param>
+                <returns>Tableau contenant la somme des nombres pairs et impairs</returns>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+            </Exercice41>
+            <Exercice42>
+                <summary>
+                    Crée un tableau de palindromes numériques.
+                </summary>
+                <param name="longueur">Longueur du tableau</param>
+                <returns>Tableau de palindromes numériques</returns>
+                <exception cref="System.ArgumentOutOfRangeException">La longueur est négative.</exception>
+            </Exercice42>
+            <Exercice43>
+                <summary>
+                    Fait le décalage des éléments vers la droite en remplissant de 0.
+                </summary>
+                <param name="tabInt">Tableau d'entiers</param>
+                <param name="decalage">Nombre d'espaces à décaler</param>
+                <returns>Tableau avec les éléments décalés</returns>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+                <exception cref="System.ArgumentOutOfRangeException">Le nombre d'espaces à décaler
+                    est négatif.</exception>
+            </Exercice43>
+            <Exercice44>
+                <summary>
+                    Retourne un tableau contenant les valeurs du tableau d'entiers ayant été sorties
+                    du tableau.
+                </summary>
+                <param name="tabInt">Tableau d'entiers</param>
+                <param name="decalage">Nombre d'espaces à décaler</param>
+                <returns>Tableau contenant les valeurs sorties du tableau</returns>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+                <exception cref="System.ArgumentOutOfRangeException">Le nombre d'espaces à décaler
+                    est négatif.</exception>
+            </Exercice44>
+            <Exercice45>
+                <summary>
+                    Fait la rotation des nombres dans un tableau pour une longueur donnée.
+                </summary>
+                <param name="tabInt">Tableau d'entiers</param>
+                <param name="decalage">Décalage voulu</param>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+                <exception cref="System.ArgumentOutOfRangeException">Le nombre d'espaces à décaler
+                    est négative.</exception>
+            </Exercice45>
+            <Exercice46>
+                <summary>
+                    Crée un tableau contenant le nombre d'occurrences de chaque valeur.
+                </summary>
+                <param name="tabInt">Tableau d'entiers</param>
+                <returns>Tableau contenant le nombre d'occurrences de chaque valeur</returns>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+                <exception cref="System.ArgumentOutOfRangeException">Une des valeurs du tableau est
+                    négative.</exception>
+            </Exercice46>
+            <Exercice47>
+                <summary>
+                    Retourne l'index du premier élément unique dans un tableau.
+                </summary>
+                <param name="tabInt">Tableau d'entiers</param>
+                <returns>L'index du premier élément unique <br /> -1 si aucun élément n'est unique</returns>
+            </Exercice47>
+            <Exercice48>
+                <summary>
+                    Fait une suite de Fibonacci d'une longueur donnée.
+                </summary>
+                <param name="longueur">Longueur de la suite</param>
+                <returns>Tableau contenant la suite</returns>
+                <exception cref="System.ArgumentOutOfRangeException">La longueur est négative.</exception>
+            </Exercice48>
+            <Exercice49>
+                <summary>
+                    Fusionne deux tableaux triés (doivent être séparément triés avant).
+                </summary>
+                <param name="tab1">Tableau 1</param>
+                <param name="tab2">Tableau 2</param>
+                <returns>Tableau contenant la fusion</returns>
+                <exception cref="System.ArgumentNullException">Un des tableaux est null.</exception>
+                <exception cref="System.ArgumentException">Un des tableaux est vide.</exception>
+            </Exercice49>
+            <Exercice50>
+                <summary>
+                    Tri à bulles d'un tableau d'entiers.
+                </summary>
+                <param name="tab">Tableau d'entiers</param>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+            </Exercice50>
+            <Exercice51>
+                <summary>
+                    Tri par sélection d'un tableau d'entiers.
+                </summary>
+                <param name="tab">Tableau d'entiers</param>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+            </Exercice51>
+            <Exercice52>
+                <summary>
+                    Tri par insertion d'un tableau d'entiers.
+                </summary>
+                <param name="tab">Tableau d'entiers</param>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+            </Exercice52>
+            <Exercice53>
+                <summary>
+                    Tri par sélection d'un tableau de personnes selon l'âge.
+                </summary>
+                <param name="tabPersonnes">Tableau de personnes</param>
+                <exception cref="System.ArgumentNullException">Le tableau est null.</exception>
+                <exception cref="System.ArgumentException">Le tableau est vide.</exception>
+            </Exercice53>
+            <Exercice54>
+                <summary>
+                    Comparaison de deux personnes selon leur âge.
+                </summary>
+                <param name="pers1">Personne 1</param>
+                <param name="pers2">Personne 2</param>
+                <returns>-1 si l'âge de la première personne est inférieur à celui de la deuxième
+                    personne. <br /> 0 si les âges sont égaux. <br /> 1 si l'âge de la première
+                    personne est supérieur à celui de la deuxième personne.</returns>
+                <exception cref="System.ArgumentNullException">Une des personnes est null.</exception>
+                <exception cref="System.ArgumentException">Une des personnes n'a pas d'âge.</exception>
+            </Exercice54>
+        </Methodes>
+    </Exercice.cs>
+    <Personne.cs>
+        <Class>
+            <Personne>
+                <summary>
+                    Classe qui définit l'instance d'une personne.
+                </summary>
+            </Personne>
+        </Class>
+        <Methodes>
+            <Nom>
+                <summary>
+                    Nom de la personne.
+                </summary>
+                <value> Obtient ou définit le nom de la personne. <br /> La valeur ne peut pas être
+                    null ou vide. </value>
+                <exception cref="System.ArgumentNullException">La valeur est null.</exception>
+                <exception cref="System.ArgumentException">La valeur est vide.</exception>
+            </Nom>
+            <Prenom>
+                <summary>
+                    Prénom de la personne.
+                </summary>
+                <value> Obtient ou définit le prénom de la personne. <br /> La valeur ne peut pas
+                    être null ou vide. </value>
+                <exception cref="System.ArgumentNullException">La valeur est null.</exception>
+                <exception cref="System.ArgumentException">La valeur est vide.</exception>
+            </Prenom>
+            <Age>
+                <summary>
+                    Âge de la personne.
+                </summary>
+                <value> Obtient ou définit l'âge de la personne. <br /> L'âge doit être supérieur ou
+                    égal à 0. </value>
+                <exception cref="System.ArgumentOutOfRangeException">L'âge est négatif.</exception>
+                <exception cref="System.ArgumentException">L'âge est nul.</exception>
+            </Age>
+            <Constructeur>
+                <summary>
+                    Constructeur de la classe Personne.
+                </summary>
+                <param name="nom">Nom de la personne</param>
+                <param name="prenom">Prénom de la personne</param>
+                <param name="age">Âge de la personne</param>
+            </Constructeur>
+            <Vieillir>
+                <summary>
+                    Permet de faire vieillir la personne d'un an.
+                </summary>
+            </Vieillir>
+            <ToString>
+                <summary>
+                    Retourne une représentation textuelle de la personne,
+                    comprenant le prénom, le nom et l'âge.
+                </summary>
+                <returns>
+                    Une chaîne contenant le prénom, le nom et l'âge de la personne.
+                </returns>
+            </ToString>
+        </Methodes>
+    </Personne.cs>
+</Doc>

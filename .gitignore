@@ -1,4 +1,5 @@
 .vs*/
+bin/
 Exercices_V3.2.txt
 
 ## Ignore Visual Studio temporary files, build results, and
